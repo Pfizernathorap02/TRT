@@ -1,0 +1,25 @@
+package com.pfizer.db; 
+
+public class GAProdCourse1 
+{ 
+    String productCode;
+    String courseCode;
+    
+    public String getProductCode()
+    {
+        return this.productCode;
+    }
+    public void setProductCode(String productCode)
+    {
+        this.productCode = productCode;
+    }
+    public String getCourseCode()
+    {
+        return this.courseCode;
+    }
+    public void setCourseCode(String courseCode)
+    {
+        this.courseCode = courseCode;
+    }
+
+} 

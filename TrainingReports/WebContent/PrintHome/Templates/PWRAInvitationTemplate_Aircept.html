@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<style type="text/css" MEDIA="screen">
+
+
+
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+</style>
+
+<STYLE TYPE="text/css" MEDIA="print">
+		@page {
+size:8.5in 11.0in;
+margin:1.0in 1.25in 1.0in 1.25in;
+mso-header-margin:1.0in;
+mso-footer-margin:.5in;
+}	
+.noprint {display: none;}	
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+
+	</STYLE>
+
+<TITLE>$orderNumber $type</TITLE>
+</HEAD>
+
+<BODY>
+
+<p class='text'>
+<br><br><br><br><br>
+<table>
+<TR>
+	<TD  width="65%" class="text">$currentDate</TD> 
+</TR>
+
+</table>
+
+
+<TABLE cellspacing="0" cellpadding="0">
+
+
+<TR>
+
+	<TD class="text"><br>$firstName&nbsp;$lastName</TD>
+</TR>
+<tr>
+
+	<TD class="text">$shipAdd1</TD>
+</tr>
+<tr>
+
+	<TD class="text">$shipCity,$shipState &nbsp;$shipZip</TD>
+</tr>
+
+
+<tr>
+
+<td class="text"><br>Dear $prefName:<br><br></td>
+</tr>
+
+<tr>
+<td class="text">
+Powers Sales Training is pleased to announce the rollout of <i>Powers Driving Force Training</i>.  You have been identified to participate in <i>Powers Driving Force Training</i> based on your new product responsibilities. This letter outlines the enclosed materials and your product assignments as a participant at the Pfizer Learning Center (PLC) at Arrowwood. <br><br>
+
+<b><u>Participant / Pre-Work Information</u></b><br><br>
+
+Your therapeutic TSR position is Neurology/Pain.  The products you will learn during <i>Powers Driving Force Training</i> are:
+
+</td> 
+</tr>
+<tr><td>&nbsp</td></tr>
+<!--All Materials-->
+			#foreach($product in $products)
+               <tr>
+			     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;$product</td>
+               </tr> 				
+			 #end
+
+
+
+
+
+<tr><td>&nbsp</td></tr>
+<tr><td>
+Enclosed are the materials you will need to complete the pre-work training:
+</td></tr>
+<tr><td>&nbsp</td></tr>
+		   <tr>
+			 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;Learning Systems</td>
+		   </tr> 				
+		   <tr>
+			 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;Product Study Plans</td>
+		   </tr> 				
+		   <tr>
+			 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;Clinicals</td>
+		   </tr> 				
+		   <tr>
+			 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;Pedagogue Testing Requirements(Pedagogue Products Exams are <br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;available via <b>http://P2L.Pfizer.com</b>&nbsp;)</td>
+		   </tr> 				
+
+<tr><td>&nbsp;</td></tr>
+<tr><td>
+<i><b>NOTE:  Your Pedagogue confirmation-testing window is now open.  It is mandatory that you complete all Pedagogue exams on or before $startdate.  Please refer to your Pedagogue testing instructions. </b></i>
+
+<br><br><b><u>Conclusion</u></b><br>
+If you do not receive your travel information within 5 business days, please contact <a href="mailto:traininglogistics@pfizer.com">traininglogistics@pfizer.com</a>  Thank you in advance for the hard work, focus and dedication that will be required to ensure a successful training experience. We look forward to seeing you at Powers Driving Force Training. If you have any questions regarding Powers Driving Force Training, please send an email to <a href="mailto:traininglogistics@pfizer.com">traininglogistics@pfizer.com</a> or call 1-866-4ld-2win (1-866-453-2946) Monday – Friday during the hours of 8:00 a.m. to 5:00 p.m. EST. 
+
+<br><br>
+<b>Powers Sales Training</b>
+</td></tr>
+
+</TABLE>
+</p>
+</BODY>
+</HTML>
+

@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 TRansitional//EN">
+<HTML>
+<HEAD>
+<style type="text/css" MEDIA="screen">
+
+
+
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+}
+.newtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:12PT;
+FONT-STYLE:NORMAL;
+}
+.bigtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:15PT;
+FONT-STYLE:NORMAL;
+}
+
+
+</style>
+
+<STYLE TYPE="text/css" MEDIA="print">
+		@page {
+size:8.5in 11.0in;
+margin:1.0in 0.6in 1.0in 0.3in;
+mso-header-margin:1.0in;
+mso-footer-margin:.5in;
+}
+.noprint {display: none;}
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+}
+
+.newtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:12PT;
+FONT-STYLE:NORMAL;
+}
+.bigtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:15PT;
+FONT-STYLE:NORMAL;
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+}
+
+
+
+</STYLE>
+
+<TITLE>$emplid </TITLE>
+</HEAD>
+
+<BODY>
+
+<p class='text'>
+<TABLE cellspacing="0" cellpadding="0">
+	<TR>
+		<TD>
+			<TABLE cellspacing="0" cellpadding="0" border="1" width="100%">
+				<TR>
+						<TD class="bigtext" align="center"> Product Training PSCPT  <BR>
+							 Pfizer Learning Center at Arrowwood <BR> $weekStartDate - $weekEndDate, $year
+						</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+			<TD>&nbsp;</TD>
+	</TR>
+
+	<TR>
+		<TD class="bigtext">Name: $lastName, &nbsp;$firstName</TD>
+	</TR>
+
+	<TR>
+		<TD class="text" align="justify">
+		Welcome to Product Training (PSCPT)! Below is your personalized agenda for your Training at the Pfizer Learning center. If you have any questions, please stop by the Pfizer Registration desk in the Doral Lobby Lounge.
+		</TD>
+	</TR>
+
+	<TR>
+		<TD class="newtext" align="center">
+		<BR>
+		<b><i><u>TRAINING SCHEDULE</u></i></b>
+		</TD>
+	</TR>
+	<!--Outer table-->
+	<TABLE cellspacing="0" cellpadding="0" border = "1" width="100%">
+		<TR>
+			<TD>
+				<TR>
+					<TD width ="13%">&nbsp;</TD>
+					<TD  width ="14%"><b>&nbsp;Monday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Tuesday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Wednesday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Thursday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Friday</b></TD>
+
+				</TR>
+
+			</TD>.
+		</TR>
+		<TR>
+			<TD>
+				<TR>
+					<TD>
+						<b>&nbsp;AM Session</b><BR>
+						&nbsp;Product:<BR>
+						&nbsp;Timing: <BR>
+						&nbsp;Room:<BR>
+						&nbsp;Table:<BR>
+						&nbsp;Trainer:<BR>
+					</TD>
+					<TD align="left" class="text">
+					<BR>
+					#foreach($mondayAM in $mondayAMList)
+						&nbsp;$mondayAM <BR>
+					#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($tuesdayAM in $tuesdayAMList)
+							&nbsp;$tuesdayAM <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($wednesdayAM in $wednesdayAMList)
+							&nbsp;$wednesdayAM <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($thursdayAM in $thursdayAMList)
+							&nbsp;$thursdayAM <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($fridayAM in $fridayAMList)
+							&nbsp;$fridayAM <BR>
+						#end
+					</TD>
+				</TR>
+			</TD>
+		</TR>
+		<TR>
+				<TD>
+					<TR>
+						<TD>
+							<b>&nbsp;PM Session</b><BR>
+							&nbsp;Product:<BR>
+							&nbsp;Timing: <BR>
+							&nbsp;Room:<BR>
+							&nbsp;Table:<BR>
+							&nbsp;Trainer:<BR>
+						</TD>
+						<TD align="left" class="text">
+						<BR>
+						#foreach($mondayPM in $mondayPMList)
+							&nbsp;$mondayPM <BR>
+						#end
+						</TD>
+						<TD class="text">
+						<BR>
+							#foreach($tuesdayPM in $tuesdayPMList)
+								&nbsp;$tuesdayPM <BR>
+							#end
+						</TD>
+						<TD class="text">
+						<BR>
+							#foreach($wednesdayPM in $wednesdayPMList)
+								&nbsp;$wednesdayPM <BR>
+							#end
+						</TD>
+						<TD class="text">
+						<BR>
+							#foreach($thursdayPM in $thursdayPMList)
+								&nbsp;$thursdayPM <BR>
+							#end
+						</TD>
+						<TD class="text">
+						<BR>
+							#foreach($fridayPM in $fridayPMList)
+								&nbsp;$fridayPM <BR>
+							#end
+						</TD>
+					</TR>
+				</TD>
+		</TR>
+
+	<!--Outer table-->
+	</table>
+
+	<!--All Materials-->
+
+
+
+</TABLE>
+</p>
+</BODY>
+</HTML>

@@ -1,0 +1,766 @@
+
+
+
+
+
+
+
+
+
+
+<!--
+Template:/WEB-INF/jsp/templates/mainTemplate.jsp
+mAIN:com.pfizer.webapp.wc.components.report.phasereports.DetailPageWc@15cad90
+Template Class:com.pfizer.webapp.wc.templates.MainTemplateWpc
+Main Jsp:/WEB-INF/jsp/components/report/phasereports/DetailPage.jsp
+Main Class:com.pfizer.webapp.wc.components.report.phasereports.DetailPageWc
+Userbar:com.pfizer.webapp.wc.global.UserBarWc@186cbb0
+
+Template:/WEB-INF/jsp/templates/mainTemplate.jsp 
+mAIN:com.pfizer.webapp.wc.components.ReportSelectWc@1e6ce45 
+Template Class:com.pfizer.webapp.wc.templates.MainTemplateWpc 
+Main Jsp:/WEB-INF/jsp/components/reportSelect.jsp 
+Main Class:com.pfizer.webapp.wc.components.ReportSelectWc 
+Userbar:com.pfizer.webapp.wc.global.UserBarWc@1f037dd 
+-->
+<html>
+	
+
+
+
+
+
+
+
+
+<head>
+	<title>
+		Training Reports
+	</title>
+		<script type="text/javascript" lang="JavaScript" src="/TrainingReports/WebContent/resources/js/main.js"></script>
+        <script type="text/javascript" lang="JavaScript" src="/TrainingReports/WebContent/resources/js/functions.js"></script>	
+        <script type="text/javascript" lang="JavaScript" src="/TrainingReports/WebContent/resources/js/sorttable.js"></script>	
+	
+		<!-- WebComponent dependant static javascript includes goes here -->
+	
+
+
+		<!-- WebComponent dependant dynamic javascript includes goes here -->
+	
+
+
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="/TrainingReports/resources/css/ie-6.0.css" />
+        <![endif]-->     
+		
+			
+		<!-- Dynamic css files includes here -->
+	
+		<link rel="stylesheet" type="text/css" href="/TrainingReports/WebContent/resources/css/header.css"/>
+	
+		<link rel="stylesheet" type="text/css" href="/TrainingReports/WebContent/resources/css/trainning.css"/>
+	
+		<link rel="stylesheet" type="text/css" href="/TrainingReports/WebContent/resources/css/p2lreporting.css"/>
+		
+</head>
+
+
+	<body onload="">
+	<DIV id="TipLayer" style="visibility:hidden;position:absolute;z-index:1000;top:-100;"></DIV>
+	<script type="text/javascript" language="JavaScript" src="/TrainingReports/WebContent/resources/js/style.js"></script>
+	
+	<div id="wrap">
+		<table class="no_space_table">
+			<tr>
+				<td>
+					
+
+
+
+
+
+<div id=top_header>
+	<a href="/TrainingReports/reportselect" onmouseover="this.style.cursor='hand'"><div id=header_logo></div></a>
+        <div id=header_title>Training Reports</div>
+        <div id=header_bottom_nav>
+    <a href="http://p2l.pfizer.com" target="_blank">Power To Learn</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+</div>		
+		
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="JavaScript">
+	function adminFunction(selected) {
+		window.location=selected.options[selected.selectedIndex].value;
+	}
+    
+    
+</script>
+
+
+
+
+
+
+
+<table  class="no_space_table"   background="/TrainingReports/WebContent/resources/images/h3_background.gif" style="background-repeat: repeat-y;" bgcolor="#eff7fc">
+	<tr>
+		<td><img src="/TrainingReports/WebContent/resources/images/spacer.gif" width="5px" height="30px"></td>
+			
+			<td  nowrap><b>Name:</b> Neha Prasad</td>
+			<td ><img src="/TrainingReports/WebContent/resources/images/spacer.gif" width="5px"></td>
+			<td  nowrap><b>&nbsp;Role:</b> SUPER ADMIN</td>
+            
+            <td><img src="/TrainingReports/WebContent/resources/images/spacer.gif" width="5px"></td>
+				<td nowrap>
+                <!-- Added for TRT Phase 2 - Added HQ user -->
+				
+			</td>
+            <td><img src="/TrainingReports/WebContent/resources/images/spacer.gif" width="5px"></td>
+            <td nowrap><b>&nbsp;&nbsp;Environment:</b> <font color="red">Integration</font></td>
+            
+				
+            <td ><img src="/TrainingReports/WebContent/resources/images/spacer.gif" width="5px"></td>
+				<td nowrap>
+                <!-- Added for TRT Phase 2 - Added HQ user -->
+				
+			</td>	
+			<td ><img src="/TrainingReports/WebContent/resources/images/spacer.gif" width="5px"></td>
+	
+			<!--<td  width="100%">&nbsp; </td>-->
+
+			<td>
+				<table class="basic_table">
+					<form>
+					<tr>
+                    
+						<td>
+							<label><b>&nbsp;Admin&nbsp;Functions&nbsp;&nbsp;</b></label>
+						</td>
+						<td>
+								<select name="adminfunction" onchange="adminFunction(this)" >
+									<option >Select function</option>
+                                    <!--added for TRT major enhancement 3.6- F6-->
+                                    <option value="/TrainingReports/activityDrilldownConfig">Activity Drill Down</option>
+                                    <option value="/TrainingReports/phase/coursecomplete">Course Completion</option>
+                                    <!--added for TRT major enhancement 3.6- F6-->
+                                    <option value="/TrainingReports/delegateAccess">Delegate Access</option>
+                                    <!-- Start: Modified for TRT 3.6 enhancement - F 4 -(admin configuration of employee grid)     -->    
+                                    <option value="/TrainingReports/admin/employeeGridConfig">Employee Grid Configuration </option>
+                                    <!-- End: Modified for TRT 3.6 enhancement - F 4 -(admin configuration of employee grid)       -->  
+                                    <!--ends here-->
+                                    <option value="/TrainingReports/admin/group">Group Administration</option>
+                                    <option value="/TrainingReports/TSHTReports/searchTSHT">Historical Training Server Transcripts</option>                                   
+                                    <option value="/TrainingReports/admin/editHomePage">Home Page Configuration</option>
+                                    <option value="/TrainingReports/admin/phaseEvaluation">Phase Evaluation Administration</option>
+									<option value="/TrainingReports/FailureReports/showFailureReport">PHR Ph. 6 – TSR Ph. 4 Failure Rep.</option>                                   								
+                                    
+                                    <option value="/TrainingReports/adminHome/editGapAnalysisReport">Product Mappings</option>
+                            		
+                                    <option value="/TrainingReports/simulateuser">Simulate Users</option>
+									<!--<option value="/TrainingReports/sitereport/runreports.do">Site Usage</option>-->
+                                    <option value="/TrainingReports/adminHome/trainingPath">Training Path Configuration</option>
+                                    <option value="/TrainingReports/admin/user">User Admin</option>
+                                </select>
+						</td>
+                        
+					</tr>
+					</form>
+				</table>
+			</td>
+
+			
+	
+	</tr>
+</table>
+
+				</td>
+			</tr>
+			<tr>
+				<td> 
+					
+
+
+
+
+
+
+
+
+    
+<table class="basic_table" border="1">
+<tr>
+    <td colspan="5">
+        <img src="/TrainingReports/resources/images/spacer.gif" height="5">
+    </td>
+
+</tr>
+<tr>
+    <td>
+    </td>
+    <td colspan="4">
+        <div class="breadcrumb">
+            <a href="/TrainingReports/reportselect" style="margin-left:0px;">Home</a> / 
+            <a href="begin?track=1077">Primary Care Product Training</a> / 
+            <a href="listreport?section=Assigned&activitypk=2677153">Viagra</a> /
+            Employee Detail 
+        </div>
+    </td>
+
+</tr>
+<tr>
+    <td>
+        <img src="/TrainingReports/resources/images/spacer.gif" height="5">
+    </td>
+    <td>
+        
+
+
+
+
+
+
+
+
+
+
+<!-- Commented for TRT Phase 2
+<div class="stnd_hdr" style="margin-top:20px;margin-bottom:10px;font-size:14px">	
+     Aber 
+</div>-->
+<table class="blue_table" >
+    <tr>
+        <th colspan="3" align="left">Employee Information</th>
+    </tr>
+    <tr class="even">
+        <td style="font-weight: bold;">Employee Status</td>
+        <td width="150px">
+        
+                Active
+        
+         </td>
+        
+            <td rowspan="13" valign="top"><img src="http://170.116.208.98:8080/picsimg/TDIR0220\X00143_7.JPG" /></td>
+            	
+    <tr class="odd">
+        <td style="font-weight: bold;">Employee ID</td>
+        <td >1227633</td>
+        
+    </tr>
+        
+    <tr class="even">
+        <td style="font-weight: bold;">Full Name</td>
+        <td>Aber, Lorraine</td>
+    </tr>	
+    <tr class="odd">
+        <td  style="font-weight: bold;">Gender</td>
+        <td>F</td>
+    </tr>	
+    <tr class="even">
+        <td  style="font-weight: bold;">Hire Date</td>
+        <td>2/1/89</td>
+    </tr>	
+    <tr class="odd">
+        <td style="font-weight: bold;">Promotion Date</td>
+        <td>8/23/11</td>
+    </tr>	
+    <tr class="even">
+        <td style="font-weight: bold;">E-Mail</td>
+        
+        <td>
+        <a href="mailto:lorraine.r.aber@pfizer.com?subject=
+P2lTrack
+trackId:1077
+trackLabel:Primary Care Product Training
+---------- Follow-up">	lorraine.r.aber@pfizer.com </a>
+        </td>
+    </tr>	
+    <tr class="odd">
+        <td style="font-weight: bold;">Business Unit</td>
+        <td>Primary Care</td>
+    </tr>	
+    <tr class="even">
+        <td style="font-weight: bold;">Sales Organization</td>
+        <td>Southeast RBU</td>
+    </tr>	
+    <tr class="odd">
+        <td style="font-weight: bold;">Role</td>
+        <td>PHR</td>
+    </tr>	
+   <!-- <tr class="even">
+        <td style="font-weight: bold;">Geography Description</td>
+        <td> </td>
+    </tr>	
+    <tr class="odd">
+        <td style="font-weight: bold;">Geography Type</td>
+        <td> </td>
+    </tr>	-->
+    <tr class="even">
+        <td style="font-weight: bold;">Sales Position Id</td>
+        <td>10196078 </td>
+    </tr>	
+    <tr class="odd">
+        <td style="font-weight: bold;">Sales Position Desc</td>
+        <td>ER1R1 PHR Boca Raton, FL 2 </td>
+    </tr>
+    <tr class="even">
+        <td style="font-weight: bold;">Reports to</td>
+        <td>
+        
+        <a href="mailto:jeffrey.s2.smith@pfizer.com?subject=
+P2lTrack
+trackId:1077
+trackLabel:Primary Care Product Training
+---------- Follow-up">	Smith, Jeff </a>
+        
+        </td>
+    </tr>	
+</table>
+
+<!-- Added for TRT Phase 2 -->
+        <br>
+        <a  onmouseover="this.style.cursor='hand';" onclick="DoThis12();">Click Here</a>&nbsp;to go your Training Transcripts from P2L 
+        <br>
+        <a onmouseover="this.style.cursor='hand';" onclick="DoThis13();">Click Here</a>&nbsp;to go to your Direct Reports Training Transcripts from P2L 
+<!-- end -->
+    </td>
+    <td>
+        <img src="/TrainingReports/resources/images/spacer.gif" height="5">
+<!-- Added for TRT Phase 2 -->
+    </td>
+    <td valign="top" width="45%">
+        
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+>
+<html lang="en">
+<body>
+    
+        <p>
+           
+           <table class="blue_table" width="100%" style="font-size:12" >
+        <tr><th align="left" style="font-size:12" >Training Path</th></tr>
+        <tr><td>
+        
+          <TABLE class=blue_table_without_border>
+  <TBODY>
+<TR>
+<TD width="8%" style="BORDER: 0px">
+</TD>
+<TD width="7%" style="BORDER: 0px">
+<IMG src="/TrainingReports/resources/images/completelegend.gif">
+</TD>
+<TD width="18%" style="BORDER: 0px;font-size:12">Completed
+</TD>
+<TD width="7%" style="BORDER: 0px">
+<IMG src="/TrainingReports/resources/images/registeredlegend.gif">
+</TD>
+<TD width="22%" style="BORDER: 0px;font-size:12">In Progress
+</TD>
+<TD width="7%" style="BORDER: 0px">
+<IMG src="/TrainingReports/resources/images/pendinglegend.gif">
+</TD>
+<TD width="25%" style="BORDER: 0px;font-size:12">Not Started
+</TD>
+<TD width="6%" style="BORDER: 0px">
+</TD>
+
+
+</TR>
+</TBODY>
+</TABLE>
+          
+          
+          
+          
+          
+        <table class="blue_table_without_border">
+        <tr style="border:1px">
+           
+                <TD style="BORDER: 0px; WIDTH: 13px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completeend.gif">
+                </TD>
+                
+                    
+                    <td style="width:45px;border:0px" valign="top">
+                    <img src="/TrainingReports/resources/images/complete.gif" style="position:absolute;z-index:0;"/>
+                    <div style="width:45;height:40;position:relative;top:1px;left:0px;overflow:hidden;font-size:12" 
+                    title="Phase 5">
+                   <label><a href="/TrainingReports/p2l/employeeSearchDetailPage?activitypk=2898908&emplid=1227633"><font color="white">Phase 5</font></a></label>
+                    </div> 
+                    </td> 
+                    
+                <TD style="BORDER: 0px; WIDTH: 21px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completecomplete.gif">
+                </TD>                    
+                
+                    
+                    <td style="width:45px;border:0px" valign="top">
+                    <img src="/TrainingReports/resources/images/complete.gif" style="position:absolute;z-index:0;"/>
+                    <div style="width:45;height:40;position:relative;top:1px;left:0px;overflow:hidden;font-size:12" 
+                    title="Phase 6">
+                   <label><a href="/TrainingReports/p2l/employeeSearchDetailPage?activitypk=2899012&emplid=1227633"><font color="white">Phase 6</font></a></label>
+                    </div> 
+                    </td> 
+                    
+                <TD style="BORDER: 0px; WIDTH: 21px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completecomplete.gif">
+                </TD>                    
+                
+                    
+                    <td style="width:45px;border:0px" valign="top">
+                    <img src="/TrainingReports/resources/images/complete.gif" style="position:absolute;z-index:0;"/>
+                    <div style="width:45;height:40;position:relative;top:1px;left:0px;overflow:hidden;font-size:12" 
+                    title="Phase 1">
+                   <label><a href="/TrainingReports/p2l/employeeSearchDetailPage?activitypk=2878149&emplid=1227633"><font color="white">Phase 1</font></a></label>
+                    </div> 
+                    </td> 
+                    
+                <TD style="BORDER: 0px; WIDTH: 21px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completecomplete.gif">
+                </TD>                    
+                
+                    
+                    <td style="width:45px;border:0px" valign="top">
+                    <img src="/TrainingReports/resources/images/complete.gif" style="position:absolute;z-index:0;"/>
+                    <div style="width:45;height:40;position:relative;top:1px;left:0px;overflow:hidden;font-size:12" 
+                    title="Phase 2">
+                   <label><a href="/TrainingReports/p2l/employeeSearchDetailPage?activitypk=2878750&emplid=1227633"><font color="white">Phase 2</font></a></label>
+                    </div> 
+                    </td> 
+                    
+                <TD style="BORDER: 0px;WIDTH: 21px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completestart.gif">
+                </TD>
+                
+                
+                    </tr><tr>
+                
+                <TD style="BORDER: 0px; WIDTH: 13px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completeend.gif">
+                </TD>
+                
+                    
+                    <td style="width:45px;border:0px" valign="top">
+                    <img src="/TrainingReports/resources/images/complete.gif" style="position:absolute;z-index:0;"/>
+                    <div style="width:45;height:40;position:relative;top:1px;left:0px;overflow:hidden;font-size:12" 
+                    title="Phase 3">
+                   <label><a href="/TrainingReports/p2l/employeeSearchDetailPage?activitypk=2898818&emplid=1227633"><font color="white">Phase 3</font></a></label>
+                    </div> 
+                    </td> 
+                    
+                <TD style="BORDER: 0px; WIDTH: 21px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completecomplete.gif">
+                </TD>                    
+                
+                    
+                    <td style="width:45px;border:0px" valign="top">
+                    <img src="/TrainingReports/resources/images/complete.gif" style="position:absolute;z-index:0;"/>
+                    <div style="width:45;height:40;position:relative;top:1px;left:0px;overflow:hidden;font-size:12" 
+                    title="Phase 4">
+                   <label><a href="/TrainingReports/p2l/employeeSearchDetailPage?activitypk=2898907&emplid=1227633"><font color="white">Phase 4</font></a></label>
+                    </div> 
+                    </td> 
+                    
+                <TD style="BORDER: 0px; WIDTH: 21px; BORDER-BOTTOM: 0px" vAlign=top>
+                <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/completepending.gif">
+                </TD>                    
+                
+                    
+                    <td style="width:45px;border:0px" valign="top">
+                    
+                    <img src="/TrainingReports/resources/images/pending.gif" style="position:absolute;z-index:0;"/>
+                    <div style="width:45;height:40;position:relative;top:1px;left:0px;overflow:hidden;font-size:12" 
+                    title="PHR Phase 6 Total Score (Bucket)">
+                   <label> <font color="black">PHR Phase 6 Total Score (Bucket)</font></label>
+                    </div> 
+                    </td>
+                    
+            <TD style="BORDER: 0px;WIDTH: 21px; BORDER-BOTTOM: 0px" vAlign=top>
+            <IMG style="POSITION: absolute" src="/TrainingReports/resources/images/pendingstart.gif">
+            </TD>
+            
+           </tr>
+        </table>
+        
+        </td></tr>
+        
+           </table>
+        </p>
+    </body></html>
+        <br>
+        
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+>
+<html lang="en">
+<head>
+        <title>
+            Web Application Page
+        </title>
+    </head>
+    <body>
+        <!--<table class="blue_table" width="100%">
+        <tr><td width="45%" align="left" valign="top">-->
+            
+            
+            <table class="blue_table" width="100%">
+            <tr><th align="left">Gap Reports for Products Trainings</th></tr>
+            <tr><td>
+            
+            No Products Affiliation found.
+            
+            </td></tr>
+            </table>
+        
+       <!-- </td></tr>
+        </table>-->
+    </body></html>
+<!-- End -->
+    </td>
+    <td valign="top">   
+        <img src="/TrainingReports/WebContent/resources/images/spacer.gif" height="40">
+        
+      
+    </td>
+    <td>
+        <img src="/TrainingReports/WebContent/resources/images/spacer.gif" height="5">
+    </td>
+</tr>
+<tr>
+    <td colspan="5">
+        <img src="/TrainingReports/WebContent/resources/images/spacer.gif" height="5">
+    </td>
+
+</tr>
+<tr>
+    <td>
+        <img src="/TrainingReports/WebContent/resources/images/spacer.gif" height="5">
+    </td>
+    <td colspan="3">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="JavaScript">
+    function update() {
+        window.location.reload(); /*please use this only when there are no 'form submits' on the page, to avoid resubmit*/
+    }
+    function OpenSpecialCase(isMapped) {    
+    if(isMapped== false){
+    alert("This evaluation is no longer active and we are currently making the adjustments.");
+    return false;
+    }   
+        window.name = "specialcase";
+        var myWin = window.open("","myWin","height=600,width=900,scrollbars=yes,resizable=yes,statusbar=no,menubar=no,toolbar=no,dependent=yes") 
+   
+    return true; 
+    }
+    function OpenSceCase() {         
+        window.name = "SceCase";
+        var myWin = window.open("","myWin","height=600,width=900,scrollbars=yes,resizable=yes,statusbar=no,menubar=no,toolbar=no,dependent=yes") 
+    } 
+    
+    function OpenSceEval() { 
+    window.name = "SceEval";
+   var myWin = window.open("","myWin","height=600,width=900,scrollbars=yes,resizable=yes,statusbar=no,menubar=no,toolbar=no,dependent=yes") 
+    }
+    
+    function SceTab(view,hideA){
+    var scetab = document.getElementById('sce');
+    var phasetab = document.getElementById('phasedtraining_tabLinks_on');
+    
+            if (view.style.display="none") {
+                view.style.display = "block";
+                hideA.style.display="none";
+                
+                }
+        scetab.id="phasedtraining_tabLinks_on";
+        phasetab.id="sce";
+    }
+</script>
+
+<table class="datagrid">
+    <tr>
+        <th align="left">Training Detail</th>
+    </tr>	
+    <tr>
+        <td align="left" style="background-color:#E8EEF7;">        
+        	<div class="phasedtraining_wrapper">
+            	<div class="phasedtraining_hdr_wrapper">
+                    <div class="phasedtraining_tabLinks" >
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2677162&emplid=1227633" >Aricept</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2677151&emplid=1227633" >Caduet</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2677159&emplid=1227633" >Celebrex</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2677156&emplid=1227633" >Chantix</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2941668&emplid=1227633" >Flector</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2677152&emplid=1227633" >Lipitor</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2676764&emplid=1227633" >Lyrica</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2682409&emplid=1227633" >Premarin</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2682410&emplid=1227633" >Pristiq</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2677154&emplid=1227633" >Spiriva</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2676954&emplid=1227633" >Toviaz</a>
+                        
+                    
+                    
+                        
+                        
+                        	<a href="detailpage?activitypk=2677153&emplid=1227633" id="phasedtraining_tabLinks_on" >Viagra</a>
+                        
+                    
+                    
+                    
+                    
+                	</div>
+                </div>
+            
+				<div class="phasedtraining_whitebox">
+                	<div class="clear" ><img src="/TrainingReports/resources/images/spacer.gif"></div>
+                    <table class="phasedtraining_table" id="p2ltabs">
+                    
+                    
+
+                    <tr><th colspan='6' style='font-size:14px;'><strong><a href='listReportAllStatus?activitypk=2922485&section=Complete&pieIndex=0'>Viagra Virtual Classroom Product Training (VCPT) - Complete</a></strong></th></tr><tr id='greyscell'><td nowrap>Activity&nbsp;Type</td><td >Status</td><td >Status&nbsp;Date</td><td >Score</td><td  align='center'>Action</td></tr><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2922481&section=Complete&pieIndex=0'>&nbsp;&nbsp;&nbsp;&nbsp;VCPT Viagra Prework Completion Agreement</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 9/9/11  </td><td  style='font-size:14px;'></td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2922482&section=Complete&pieIndex=0'>&nbsp;&nbsp;&nbsp;&nbsp;Viagra Disease (Pedagogue) Exam</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 9/8/11  </td><td  style='font-size:14px;'>89</td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2922483&section=Complete&pieIndex=0'>&nbsp;&nbsp;&nbsp;&nbsp;Viagra Treatment (Pedagogue) Exam</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 9/8/11  </td><td  style='font-size:14px;'>86</td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2922366&section=Complete&pieIndex=0'>&nbsp;&nbsp;&nbsp;&nbsp;VCPT Viagra Live VCT Workshop</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 9/16/11  </td><td  style='font-size:14px;'></td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2961074&section=Complete&pieIndex=0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Realignment 2011 Viagra Virtual Class Session and SCE</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 9/16/11  </td><td  style='font-size:14px;'></td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2962785&section=Complete&pieIndex=0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Realignment 2011 Viagra Virtual</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 9/16/11  </td><td  style='font-size:14px;'></td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2962786&section=Complete&pieIndex=0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Realignment 2011 Viagra Evaluated Sales Call</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 9/16/11  </td><td  style='font-size:14px;'>Demonstrating Competence</td><td  style='font-size:14px;'><a href='/TrainingReports/WebContent/redirectToSCE.jsp?product=Realignment 2011 Viagra Evaluated Sales Call&employeeNtId=ABERL&loginUserNtId=PRASAN06&emplid=1227633&productCode=2962786&eventId=4&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td><tr><th colspan='6' style='font-size:14px;'><strong><a href='listReportAllStatus?activitypk=2690187&section=Complete&pieIndex=0'>IPT2009 Viagra Product Training - Complete</a></strong></th></tr><tr id='greyscell'><td nowrap>Activity&nbsp;Type</td><td >Status</td><td >Status&nbsp;Date</td><td >Score</td><td  align='center'>Action</td></tr><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2690188&section=Complete&pieIndex=0'>IPT2009 Viagra (Pedagogue) Exam 1</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 10/31/09  </td><td  style='font-size:14px;'>94</td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2690189&section=Complete&pieIndex=0'>IPT2009 Viagra (Pedagogue) Exam 2</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 10/31/09  </td><td  style='font-size:14px;'>91</td><td  style='font-size:14px;'>&nbsp;</td><tr><td colspan='1' style='font-size:14px;' nowrap><a href='listReportAllStatus?activitypk=2690190&section=Complete&pieIndex=0'>IPT2009 Viagra Evaluated Sales Call</a></td><td  style='font-size:14px;'>Complete</td><td  style='font-size:14px;'> 11/3/09  </td><td  style='font-size:14px;'>Demonstrating Competence</td><td  style='font-size:14px;'><a href='/TrainingReports/WebContent/redirectToSCE.jsp?product=IPT2009 Viagra Evaluated Sales Call&employeeNtId=ABERL&loginUserNtId=PRASAN06&emplid=1227633&productCode=2690190&eventId=4&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>
+
+                    
+                    </table>
+                    
+                    <table class="phasedtraining_table" style="display:none;" id="scetb" width="75%">
+                    <tr><th colspan='6' style='font-size:14px;'><strong>Representative Feedback Form</strong></th></tr>
+                    <tr id='greyscell'><td nowrap>Form</td><td>Action</td></tr>
+                    <tr>
+                    <td colspan='1' style='font-size:14px;' nowrap>Representative Feedback Form</td>
+                    <td colspan='1' style='font-size:14px;' nowrap>
+                    
+                                         
+                    <a href='/TrainingReports/phase/SCEeval?&emplId=1227633&activityId=2677153&evalId=1787475&evalNm=Neha Prasad&empNm=Aber,Lorraine&flag=None&superAdmin=true&trackId=1077' onClick='OpenSceEval();' target='myWin'>
+                    View/Evaluate
+                    </a>
+                    
+                    </td>
+                     
+                    </tr>
+                    </table>
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+                      
+                     
+
+
+
+
+
+ 
+
+    </td>
+    <td>
+        <img src="/TrainingReports/resources/images/spacer.gif" height="5">
+    </td>
+
+</tr>
+</table>
+                    
+				</td>
+			<tr>
+		</table>
+
+	</div>
+	</body>		
+</html>   

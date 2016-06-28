@@ -1,0 +1,1017 @@
+.TabPage {
+    border-top: none 1px #bfc0c1;
+    border-bottom: none 1px #bfc0c1;
+    border-left: solid 1px #bfc0c1;
+    border-right: solid 1px #bfc0c1;
+    
+	float: left;
+    width: 727px;
+	background-color: #FFFFFF;
+	background-image: url(../images/grey_contentbg.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+
+.headline {
+  width:727px;
+  margin-top: 10px;
+}
+.headline ul {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+	width: 100%;
+	background-image: url(../images/headlinelinks_bg.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	float: left;
+}
+.headline ul a {
+    background-image: url(../images/headlinemodule_link_bg.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #273961;
+
+	border-top: solid 1px #C0C0C1;
+	border-left: solid 1px #C0C0C1;
+	border-bottom: none 0px #C0C0C1;
+	border-right: solid 1px #C0C0C1;
+
+    padding: 2px 20px 3px 20px;
+	text-decoration: none;
+	background-color: #FFFFFF;
+	margin-top: 2px;
+}
+
+.headline ul a:hover {  
+  text-decoration: underline;
+}
+.headline ul a.selected {
+    background-color: #FFFFFF;
+	font-size: 15px;
+	background-image: none;
+	color: #cc6633;
+	border-top: solid 1px #BFC0C1;
+	border-right: solid 1px #BFC0C1;
+	border-bottom: solid 1px #FFFFFF;
+	border-left: solid 1px #BFC0C1;
+	margin-top: 1px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+}
+
+.headline li { list-style:none; float:left; }
+
+/**************************************************************************************************
+
+ * Forms and Labels Classes
+
+ **************************************************************************************************/
+
+td.ActionsTableHeader
+{
+  background: #aed6eb;
+}
+
+.form_basic select {
+
+        border : 1px solid #d2e5f0;
+
+        background-color : #ffffff;
+
+        font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+        font-size : .8em;
+
+        vertical-align : middle;	
+
+		width: 150;	
+
+}
+
+.form_basic input {
+
+        border : 1px solid #d2e5f0;
+
+        background-color : #2165AD;
+
+        font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+        font-size : .8em;
+
+		color : ffffff;
+
+        vertical-align : middle;
+
+		size : 15;
+
+}
+.form_basic input.text {
+
+        border : 1px solid #d2e5f0;
+
+        background-color : #ffffff;
+
+        font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+        font-size : .8em;
+
+		color : 000000;
+
+        vertical-align : middle;
+
+		size : 15;
+
+}
+
+.form_basic label {
+
+        border : 0px;
+
+        background-color : #ffffff;
+
+        font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+        font-size : .8em;
+
+		font-weight : bold;
+
+        vertical-align : middle;
+
+}
+
+
+submit_button {
+
+        border : 1px solid #d2e5f0;
+
+        background-color : #2165AD;
+
+        font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+        font-size : .8em;
+
+		color : ffffff;
+
+        vertical-align : middle;
+
+		size : 15;
+
+}
+
+
+
+label.basic_label {
+
+        border : 0px;
+
+        background-color : #ffffff;
+
+        font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+        font-size : .8em;
+
+		font-weight : bold;
+
+        vertical-align : middle;
+
+}
+
+
+
+
+
+/**************************************************************************************************
+
+ * Table Classes
+
+ **************************************************************************************************/
+
+table.basic_table {
+
+	border-width: 0px;
+
+	width: 100%;
+
+	border-style: solid;
+
+	border-spacing:5px;
+
+	padding: 0px; 
+
+	font-size: 1em;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+}
+
+table.basic_table td {
+
+	border-spacing:5px;
+
+	padding: 0px; 
+
+	border-right:solid 10px #ccc;
+
+	border-bottom: solid 10px #ccc;
+
+}
+
+
+
+
+
+table.no_space_table {
+
+	width: 100%;
+
+	border: 0px;
+
+	border-width: 0px;
+
+	border-style: none;
+
+	border-spacing:0px;
+
+	padding: 0px; 
+
+	border-collapse: collapse;
+
+	font-size: 1em;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+
+
+}
+
+table.no_space_table td {
+
+	border-width: 0px;
+
+	border-style: none;
+
+	padding:0px;
+
+}
+
+
+
+table.no_space_table tr {
+
+	border-width: 0px;
+
+	border-style: none;
+
+	padding:0px;
+
+}
+
+
+
+table.no_space_width {
+
+	border-width: 0px;
+
+	border-style: solid;
+
+	border-spacing:0px;
+
+	padding: 0px; 
+
+	font-size: 1em;
+	
+	border-collapse: collapse;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+}
+
+
+
+table.no_space_width td.thin_grey {
+
+	background: #dddddd;
+
+	width: 1;
+
+}	
+
+table.no_space_width td.thin_white {
+
+	background: #ffffff;
+
+	width: 1;
+
+}
+
+
+
+
+
+table.no_space_width_table {
+
+	border-width: 2px;
+
+	border-style: solid;
+
+
+	padding: 2px; 
+    
+    
+    border-spacing:5px;
+
+	font-size: 1em;
+	
+	border-collapse: collapse;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+}	
+
+table.no_space_width_table td {
+	border-right:solid 1px #ccc;
+	border-left:solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+	border-top: solid 1px #ccc;
+	padding:3px 6px;
+
+}	
+
+
+table.blue_table {
+
+	padding: 0;
+
+	margin: 0 0 5px 0;
+
+	border: solid 0px #ccc;
+
+	border-collapse: collapse;
+
+	font-size: 1em;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+	font-weight:normal;
+
+}
+
+table.blue_table_without_border {
+
+	padding: 0;
+
+	margin: 0 0 5px 0;
+
+	border: 0;
+
+	border-collapse: collapse;
+
+	font-size: 1em;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+	font-weight:normal;
+
+}
+
+
+table.blue_table td {
+	border-right:solid 1px #ccc;
+	border-left:solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+	border-top: solid 1px #ccc;
+	padding:3px 6px;
+
+}	
+
+table.blue_table th {
+	color: #ffffff;
+	background: #1f61a9;
+	padding:3px 6px;
+	font-weight:normal;
+	border-right:solid 1px #1f61a9;
+	border-left:solid 1px #1f61a9;
+	border-bottom: solid 1px #1f61a9;
+	border-top: solid 1px #1f61a9;
+}
+
+table.blue_table th a {
+	color: #ffffff;
+	background: #1f61a9;
+	padding:3px 6px;
+	font-weight:normal;
+	border-right:solid 1px #1f61a9;
+	border-left:solid 1px #1f61a9;
+	border-bottom: solid 1px #1f61a9;
+	border-top: solid 1px #1f61a9;
+}
+
+
+table.blue_table tr.odd {
+
+	background: #ffffff;	
+
+}	
+
+table.blue_table tr.even {
+
+	background: #F7FBFF;	
+
+}	
+
+
+
+
+
+
+
+
+/**************************************************************************************************
+
+ * Font Classes
+
+ **************************************************************************************************/
+
+font.normal_bold {
+
+	font-size: .9em;
+
+	font-weight: bold;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+}
+
+
+
+
+
+font.normal {
+
+	font-size: .9em;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+}
+
+font.small {
+
+	font-size: .8em;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, "Lucida Grande", "Trebuchet MS",   sans-serif;
+
+}
+
+
+
+
+
+/**************************************************************************************************
+
+ * Other Classes
+
+ **************************************************************************************************/
+
+* html h1 {
+
+	margin: 15px 15px;
+
+}
+
+
+
+body {
+
+	background: #d2e5f0;
+
+	font: .75em/1.4em "Lucida Grande", "Trebuchet MS",Arial, Helvetica, sans-serif,"Lucida Grande", "Trebuchet MS";
+
+	text-align: left;
+
+	color: #555;
+
+	margin:0 auto;	
+
+}
+
+
+
+
+
+font {
+
+	font-size: 1em;
+
+	font-family : "Lucida Grande", "Trebuchet MS",Arial, Helvetica, sans-serif,"Lucida Grande", "Trebuchet MS";
+
+}
+
+
+
+html,html body {height:100%;}
+
+
+
+ul {
+
+	list-style-type: none;
+
+}
+
+
+
+p {
+
+	margin-bottom: 12px;
+
+}
+
+
+
+a {
+
+	text-decoration: none;
+
+	color: #1f61a9;
+
+}
+
+
+
+a.pdflink {
+
+	text-decoration: underline ;
+
+	color: #1f61a9;
+
+}
+
+
+
+a:hover {
+
+	color: #666;	
+
+}
+
+
+
+a img {
+
+	border: none;
+
+	outline:none;
+
+}
+
+
+
+
+
+/**************************************************************************************************
+
+ * CSS IDs
+
+ **************************************************************************************************/
+
+#wrap {
+
+	/*position: relative;*/
+
+	background-color: #ffffff;
+
+	width: auto;
+
+	margin: 0 50px;
+
+	padding: 0px;
+
+	text-align: left;
+
+	height:100%;
+
+}
+
+#wrap2 {
+
+	/*position: relative;*/
+
+	background-color: #ffffff;
+
+	width: auto;
+
+	margin: 0 0px;
+
+	padding: 0px;
+
+	text-align: left;
+
+	height:100%;
+
+}
+
+
+#user_bar {
+
+	margin: 0;
+
+	font-size: 1em;
+
+	border: none;
+
+	color: #1f61a9;
+
+	width: auto;
+
+	background: #eff7fc url(../images/h3_background.gif) repeat-y;
+
+}
+
+
+
+#employee_table {
+
+	font-size: 1em;
+
+	padding: 0;
+
+	margin: 0 0 5px 0;
+
+	border: solid 1px #ccc;
+
+	border-collapse: collapse;
+
+}
+
+#employee_table td {
+
+	border-right:solid 1px #ccc;
+
+	border-bottom: solid 1px #ccc;
+
+	padding:2px 6px;
+
+
+
+}	
+
+
+#employee_table th {
+    color: #ffffff;
+	background: #1f61a9;
+	padding:3px 6px;
+	font-weight:normal;
+	border-right:solid 1px #1f61a9;
+	border-left:solid 1px #1f61a9;
+	border-bottom: solid 1px #1f61a9;
+	border-top: solid 1px #1f61a9;
+	
+}
+
+#employee_table th  a{
+color: #ffffff;
+	background: #1f61a9;
+	padding:3px 6px;
+	font-weight:normal;
+	border-right:solid 1px #1f61a9;
+	border-left:solid 1px #1f61a9;
+	border-bottom: solid 1px #1f61a9;
+	border-top: solid 1px #1f61a9;
+
+}
+
+#employee_table tr.active_row {
+
+	font-weight: bold;
+
+	
+
+}
+
+#employee_table td.last {border-right: 0;}
+
+
+
+
+
+
+
+#employee_table tr.avp_row {
+
+	background-color: #d6ebad;
+
+}
+
+
+
+#employee_table tr.rm_row {
+
+	background-color: #ffd699;
+
+	border-bottom-color: #fff;
+
+}
+
+
+
+#employee_table tr.dm_row {
+
+	background-color: #c2d6eb;
+
+	border-bottom-color: #fff;
+
+}
+
+
+
+#employee_table tr.avp_row td,
+
+#employee_table tr.rm_row td,
+
+#employee_table tr.dm_row td,
+
+#employee_table tr td.highlight_col {
+
+	border-bottom-color: #fff;
+
+}
+
+
+
+#employee_table tr td.highlight_col {
+
+	background-color: #fef198;
+
+}
+
+
+
+#employee_table_foot {
+
+	margin: 10px 0 0 0;
+
+}
+
+
+
+#employee_table_foot .note {
+
+	font-size: .8em;
+
+	float: left;
+
+}
+
+
+
+#employee_table th {
+
+	color: #fff;
+
+	background: #1f61a9;
+
+	padding:3px 6px;
+
+	font-weight:normal;
+
+	border-right:solid 1px #fff;
+
+	}
+
+#employee_table th.last {border-right:0;}	
+
+
+
+#table_title {
+
+	color:#1f61a9;
+
+	font-size: 1em;
+
+	margin: 0 0 5px 0;
+
+}
+
+
+
+
+
+#table_inst_title {
+
+	font-size: 1em; 
+
+	font-weight: bold; 
+
+	padding: 0; 
+
+	margin: 0;
+
+}
+
+
+
+#table_inst {
+
+	float: left;
+
+}
+
+
+
+#table_inst p {
+
+	font-size: 1em; 
+
+	padding: 0; 
+
+	margin: 0;
+
+}
+
+
+
+
+
+
+
+
+
+.clear {
+
+	clear: both;
+
+}
+
+
+
+#employee_table_tr {
+
+	font-size: 1em;
+
+	padding: 0;
+
+	margin: 0 0 5px 0;
+
+	border: solid 1px #ccc;
+
+	border-collapse: collapse;
+
+}
+
+#employee_table_tr td {
+
+	border-right:solid 1px #ccc;
+
+	border-bottom: solid 1px #ccc;
+
+	padding:2px 6px;
+
+
+
+}	
+
+	
+
+#employee_table_tr tr.active_row {
+
+	font-weight: bold;
+
+	
+
+}
+
+#employee_table_tr td.last {border-right: 0;}
+
+
+
+
+
+
+
+#employee_table_tr tr.avp_row {
+
+	background-color: #d6ebad;
+
+}
+
+
+
+#employee_table_tr tr.rm_row {
+
+	background-color: #ffd699;
+
+	border-bottom-color: #fff;
+
+}
+
+
+
+#employee_table_tr tr.dm_row {
+
+	background-color: #c2d6eb;
+
+	border-bottom-color: #fff;
+
+}
+
+
+
+#employee_table_tr tr.avp_row td,
+
+#employee_table_tr tr.rm_row td,
+
+#employee_table_tr tr.dm_row td,
+
+#employee_table_tr tr td.highlight_col {
+
+	border-bottom-color: #fff;
+
+}
+
+
+
+#employee_table_tr tr td.highlight_col {
+
+	background-color: #fef198;
+
+}
+
+
+
+#employee_table_tr_foot {
+
+	margin: 10px 0 0 0;
+
+}
+
+
+
+#employee_table_tr_foot .note {
+
+	font-size: .8em;
+
+	float: left;
+
+}
+
+
+
+#employee_table_tr th {
+
+	color: #fff;
+
+	background: #1f61a9;
+
+	padding:3px 6px;
+
+	font-weight:normal;
+
+	border-right:solid 1px #fff;
+
+	}
+
+#employee_table_tr th.last {border-right:0;}	
+
+.chartscontrol_area
+{
+	width: 300px;
+	float: right;
+	background-color: #E8EEF7;
+	text-align: center;
+}	
+.chartscontrol_area form
+{
+	text-align: left;
+	margin: 20px;
+}	
+.chartscontrol_area select
+{
+	width:250px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #7C9EBD;
+}	
+
+.breadcrumb {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #007AD5;
+	margin-bottom: 25px;
+}
+.breadcrumb a:link, .breadcrumb a:visited{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #007AD5;
+	text-decoration: none;
+	margin-right: 5px;
+	margin-left: 5px;
+	font-weight: bold;
+}
+.breadcrumb a:hover
+{
+	text-decoration: underline;
+}

@@ -1,0 +1,3167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+	<package name="home" extends="struts-default">
+		<action name="begin" method="begin" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="reportselect" method="reportselect"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="archivedPage" method="archivedPage"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="allEmployeeSearch" method="allEmployeeSearch"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="allEmployeeSearchList" method="allEmployeeSearchList"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="delegateAccess" method="delegateAccess"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="delegateSearch" method="delegateSearch"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+		<action name="activityDrilldownConfig" method="activityDrilldownConfig"
+			class="com.pfizer.action.HomeAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="errorMain" method="errorMain" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+
+		</action>
+		<action name="error" method="error" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+
+		</action>
+		<action name="logerror" method="logerror" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/logErrorConfirm.jsp
+			</result>
+		</action>
+
+		<action name="login" method="login" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="newHomePage" method="newHomePage"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+		</action>
+
+		<action name="originaluser" method="originaluser"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="pdfhsreportselect" method="pdfhsreportselect"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="previewHomePage" method="previewHomePage"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="productselect" method="productselect"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="rbucontrolpanel" method="rbucontrolpanel"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="rbusreportselect" method="rbusreportselect"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="search" method="search" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="searchPDFHS" method="searchPDFHS"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="searchPOA" method="searchPOA" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="simulatesearch" method="simulatesearch"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="simulateuser" method="simulateuser"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="spfreportselect" method="spfreportselect"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="switchUser" method="switchUser" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="testemail" method="testemail" class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="unauthorized" method="unauthorized"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="unauthorizedRole" method="unauthorizedRole"
+			class="com.pfizer.action.HomeAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+	</package>
+
+	<package name="adminHome" namespace="/adminHome" extends="struts-default">
+		<action name="editArchive" method="editArchive"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+		<action name="editMenu" method="editMenu"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="editReport" method="editReport"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+		<action name="copyMove" method="copyMove"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+
+
+		<action name="editNode" method="editNode"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="addSelectedStatusCourse" method="addSelectedStatusCourse"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="begin" method="begin"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="editForecastFilterCriteria" method="editForecastFilterCriteria"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="editForecastOptionalFields" method="editForecastOptionalFields"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="editGapAnalysisReport" method="editGapAnalysisReport"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="editManagementFilterCriteria" method="editManagementFilterCriteria"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="editNodeLaunchMeeting" method="editNodeLaunchMeeting"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+		</action>
+		<action name="editReportLaunchMeeting" method="editReportLaunchMeeting"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="searchAndSelectCourses" method="searchAndSelectCourses"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="searchCourseForecast" method="searchCourseForecast"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+		</action>
+		<action name="searchCourseManagement" method="searchCourseManagement"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="searchCourseTrainingPath" method="searchCourseTrainingPath"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="trainingPath" method="trainingPath"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="unauthorized" method="unauthorized"
+			class="com.pfizer.action.AdminHomeControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+	
+	<package name="adminSCE" namespace="/adminSCE" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.AdminSCEControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="listSCE" method="listSCE"
+			class="com.pfizer.action.AdminSCEControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		
+		<action name="unauthorized" method="unauthorized"
+			class="com.pfizer.action.AdminSCEControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		
+		<action name="updateSCE" method="updateSCE"
+			class="com.pfizer.action.AdminSCEControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+	</package>
+
+	<package name="p2l" namespace="/p2l" extends="struts-default">
+
+
+
+		<action name="employeeSearchDetailPage" method="employeeSearchDetailPage"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+		<action name="begin" method="begin"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+		<action name="listReportAllStatus" method="listReportAllStatus"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+
+
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+
+		<action name="detailpage" method="detailpage"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="searchemployee" method="searchemployee"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="getNextP2lPhaseLevel" method="getNextP2lPhaseLevel"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="getNextLevel" method="getNextLevel"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="charts" method="charts"
+			class="com.pfizer.action.P2lControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+
+	</package>
+
+
+	<package name="Admin" namespace="/admin" extends="struts-default">
+
+		<action name="group" method="group" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+
+		<action name="editgroup" method="editgroup" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+
+		<action name="savegroup" method="savegroup" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="deletegroup" method="deletegroup"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="NAsearch" method="NAsearch" class="com.pfizer.action.AdminAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="Usersearch" method="Usersearch"
+			class="com.pfizer.action.AdminAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="begin" method="begin" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="deleteuser" method="deleteuser"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="editHomePage" method="editHomePage"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="edituser" method="edituser" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="employeeGridConfig" method="employeeGridConfig"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getPhaseReport" method="getPhaseReport"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getSceEvalAccess" method="getSceEvalAccess"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="phaseEvaluation" method="phaseEvaluation"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="saveuser" method="saveuser" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="sceformaccess" method="sceformaccess"
+			class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="user" method="user" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+
+	</package>
+
+	<package name="DisplayChart" extends="jfreechart-default">
+		<action name="DisplayChart" class="com.pfizer.webapp.chart.DisplayChart">
+			<result name="success" type="chart">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+
+
+	<package name="gapAnalysis" namespace="/gapAnalysis" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.GapAnalysisControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+	</package>
+
+
+	<package name="ManagementSummaryReport" namespace="/ManagementSummaryReport"
+		extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.ManagementSummaryReportControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+
+	</package>
+
+
+	<package name="phase" namespace="/phase" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="listReportAllStatus" method="listReportAllStatus"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="searchemployee" method="searchemployee"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="SCEeval" method="SCEeval"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="charts" method="charts"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="coursecomplete" method="coursecomplete"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="detailpage" method="detailpage"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getNextLevel" method="getNextLevel"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getNextP2lPhaseLevel" method="getNextP2lPhaseLevel"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="handleSceCase" method="handleSceCase"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="handleSpecialCase" method="handleSpecialCase"
+			class="com.pfizer.action.PhaseControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+	</package>
+
+
+
+
+	<package name="Toviaz" namespace="/ToviazLaunch" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.ToviazLaunchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+
+		<action name="beginToviazLaunch" method="beginToviazLaunch"
+			class="com.pfizer.action.ToviazLaunchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="beginToviazLaunchExec" method="beginToviazLaunchExec"
+			class="com.pfizer.action.ToviazLaunchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.ToviazLaunchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/ToviazLaunchReportListXls.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="listreportExec" method="listreportExec"
+			class="com.pfizer.action.ToviazLaunchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/ToviazLaunchReportListXls.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+	</package>
+
+
+
+
+	<package name="TSHTReports" namespace="/TSHTReports" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.TSHTReportsControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/index.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="searchTSHT" method="searchTSHT"
+			class="com.pfizer.action.TSHTReportsControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+		<action name="showTSHTDetail" method="showTSHTDetail"
+			class="com.pfizer.action.TSHTReportsControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+
+	</package>
+
+
+	<package name="VRS" namespace="/VRS" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.VRSControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="beginVRS" method="beginVRS"
+			class="com.pfizer.action.VRSControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+		<action name="getFilteredChartVRS" method="getFilteredChartVRS"
+			class="com.pfizer.action.VRSControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="listReportVRS" method="listReportVRS"
+			class="com.pfizer.action.VRSControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/PLCReportListXlsvrs.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="searchVRS" method="searchVRS"
+			class="com.pfizer.action.VRSControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+	</package>
+
+	<package name="LaunchMeeting" namespace="/LaunchMeeting"
+		extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.LaunchMeetingControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.LaunchMeetingControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/RBUReportListXls.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="detailpage" method="detailpage"
+			class="com.pfizer.action.LaunchMeetingControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getRBU" method="getRBU"
+			class="com.pfizer.action.LaunchMeetingControllerAction">
+		</action>
+	</package>
+	<package name="MSEPI" namespace="/MSEPI" extends="struts-default">
+		<action name="beginMSEPI" method="beginMSEPI"
+			class="com.pfizer.action.MSEPIControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+		<action name="listReportMSEPI" method="listReportMSEPI"
+			class="com.pfizer.action.MSEPIControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/PLCReportListXls.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getFilteredChartMSEPI" method="getFilteredChartMSEPI"
+			class="com.pfizer.action.MSEPIControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="searchMSEPI" method="searchMSEPI"
+			class="com.pfizer.action.MSEPIControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+
+
+
+
+	<package name="PWRA" namespace="/PWRA" extends="struts-default">
+		<action name="PDFEnrollmentChangeReport" method="PDFEnrollmentChangeReport"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="PDFEnrollmentSummaryReport" method="PDFEnrollmentSummaryReport"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="PDFHSReportClassRoster" method="PDFHSReportClassRoster"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="PDFHSReportGeneralSessionAttendance" method="PDFHSReportGeneralSessionAttendance"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="PDFHSReportPersonalAgenda" method="PDFHSReportPersonalAgenda"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="PDFHSReportTrainingSchedule" method="PDFHSReportTrainingSchedule"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="PDFHSReportTrainingScheduleEmplList" method="PDFHSReportTrainingScheduleEmplList"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="PDFHSReportVariance" method="PDFHSReportVariance"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="adminToolsSelect" method="adminToolsSelect"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="begin" method="begin"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="beginPDFHS" method="beginPDFHS"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="beginPDFRA" method="beginPDFRA"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="beginPHR" method="beginPHR"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="beginPLC" method="beginPLC"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="generalSessionAttendance" method="generalSessionAttendance"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/PDFHS/GeneralSession.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="generateP2L" method="generateP2L"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/PDFHS/GenerateP2L.jsp
+
+			</result>
+			<result name="download">
+				/WEB-INF/jsp/PDFHS/GenerateP2LDownload.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="getFilteredChart" method="getFilteredChart"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="getFilteredChartPLC" method="getFilteredChartPLC"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="listReportPLC" method="listReportPLC"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/PLCReportListXls.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/POAReportListXls.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="productselect" method="productselect"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="updateGeneralSession" method="updateGeneralSession"
+			class="com.pfizer.action.PWRAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/PDFHS/GeneralSession.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+	</package>
+
+
+
+	<package name="RBU" namespace="/RBU" extends="struts-default">
+
+		<action name="PLCReport" method="PLCReport"
+			class="com.pfizer.action.RBUControllerAction">
+		</action>
+
+		<action name="RBUClassRoomReport" method="RBUClassRoomReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUEnrollmentChangeReport" method="RBUEnrollmentChangeReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUEnrollmentExceptionReport" method="RBUEnrollmentExceptionReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUGCConflictsReport" method="RBUGCConflictsReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUGuestTrainerList" method="RBUGuestTrainerList"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUReportClassRoster" method="RBUReportClassRoster"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUTrainingSchedule" method="RBUTrainingSchedule"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUTrainingScheduleByTrack" method="RBUTrainingScheduleByTrack"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="RBUTrainingScheduleEmplList" method="RBUTrainingScheduleEmplList"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="VarianceReport" method="VarianceReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="addGuest" method="addGuest"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/components/report/updateGuest.jsp
+
+			</result>
+
+		</action>
+
+		<action name="adminToolsSelect" method="adminToolsSelect"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="begin" method="begin"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success" type="redirect">
+				RBUTrainingSchedule
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="beginRBU" method="beginRBU"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success" type="redirect">
+				adminToolsSelect
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="beginRBUChart" method="beginRBUChart"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="createP2LRegistrations" method="createP2LRegistrations"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				
+				/WEB-INF/jsp/RBU/P2LRegistrationConfirmation.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="displayClassRosterReport" method="displayClassRosterReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="emailReminder" method="emailReminder"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/EmailConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="generalSessionAttendence" method="generalSessionAttendence"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="generateP2L" method="generateP2L"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/PDFHS/GenerateP2L.jsp
+
+			</result>
+			<result name="download">
+				/WEB-INF/jsp/PDFHS/GenerateP2LDownload.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="getClassRosterReport" method="getClassRosterReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="getFilteredChart" method="getFilteredChart"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="getRBU" method="getRBU"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+
+		<action name="getavailableweeks" method="getavailableweeks"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/tableassignment.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/RBUReportListXls.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="listreportwithreportto" method="listreportwithreportto"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/RBUReportListXls.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="mailP2LRegistrationFile" method="mailP2LRegistrationFile"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/P2LEmailConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="placeShipmentOrders" method="placeShipmentOrders"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/ShipmentOrderConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbuAssignEmployeesToTables" method="rbuAssignEmployeesToTables"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success" type="redirect">
+				rbuUnassignedEmployeesReport
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbuEnrollmentProcess" method="rbuEnrollmentProcess"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/EnrollmentConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbuSCEGuestProcess" method="rbuSCEGuestProcess"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/guestaccessConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbuSandboxRefreshProcess" method="rbuSandboxRefreshProcess"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/SandboxRefreshConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbuTableAssignmentProcess" method="rbuTableAssignmentProcess"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/TableAssignmentConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbuUnassignedEmployeesReport" method="rbuUnassignedEmployeesReport"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="rbugemstravelfeed" method="rbugemstravelfeed"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/travelfeed.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbutraineedtableupdate" method="rbutraineedtableupdate"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success" type="redirect">
+				RBUClassRoomReport
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbutraineetablemap" method="rbutraineetablemap"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="rbutravelfeed" method="rbutravelfeed"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/travelfeed.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="testEmail" method="testEmail"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/EmailConfirmation.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="unassigngt" method="unassigngt"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success" type="redirect">
+				RBUClassRoomReport
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="uploadGuest" method="uploadGuest"
+			class="com.pfizer.action.RBUControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/uploadGuestFile.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+
+	<package name="RBUEmployeeController" namespace="/RBU/employeeDetail"
+		extends="struts-default">
+		<action name="addProductClass" method="addProductClass"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/addProductTraining.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="addTraining" method="addTraining"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/addTraining.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="begin" method="begin"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success" type="redirect">
+				getEmployeeDetails
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="cancelTraining" method="cancelTraining"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/cancelTraining.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="getEmployeeDetails" method="getEmployeeDetails"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="getEmployeeDetailsToviazLaunch" method="getEmployeeDetailsToviazLaunch"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="getEmployeeDetailsToviazLaunchExec" method="getEmployeeDetailsToviazLaunchExec"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+		<action name="recoverTraining" method="recoverTraining"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+
+		</action>
+
+		<action name="updateTrainingDate" method="updateTrainingDate"
+			class="com.pfizer.action.RBUEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/RBU/updateTrainingDate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+
+
+	<package name="PWRAEmployeeController" namespace="/PWRA/employeeDetail"
+		extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.PWRAEmployeeDetailControllerAction">
+
+
+		</action>
+
+		<action name="cancelTraining" method="cancelTraining"
+			class="com.pfizer.action.PWRAEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/PWRA/employeeDetail/cancelTraining.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="getEmployeeDetail" method="getEmployeeDetail"
+			class="com.pfizer.action.PWRAEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="recoverTraining" method="recoverTraining"
+			class="com.pfizer.action.PWRAEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/PWRA/employeeDetail/cancelTraining.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+		<action name="updateTrainingDate" method="updateTrainingDate"
+			class="com.pfizer.action.PWRAEmployeeDetailControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/PWRA/employeeDetail/updateTrainingDate.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+
+		</action>
+
+	</package>
+
+	<package name="PrintHome" namespace="/PrintHome" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/index.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="clusterInfo" method="clusterInfo"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/index.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="clusterInfo_AJAX" method="clusterInfo_AJAX"
+			class="com.pfizer.action.PrintHomeControllerAction">
+		</action>
+		<action name="createPersonlizedAgendaLetters" method="createPersonlizedAgendaLetters"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/PrintPersonalizedAgendaProgress.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="createPersonlizedAgendaLettersP4" method="createPersonlizedAgendaLettersP4"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/PrintPersonalizedAgendaProgressP4.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="emailInvitation" method="emailInvitation"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/EMailInvitations.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="employeesForSearchAgenda" method="employeesForSearchAgenda"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/SearchEmployeeForAgenda.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="employeesForSearchAgendaP4" method="employeesForSearchAgendaP4"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/SearchEmployeeForAgendaP4.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="employeesForSearchTRM" method="employeesForSearchTRM"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/SearchTRMOrder.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="employeesUnderSelection" method="employeesUnderSelection"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/EmployeeList.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getBoxesForTRMDates" method="getBoxesForTRMDates"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/PrintInvitations.jsp
+
+			</result>
+		</action>
+		<action name="groupForSelectedCluster_AJAX" method="groupForSelectedCluster_AJAX"
+			class="com.pfizer.action.PrintHomeControllerAction">
+
+		</action>
+		<action name="printInvitation" method="printInvitation"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/PrintInvitations.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="printInvitationForSelectedGroup" method="printInvitationForSelectedGroup"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/PrintProgressWindow.jsp
+
+			</result>
+		</action>
+		<action name="printPersonalizedAgenda" method="printPersonalizedAgenda"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/PrintPersonalizedAgenda.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="printPersonalizedAgendaP4" method="printPersonalizedAgendaP4"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/PrintPersonalizedAgendaP4.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="printSearchEmployeeAgenda" method="printSearchEmployeeAgenda"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/SearchEmployeeAgendaPrint.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="printSearchEmployeeAgendaP4" method="printSearchEmployeeAgendaP4"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/SearchEmployeeAgendaPrintP4.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="printSearchTRMOrder" method="printSearchTRMOrder"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/SearchTRMPrint.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="processTRMOrders" method="processTRMOrders"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/EMailInvitations.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="sendEmailInvitation" method="sendEmailInvitation"
+			class="com.pfizer.action.PrintHomeControllerAction">
+			<result name="success">
+				/PrintHome/EMailInvitations.jsp
+
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+
+
+	<package name="GNSM" namespace="/GNSM" extends="struts-default">
+		<action name="beginGNSM" method="beginGNSM"
+			class="com.pfizer.action.GNSMControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXLs">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="listReportGNSM" method="listReportGNSM"
+			class="com.pfizer.action.GNSMControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/PLCReportListXlsgnsm.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="getFilteredChartGNSM" method="getFilteredChartGNSM"
+			class="com.pfizer.action.GNSMControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="searchGNSM" method="searchGNSM"
+			class="com.pfizer.action.GNSMControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+
+	<package name="CUE" namespace="/CUE" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.CueControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+	<package name="Training" namespace="/overview" extends="struts-default">
+		<action name="PWRAcharts" method="PWRAcharts"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="begin" method="begin" class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="charts" method="charts" class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="detailreport" method="detailreport"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="detailreportPOA" method="detailreportPOA"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="detailreportPDFHS" method="detailreportPDFHS"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="getEmployeeDetails" method="getEmployeeDetails"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+		</action>
+		<action name="grantExemption" method="grantExemption"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/components/report/GrantExemptPopUp.jsp
+			</result>
+			<result name="successReturn" type="redirect">
+				detailreport
+			</result>
+		</action>
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+		</action>
+		<action name="revokeExemption" method="revokeExemption"
+			class="com.pfizer.action.TrainingAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+
+		</action>
+
+	</package>
+
+	
+	<package name="P4" namespace="/P4" extends="struts-default">
+
+		<action name="begin" method="begin"
+			class="com.pfizer.action.P4ControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/index.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="displayClassRosterReport" method="displayClassRosterReport"
+			class="com.pfizer.action.P4ControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="P4ClassRoomReport" method="P4ClassRoomReport"
+			class="com.pfizer.action.P4ControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="p4traineetablemap" method="p4traineetablemap"
+			class="com.pfizer.action.P4ControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+		<action name="p4traineedtableupdate" method="p4traineedtableupdate"
+			class="com.pfizer.action.P4ControllerAction">
+			<result name="success" type="chain">
+				P4ClassRoomReport
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="p4scereport" method="p4scereport"
+			class="com.pfizer.action.P4ControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+
+		</action>
+
+	</package>
+	<package name="POA" namespace="/POA" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.POAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="getFilteredChart" method="getFilteredChart"
+			class="com.pfizer.action.POAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.POAControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/POAReportListXlS.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+	<package name="sitereport" namespace="/sitereport" extends="struts-default">
+		<action name="begin" method="begin" class="com.pfizer.action.SiteStatsAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="runreports" method="runreports"
+			class="com.pfizer.action.SiteStatsAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="runtsr" method="runtsr"
+			class="com.pfizer.action.SiteStatsAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+	</package>
+
+	<package name="SPF" namespace="/SPF" extends="struts-default">
+
+		<action name="begin" method="begin"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/index.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="beginHS" method="beginHS"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="listreport" method="listreport"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/report/POAReportListXls.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="SPFHSReportTrainingSchedule" method="SPFHSReportTrainingSchedule"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="SPFHSReportTrainingScheduleEmplList" method="SPFHSReportTrainingScheduleEmplList"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="SPFHSReportVariance" method="SPFHSReportVariance"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="getFilteredChart" method="getFilteredChart"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="beginPLC" method="beginPLC"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="listReportPLC" method="listReportPLC"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/components/report/SPFPLCReportListXls.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="getFilteredChartPLC" method="getFilteredChartPLC"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="SPFHSReportPersonalAgenda" method="SPFHSReportPersonalAgenda"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="SPFHSReportClassRoster" method="SPFHSReportClassRoster"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="SPFHSReportGeneralSessionAttendance" method="SPFHSReportGeneralSessionAttendance"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="generalSessionAttendance" method="generalSessionAttendance"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/SPF/GeneralSession.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="updateGeneralSession" method="updateGeneralSession"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/SPF/GeneralSession.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="adminToolsSelect" method="adminToolsSelect"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="index">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+
+		<action name="SPFEnrollmentSummaryReport" method="SPFEnrollmentSummaryReport"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		<action name="SPFEnrollmentChangeReport" method="SPFEnrollmentChangeReport"
+			class="com.pfizer.action.SPFControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+	</package>
+
+<package name="RbuSearch" namespace="/RBU/rbuSearch" extends="struts-default">
+		<action name="begin" method="begin"
+			class="com.pfizer.action.RbuSearchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+                   errorMain
+             </result>
+		</action>
+
+		<action name="searchRBU" method="searchRBU"
+			class="com.pfizer.action.RbuSearchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+                   errorMain
+             </result>
+		</action>
+
+		<action name="searchemployeerbu" method="searchemployeerbu"
+			class="com.pfizer.action.RbuSearchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+                   errorMain
+             </result>
+		</action>
+
+		<action name="searchemployeerbuform" method="searchemployeerbuform"
+			class="com.pfizer.action.RbuSearchControllerAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="successXls">
+				/WEB-INF/jsp/templates/blankTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+                   errorMain
+             </result>
+		</action>
+
+	</package>
+
+
+</struts>

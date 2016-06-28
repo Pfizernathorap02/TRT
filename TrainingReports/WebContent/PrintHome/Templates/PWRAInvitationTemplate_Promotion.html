@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<style type="text/css" MEDIA="screen">
+
+
+
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+</style>
+
+<STYLE TYPE="text/css" MEDIA="print">
+		@page {
+size:8.5in 11.0in;
+margin:1.0in 1.25in 1.0in 1.25in;
+mso-header-margin:1.0in;
+mso-footer-margin:.5in;
+}	
+.noprint {display: none;}	
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+
+	</STYLE>
+
+<TITLE>$orderNumber $type</TITLE>
+</HEAD>
+
+<BODY>
+
+<p class='text'>
+<br><br><br><br><br><br>
+<table>
+<TR>
+	<TD  width="65%" class="text">$currentDate</TD> 
+</TR>
+
+</table>
+
+
+<TABLE cellspacing="0" cellpadding="0">
+
+
+<TR>
+
+	<TD class="text"><br>$firstName&nbsp;$lastName</TD>
+</TR>
+<tr>
+
+	<TD class="text">$shipAdd1</TD>
+</tr>
+<tr>
+
+	<TD class="text">$shipCity,&nbsp;$shipState &nbsp;$shipZip</TD>
+</tr>
+
+
+<tr>
+
+<td class="text"><br>Dear $prefName:<br><br></td>
+</tr>
+
+<tr>
+<td class="text">
+Congratulations on your recent promotion and welcome to Phase I of TSR Training. You are entering into an exciting time in your Pfizer career filled with new challenges and opportunities.  Enclosed you will find resources designed to enhance the skills necessary to maintain your record of success in a new selling environment. 
+<br><br>
+The Phase TSR I Home Study Kit described below will help you become familiar with your newly assigned accounts and institutions.  Moreover, it is designed to assist you in organizing the data you uncover to maximize your effectiveness with your new customers.
+<br><br>
+Your TSR Phase I Home Study Kit consists of the following materials:
+<br><br>
+</td> 
+</tr>
+
+<!--All Materials-->
+               
+               <tr>               
+                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;Guide to Clinical Studies and Edivence-Based Medicine</td>
+               </tr> 				
+               <tr>
+                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;The Virtual Hospital Tour CD-ROM</td>                 
+               </tr> 				
+               <tr>
+                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;Product Learning Modules</td>                                  
+               </tr> 				
+<tr><td>&nbsp</td></tr>
+<tr><td>
+<b>Please Note: You must successfully complete a pedagogue exam for each product in your portfolio.  All TSRs, regardless of tenure and/or experience, are required to complete these exams as a mandatory aspect of TSR Training. The minimum passing grade for each exam is 80%.  All Pedagogue TSR Phase 1 Product exams are available on line via <u>http://P2L.Pfizer.com</u></b>
+
+<br><br>You are required to read all the modules contained in the Learning Systems and will be tested on all disease states for your products.  You will need to take one exam per product that encompasses both disease and treatment. The Pedagogue testing requirements are as follows according to your new role.<br><br>
+</td></tr>
+
+
+
+<tr >
+	<TD class="text"> 
+			#set ($rowMax= 1) 
+     		#foreach($product in $products)            
+			  #set ($rowMax= $rowMax + 1)
+			#end
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><font face="Symbol">&#183;</font></b>&nbsp;&nbsp;$teamdesc:&nbsp;&nbsp;
+			#set ($rowCount = 1) 
+			#foreach($product in $products)            
+			  #if($rowCount>1)
+  			   ,&nbsp; 
+			 #end
+			$product
+			#set ($rowCount = $rowCount + 1)
+			#end
+			<br>
+			<br>
+
+	</td>
+</tr>
+
+<tr><td>
+All Phase I materials and testing must be successfully completed in order to be eligible to attend TSR Phase II Training.  You are required to complete all exams by March 30, 2008.  We wish you continued success as you take on your new assignment and look forward to meeting you at Phase II the week of March 31, 2008. 
+<br><br>
+<b>Powers Sales Training</b>
+</td></tr>
+
+</TABLE>
+</p>
+</BODY>
+</HTML>
+

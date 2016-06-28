@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<style type="text/css" MEDIA="screen">
+
+
+
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+</style>
+
+<STYLE TYPE="text/css" MEDIA="print">
+		@page {
+size:8.5in 11.0in;
+margin:1.0in 1.25in 1.0in 1.25in;
+mso-header-margin:1.0in;
+mso-footer-margin:.5in;
+}
+.noprint {display: none;}
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+
+</STYLE>
+
+<TITLE>$orderNumber $type</TITLE>
+</HEAD>
+
+<BODY>
+
+<p class='text'>
+<br><br><br>
+<TABLE cellspacing="0" cellpadding="0">
+	<tr><td><div id=header_logo></div></td></tr>
+	<tr>
+		<td class="text"><br>Dear $firstName,<br><br></td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify">
+		Welcome to the beginning of product training for your newly assigned business unit. The training you will soon undertake will prepare you for the opportunities you will face in an ever changing market environment.
+		<br><br>
+
+		Please read this communication closely.  It contains the details of your upcoming training:  product assignments and schedules including pre-work, Pedagogue exam deadlines, travel logistics, dress code, and help desk contact information.
+		<br><br>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<b>Product Assignments, Schedule, & Pre-work</b>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify">
+		Your product assignment(s) are as follows:
+		<br><br>
+		</td>
+	</tr>
+
+	<!--All Materials-->
+
+	#foreach($product in $products)
+	<tr>
+		<td class="text">
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;$product
+		</td>
+	 </tr>
+	 #end
+
+	<tr><td>&nbsp;</td></tr>
+	 <tr>
+		 <td class="text" align="justify">
+		 Pfieldnet will serve as your training home page; you will find links to your study plan and resources for each product. The study plan for each product includes a PI study guide, clinical reprints, and Adobe Live Presentations (IDLs).
+		 <br><br>
+		</td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify"> Static link to IDL public folder(s)
+		 <br><br>
+	 </td>
+	 </tr>
+
+	 <tr>
+		<td class="text" align="justify"><b>Testing</b> </td>
+	 </tr>
+	 <tr>
+		 <td class="text" align="justify">
+		 Pedagogue testing is required for product training.  Use the corresponding links to register for pedagogue exams for assigned products:
+		 </td>
+	 </tr>
+
+	 <tr>
+		<td class="text" align="justify">  Static Text pertaining to testing deadline. <br><br> </td>
+	 </tr>
+
+	 <tr>
+		<td class="text" align="justify"><b>Travel Logistics </b></td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify">Please <i>register immediately</i> at the following site to initiate your travel arrangements <br>
+			(Static registration Link to Carlson's site)
+		<br><br>
+		</td>
+	</tr>
+
+	 <tr>
+		<td class="text" align="justify"><b>Dress Code </b></td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify">Dress code for the training experience will be business casual. Jeans and sneakers are not permitted.
+		 <br><br>
+		 </td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify"><b>What to Bring </b></td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify">Laptop computer
+		 <br>
+		 Completed PI Study Guides
+		 <br><br>
+		 </td>
+	</tr>
+
+
+
+	<tr>
+		<td class="text" align="justify">
+
+		If you have any questions regarding Primary/Specialty Care Product Training, please send an email to  <a href="mailto:traininglogistics@pfizer.com">traininglogistics@pfizer.com</a>  or call 1-866-4LD-2WIN (1-866-453-2946) Monday-Friday during the hours of 8:00 a.m. to 6:00 p.m. EST.
+
+		<br><br>
+		We thank you in advance for your dedication, time, and effort. Your hard work will play an integral part in your sales success.
+
+		<br><br>
+		- Product Training Team
+		</td>
+	</tr>
+
+</TABLE>
+</p>
+</BODY>
+</HTML>
+

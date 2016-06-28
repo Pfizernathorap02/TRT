@@ -1,0 +1,263 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<%@ page import="com.pfizer.db.EmpReport"%>
+<%@ page import="com.pfizer.db.Employee"%>
+<%@ page import="com.pfizer.db.Product"%>
+<%@ page import="com.pfizer.webapp.AppConst"%>
+<%@ page import="com.pfizer.webapp.AppQueryStrings"%>
+<%@ page import="com.pfizer.webapp.report.ClassFilterForm"%>
+<%@ page import="com.pfizer.webapp.user.User"%>
+<%@ page import="com.pfizer.webapp.wc.components.report.GeneralSessionWc"%>
+<%@ page import="com.pfizer.webapp.wc.page.ListReportWpc"%>
+<%@ page import="com.tgix.Utils.Util"%>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="com.tgix.html.FormUtil"%>
+<%@ page import="com.tgix.html.HtmlBuilder"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%-- <%@ taglib uri="netui-tags-databinding.tld" prefix="netui-data"%>
+<%@ taglib uri="netui-tags-html.tld" prefix="netui"%>
+<%@ taglib uri="netui-tags-template.tld" prefix="netui-template"%> --%>
+
+<%
+    boolean downloadExcel = request.getParameter("downloadExcel") != null && request.getParameter("downloadExcel").equals("true");  
+    GeneralSessionWc wc = (GeneralSessionWc)request.getAttribute(ListReportWpc.ATTRIBUTE_NAME);         
+    SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+    ClassFilterForm form = wc.getClassFilterForm();    
+    HashMap classDataMap = wc.getClassDataMap();
+        
+%>
+
+<%!
+
+	public String getStringForClassRooms(HashMap classDataMap, String jsObjectName) {
+		//Collections.sort(areas);		
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+		StringBuffer sb = new StringBuffer();
+		String classroomObjName;
+		String dateObjName;
+		String productObjName;		
+
+		sb.append(addOptionString(jsObjectName,"All","All"));
+		sb.append(".child = new tgixSelect('" + ClassFilterForm.FIELD_TRAININGDATE +"');\n") ;
+		dateObjName = jsObjectName+".getOption('All').child"; 
+		sb.append( addOptionString( dateObjName, "All", "All" ) + ";\n");
+		
+        for ( Iterator itc = classDataMap.keySet().iterator(); itc.hasNext(); ) {
+			Date dtTemp;
+			String clsTemp = (String)itc.next();
+			sb.append(addOptionString(jsObjectName,clsTemp,clsTemp));
+			sb.append(".child = new tgixSelect('" + ClassFilterForm.FIELD_TRAININGDATE +"');\n") ;
+			dateObjName = jsObjectName+".getOption('" + clsTemp + "').child"; 
+			sb.append( addOptionString( dateObjName, "All", "All" ) + ";\n");
+		    ArrayList dateList = (ArrayList)(classDataMap.get(clsTemp));            
+			//Collections.sort(regions);	
+
+			for ( Iterator it = dateList.iterator(); it.hasNext(); ) {
+				dtTemp = (Date)it.next();
+                String dtTempStr = format.format(dtTemp);				
+                sb.append(addOptionString(dateObjName,dtTempStr,dtTempStr) + ";\n");
+			}
+		}
+		return sb.toString();
+	}
+
+	public String addOptionString(String jsObjName,String name,String value) {
+		StringBuffer sb = new StringBuffer();
+		sb.append(jsObjName + ".addOption('" + name + "','" + value + "')");
+		return sb.toString();
+	}
+
+%>
+<script src="/TrainingReports/resources/js/tgixDynamicSelect.js"></script>
+<script language="JavaScript1.2">
+
+
+var dynamicSelect;
+dynamicSelect = new tgixSelect('<%=ClassFilterForm.FIELD_CLASSROOM%>');
+<%=getStringForClassRooms(classDataMap,"dynamicSelect")%>
+
+function dropDownPopulate() {
+	populateTgixSelect(dynamicSelect);
+	<% if ( !Util.isEmpty( form.getClassRoom() ) ) { %>
+		var tmpSel = document.getElementById( '<%=ClassFilterForm.FIELD_CLASSROOM%>' );
+		if (tmpSel != null) {
+			var opTemp;
+
+			for( var x=0; x< tmpSel.options.length; x++ ) {
+				if ( tmpSel.options[x].value == '<%=form.getClassRoom()%>' ) {
+					tmpSel.options[x].selected = true;
+					updateTgixSelect(tmpSel,dynamicSelect)
+				} 
+			}
+		}
+	<% } %>
+
+
+	<% if ( !Util.isEmpty( form.getTrainingDate() ) ) { %>
+		var tmpSel = document.getElementById( '<%=ClassFilterForm.FIELD_TRAININGDATE%>' );
+		if (tmpSel != null) {
+			var opTemp;
+			for( var x=0; x< tmpSel.options.length; x++ ) {
+				if ( tmpSel.options[x].value == '<%=form.getTrainingDate()%>' ) {
+					tmpSel.options[x].selected = true;
+					updateTgixSelect(tmpSel,dynamicSelect)
+				} 
+			}
+		}
+	<% } %>
+}
+
+</script>
+
+
+<html>
+    <head>
+        <title>
+            PDF - General Session Attendance Report
+        </title>
+    </head>
+    
+     
+
+    <script src="/TrainingReports/resources/js/sorttable.js"></script>
+    
+    
+    <script type="text/javascript" language="JavaScript">
+        addEvent(window, "load", sortables_init);
+        
+        
+        function sortables_init() {
+            // Find all tables with class sortable and make them sortable
+            if (!document.getElementsByTagName) return;
+            tbls = document.getElementsByTagName("table");
+            for (ti=0;ti<tbls.length;ti++) {
+                thisTbl = tbls[ti];
+                if (((' '+thisTbl.id+' ').indexOf("employee_table") != -1) && (thisTbl.id)) {
+                    //initTable(thisTbl.id);
+                    ts_makeSortable(thisTbl);
+                }
+            }
+        }
+    </script>
+   
+    
+    <body>
+        <div style="margin-left:10px;margin-right:10px">        
+        
+        
+        <%if (!downloadExcel) {%>
+        <h3 style="MARGIN-TOP:15PX">
+            PDF - General Session Attendance Report
+        </h3>
+        <table class="basic_table" style="margin-left:10px;margin-right:10px">
+        <form action="<%=AppConst.APP_ROOT%>/PWRA/PDFHSReportGeneralSessionAttendance" method="post" class="form_basic">
+        
+
+        <tr>
+            <td><label>Class Room:</label></td>
+        </tr>
+		<tr>
+            <td>
+                <select id="<%=wc.getClassFilterForm().FIELD_CLASSROOM%>" name="<%=wc.getClassFilterForm().FIELD_CLASSROOM%>" onchange="updateTgixSelect(this,dynamicSelect)">                        
+                </select>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td><label>Training Date:</label></td>
+        </tr>
+		<tr>
+            <td>
+                <select id="<%=wc.getClassFilterForm().FIELD_TRAININGDATE%>" name="<%=wc.getClassFilterForm().FIELD_TRAININGDATE%>" onchange="updateTgixSelect(this,dynamicSelect)">                        
+                </select>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <input type="submit" value="Get Report">	
+		    </td>
+        </tr>
+        <tr>
+            <td height="20"></td>
+        </tr>
+        </form>
+        </table>
+        <div style="margin-left:10px;margin-right:10px">
+            <div id="table_inst">
+                <img src="<%=AppConst.APP_ROOT%>/resources/images/excel.gif" width="15px">&nbsp;<a href="<%=AppConst.APP_ROOT%>/PWRA/PDFHSReportGeneralSessionAttendance?downloadExcel=true&<%=wc.getClassFilterForm().FIELD_CLASSROOM%>=<%=form.getClassRoom()%>&<%=wc.getClassFilterForm().FIELD_TRAININGDATE%>=<%=form.getTrainingDate()%>">Download to Excel</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="<%=AppConst.APP_ROOT%>/pdfhsreportselect">PDF Reports Home</a>
+            </div>            
+        </div>  
+        <%}%>      
+        
+
+        
+        <table cellspacing="0" id="employee_table" width="90%" class="employee_table" style="margin-left:10px;margin-right:10px">
+        <%if (downloadExcel) {%>
+        <tr>
+            <td colspan="5"><b>PDF - General Session Attendance Report</b></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td><label>Class Room:</label></td>
+            <td><%=form.getClassRoom()%></td>
+        </tr>
+        <tr>
+            <td><label>Training Date:</label></td>
+            <td><%=form.getTrainingDate()%></td>
+        </tr>
+        <tr></tr>
+        <%}%>
+        
+        
+        <tr>
+            <th nowrap>SlNo.</th>
+            <th nowrap>EMPLID</th>
+            <th nowrap>First Name</th>
+            <th nowrap>Last Name</th>
+            <th nowrap>Preferred Name</th>
+            <th nowrap>Post - PDF Team</th>
+            <th nowrap>Post - PDF Role</th>
+            <th nowrap>Status</th>
+        </tr>
+        <%
+            EmpReport[] arrEmpReport = wc.getEmpReport();
+            EmpReport oEmpReport;
+            if (arrEmpReport != null)
+            for(int i=0; i<arrEmpReport.length; i++) {
+                oEmpReport = arrEmpReport[i];
+                
+        %>
+        <tr>
+            <td><%=i+1%></td>
+            <td><%=downloadExcel? Util.toEmptyNBSP(Util.formatStrExcel(oEmpReport.getEmplId())) : Util.toEmptyNBSP(oEmpReport.getEmplId())%></td>
+            <%if (!downloadExcel) {%>
+            <td><a href="<%=AppConst.APP_ROOT%>/PWRA/employeeDetail/getEmployeeDetail?emplid=<%=oEmpReport.getEmplId()%>&m0=report&m1=PDF"><%=Util.toEmptyNBSP(oEmpReport.getFirstName())%></a></td>
+            <td><a href="<%=AppConst.APP_ROOT%>/PWRA/employeeDetail/getEmployeeDetail?emplid=<%=oEmpReport.getEmplId()%>&m0=report&m1=PDF"><%=Util.toEmptyNBSP(oEmpReport.getLastName())%></a></td>
+            <%} else {%>
+            <td><%=Util.toEmptyNBSP(oEmpReport.getFirstName())%></td>
+            <td><%=Util.toEmptyNBSP(oEmpReport.getLastName())%></td>
+            <%}%>
+            <td><%=Util.toEmptyNBSP(oEmpReport.getPreferredName())%></td>            
+            <td><%=Util.toEmptyNBSP(oEmpReport.getTeamDesc())%></td>
+            <td><%=Util.toEmptyNBSP(oEmpReport.getRole())%></td>
+            <td><%=Util.toEmptyNBSP(oEmpReport.getAttendanceStatus())%></td>            
+        <%
+            }         
+        %>
+        </table>
+        </div>
+    </body>
+</html>
+<script type="text/javascript" language="JavaScript">
+
+	// initializes the onload function
+
+	document.onload = dropDownPopulate();
+
+</script>

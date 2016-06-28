@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<style type="text/css" MEDIA="screen">
+
+
+
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+</style>
+
+<STYLE TYPE="text/css" MEDIA="print">
+		@page {
+size:8.5in 11.0in;
+margin:1.0in 0.6in 1.0in 0.3in;
+mso-header-margin:1.0in;
+mso-footer-margin:.5in;
+}
+.noprint {display: none;}
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+}
+
+
+
+</STYLE>
+
+<TITLE>$orderNumber $type</TITLE>
+</HEAD>
+
+<BODY>
+
+<p class='text'>
+<TABLE cellspacing="0" cellpadding="0">
+
+	<TR>
+		<TD  width="65%" class="text">$currentDate</TD>
+	</TR>
+
+	<TR>
+		<TD class="text"><br>$firstName&nbsp;$lastName</TD>
+	</TR>
+
+	<tr>
+		<TD class="text">$shipAdd1</TD>
+	</tr>
+	<tr>
+		<TD class="text">$shipCity,&nbsp;$shipState&nbsp;$shipZip</TD>
+	</tr>
+
+
+	<tr>
+		<td class="text"><br>Dear $firstName,<br><br></td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify">
+		Welcome to the beginning of product training for your newly assigned business unit. The training you will soon undertake will prepare you for the opportunities you will face in an ever-changing market environment.
+		<br><br>
+
+		Please read this communication closely.  It contains the details of your upcoming training; product assignments and schedules including pre-work, Pedagogue exam deadlines, travel logistics, dress code, and help desk contact information.
+		<br><br>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<b>Product Assignments, Schedule & Pre-work</b>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify">
+		Your product assignment(s) are as follows:
+		<br><br>
+		</td>
+	</tr>
+
+	<!--All Materials-->
+
+	#foreach($product in $products)
+	<tr>
+		<td class="text">
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;$product
+		</td>
+	 </tr>
+	 #end
+
+	<tr><td>&nbsp;</td></tr>
+	 <tr>
+		 <td class="text" align="justify">
+		 PfieldNet will serve as your training home page; you will find links to your study plan and resources for each product. The study plan for each product includes a PI study guide, clinical reprints (where appropriate) and Adobe Presentations (IDLs).&nbsp;<b><i>Please click on the address below and begin your work with the Product STUDY Guide:</i></b>
+		 <br><br>
+
+		 <a href="http://pfieldnet.pfizer.com/workspace/pages/PSCPT.aspx">http://pfieldnet.pfizer.com/workspace/pages/PSCPT.aspx</a>
+		 &nbsp;(top right corner of page and click on <b>Product Training</b>)
+		 <br><br>
+		</td>
+	 </tr>
+	 <tr>
+		<td class="text" align="justify"><b>Testing</b> </td>
+	 </tr>
+	 <tr>
+		 <td class="text" align="justify">
+		 Pedagogue testing is required for product training.  Use the corresponding link to register for Pedagogue exams for assigned products.  If you have problems gaining access to Pedagogue, please call the IBM Help Desk.
+		 <br><br>
+		 <a href="http://P2L.pfizer.com">http://P2L.pfizer.com</a>
+		 <br><br>
+		 </td>
+	 </tr>
+
+	 <tr>
+		<td class="text" align="justify"><b>Travel Logistics </b></td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify">Starting Wednesday, February 4<sup>th</sup>, please register at the following site to initiate your travel arrangements. You <b><i>must be registered</i></b> in order to attend Product Training.
+		<br><br>
+		<a href="https://www.exl.carlson.com/PrimarySpecialtyCareProductTraining">https://www.exl.carlson.com/PrimarySpecialtyCareProductTraining</a>
+
+		<br><br>
+		</td>
+	</tr>
+
+	 <tr>
+		<td class="text" align="justify"><b>Dress Code </b></td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify">Dress code for the training experience will be business casual. Jeans and sneakers are not permitted.
+		 <br><br>
+		 </td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify">
+
+		If you have any questions regarding Product Training, please send an email to <a href="mailto:traininglogistics@pfizer.com">traininglogistics@pfizer.com</a>  or call 1-866-4LD-2WIN (1-866-453-2946) Monday-Friday during the hours of 8:00 a.m. to 6:00 p.m. EST.
+
+		<br><br>
+		We thank you in advance for your dedication, time, and effort. Your hard work will play an integral part in your sales success.
+		<br><br>
+
+		Good luck and good selling,
+
+		<br><br>
+		Product Training Team
+		</td>
+	</tr>
+
+</TABLE>
+</p>
+</BODY>
+</HTML>
+

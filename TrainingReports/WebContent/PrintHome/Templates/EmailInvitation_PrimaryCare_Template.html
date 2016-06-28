@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<style type="text/css" MEDIA="screen">
+
+
+
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+</style>
+
+<STYLE TYPE="text/css" MEDIA="print">
+		@page {
+size:8.5in 11.0in;
+margin:1.0in 1.25in 1.0in 1.25in;
+mso-header-margin:1.0in;
+mso-footer-margin:.5in;
+}
+.noprint {display: none;}
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+
+}
+
+
+
+</STYLE>
+
+<TITLE>$orderNumber $type</TITLE>
+</HEAD>
+
+<BODY>
+
+<p class='text'>
+<TABLE cellspacing="0" cellpadding="0">
+	<tr><td><div id=header_logo></div></td></tr>
+	<tr>
+		<td class="text"><br>Dear $firstName,<br><br></td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify">
+		Congratulations and welcome to the beginning of Product Training for your newly assigned business unit. The training you are about to embark on is one step you will take as we move to a more customer-focused organization.
+		<br><br>
+
+		With an ever-changing market environment it&#8217;s more critical than ever to have a keen understanding about what physicians really want to know - therapeutic areas, disease states, and how our products fit into the mix of the challenges they face in treating patients. We are confident that this training will provide you with a deeper knowledge of multiple products, which in turn will help you succeed as a Pfizer Primary Care Sales Representative.
+		<br><br>
+
+		Below you will find important details about your upcoming Product Training, including product assignments and schedules including pre-work, Pedagogue exam schedule(s), travel logistics, dress code, and help desk contact information.
+		<br><br>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+		<b>Product Assignments, Schedule & Pre-work</b>
+		</td>
+	</tr>
+
+	<tr>
+		<td class="text" align="justify">
+		Your product assignment(s) and corresponding training date(s) are as follows:
+		<br><br>
+		</td>
+	</tr>
+
+	<!--All Materials-->
+
+	#foreach($product in $products)
+	<tr>
+		<td class="text">
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Symbol">&#183;</font>&nbsp;&nbsp;$product
+		</td>
+	 </tr>
+	 #end
+
+	<tr><td>&nbsp;</td></tr>
+	 <tr>
+		 <td class="text" align="justify">
+		 To access your study plan and training resources for each product, please use the PfieldNet link below.  The study plan for each product includes a PI study guide, clinical reprints (where appropriate) and Adobe Presentations (IDLs).&nbsp;<b><i>Please click on the address below and begin your work with the Product STUDY Guide:</i></b>
+		 <br><br>
+		</td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify"> <a href="http://pfieldnet.pfizer.com/workspace/Pages/PSCPT.aspx">http://pfieldnet.pfizer.com/workspace/Pages/PSCPT.aspx</a>
+			&nbsp;(top right corner and click on <b>Product Training</b> )
+		 <br><br>
+	 </td>
+	 </tr>
+
+
+	 <tr>
+		<td class="text" align="justify"><b>Testing</b> </td>
+	 </tr>
+	 <tr>
+	 		 <td class="text" align="justify">
+	 		 Pedagogue testing is required for Product Training.  Use the corresponding link to register for Pedagogue exams for your assigned products:
+	 		 <br><br>
+	 		 <a href="http://P2L.Pfizer.com"/>http://P2L.Pfizer.com</a> <br><br>
+	 		 If you have problems gaining access to Pedagogue, please call the IBM Help Desk.
+	 		 <br><br>
+	 		 </td>
+	 </tr>
+
+	 <tr>
+		<td class="text" align="justify"><b>Travel Logistics </b></td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify">Starting Wednesday, February 4<sup>th</sup>, please register at the following site to initiate your travel arrangements.  You must be registered in order to attend Product Training.
+		<br><br>
+
+		<a href = "https://www.exl.carlson.com/PrimarySpecialtyCareProductTraining">https://www.exl.carlson.com/PrimarySpecialtyCareProductTraining</a>
+		<br><br>
+		</td>
+	</tr>
+
+	 <tr>
+		<td class="text" align="justify"><b>Dress Code </b></td>
+	 </tr>
+
+	 <tr>
+		 <td class="text" align="justify">Dress code for Product Training is business casual. Jeans and sneakers are not permitted.
+		 <br><br>
+		 </td>
+	</tr>
+
+
+	<tr>
+		<td class="text" align="justify">
+
+		If you have any questions regarding Product Training, please send an email to <a href="mailto:traininglogistics@pfizer.com">traininglogistics@pfizer.com</a> or call 1-866-4LD-2WIN (1-866-453-2946) Monday-Friday during the hours of 8:00 a.m. to 6:00 p.m. EST.
+
+		<br><br>
+		We thank you in advance for your dedication, time and effort. It&#8217;s your hard work that will play an integral part in your sales success. And remember, Primary Care is not just about treating a disease - it&#8217;s about ensuring wellness and enhancing quality of life, with prevention being equally important as curing sickness.
+
+		<br><br>
+		Good luck and good selling,
+
+		<br><br>
+		Product Training Team
+		</td>
+	</tr>
+
+</TABLE>
+</p>
+</BODY>
+</HTML>
+

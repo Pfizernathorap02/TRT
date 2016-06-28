@@ -1,0 +1,125 @@
+#top_header {
+	height: 92px;
+	background: #aed6eb url(/TrainingReports/resources/images/top_head_background.gif) repeat-y 0 0;
+	text-align:left;
+	width: auto;
+	border-bottom: solid 8px #ffcc33;
+	margin: 0; 
+	padding: 0;
+	overflow: hidden;
+}
+
+#header_logo {
+	margin: 15px 40px;
+	height: 0;
+	width: 88px;		/* image width */
+	padding-top: 57px;	/* image height */
+	overflow: hidden;
+	font-size: 1px;
+	float:left;
+	background: url(/TrainingReports/resources/images/h1_logo.gif) no-repeat;
+}
+
+
+#header_title {
+	margin: 35px 0;
+	padding: 0px;
+	font-size: 1.7em;
+	border: none;
+	color: #fff;
+	float: left;
+	width: auto;	
+}
+
+
+#header_top_nav {
+	margin: 0 auto;
+	width: 220px;
+	list-style: none;
+	text-align: center;
+	background: #1f61a9;
+	padding: 5px;
+	color: #fff;
+	position: absolute;
+	top:0;
+	right:0;	
+	overflow: auto;
+	font-size: 0.8em;
+}
+
+#header_top_nav_small {
+	margin: 0 auto;
+	width: 60px;
+	list-style: none;
+	text-align: center;
+	background: #1f61a9;
+	padding: 5px;
+	color: #fff;
+	position: absolute;
+	top:0;
+	right:0;	
+	overflow: auto;
+	font-size: 0.8em;
+}
+
+
+#header_top_nav ul {
+
+}
+
+#header_top_nav li {
+	display: inline;
+	padding: 0 8px;
+	border-right: solid 1px #fff;
+
+}
+
+#header_top_nav a {
+	color: #fff;
+}
+
+#header_top_nav a:hover {
+	color: #ffcc33;
+}
+
+#header_top_nav .last {border: 0;}
+
+#header_bottom_nav {
+	margin: 0 auto;
+	list-style: none;
+	text-align: center;
+	background: none;
+	padding: 0px;
+	color: #fff;
+	position: absolute;
+	top:55;
+	right:0;	
+}
+
+
+#header_nav_table {
+	border-width: 1px;
+	border-spacing:15px;
+	padding: 10px; 
+	text-align:left; 
+	font-size: .9em;
+	color: #ffffff;
+}
+#header_nav_table td.selected {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+#header_nav_table td.nolink {
+	font-size: .9em;
+	font-weight: bold;
+	color: #666666;
+}
+
+#header_nav_table a {
+	color: #ffffff;
+}
+
+#header_nav_table a:hover {
+	color: #ffffff;
+	font-weight: bold;
+}

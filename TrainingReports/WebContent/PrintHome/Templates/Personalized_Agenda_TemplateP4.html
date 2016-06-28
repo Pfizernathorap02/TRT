@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 TRansitional//EN">
+<HTML>
+<HEAD>
+<style type="text/css" MEDIA="screen">
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+}
+.newtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:12PT;
+FONT-STYLE:NORMAL;
+}
+.bigtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:15PT;
+FONT-STYLE:NORMAL;
+}
+</style>
+<STYLE TYPE="text/css" MEDIA="print">
+		@page {
+size: 8.5in 11.0in ;
+margin:0.2in 0.2in 0.2in 0.2in;
+mso-header-margin:0.2in;
+mso-footer-margin:0.21in;
+}
+.noprint {display: none;}
+
+.text{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:11PT;
+FONT-STYLE:NORMAL;
+}
+
+.newtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:12PT;
+FONT-STYLE:NORMAL;
+}
+.bigtext{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:15PT;
+FONT-STYLE:NORMAL;
+}
+.styleNote{
+FONT-FAMILY:Times New Roman;
+FONT-SIZE:10.0pt;
+}
+
+
+html {
+margin: 0;
+}
+
+body {
+margin: 0;
+}
+
+
+</STYLE>
+
+<TITLE>$emplid </TITLE>
+</HEAD>
+<BODY>
+
+<TABLE cellspacing="0" cellpadding="0">
+	<TR>
+		<TD>
+			<TABLE cellspacing="0" cellpadding="0" border="1" width="100%">
+				<TR>
+						<TD class="bigtext" align="center"> P4 Training  <BR>
+							 Pfizer Learning Center at Arrowwood <BR> $week_name
+						</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+			<TD>&nbsp;</TD>
+	</TR>
+
+	<TR>
+		<TD class="bigtext">Name: $lastName, &nbsp;$firstName</TD>
+	</TR>
+
+	<TR>
+		<TD class="text" align="justify">
+		<b>Welcome to P4 Training!</b> Below is your personalized agenda for your Training at the Pfizer Learning center.  If you have any questions, please speak with one of the P4 Training Managers.
+		</TD>
+	</TR>
+
+	<TR>
+		<TD class="newtext" align="center">
+		<BR>
+		<b><i><u>TRAINING SCHEDULE</u></i></b>
+		</TD>
+	</TR>
+	<!--Outer table-->
+	<TABLE cellspacing="0" cellpadding="0" border = "1" width="100%">
+		<TR>
+			<TD>
+				<TR>
+					<TD width ="13%">&nbsp;</TD>
+					<TD  width ="14%"><b>&nbsp;Monday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Tuesday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Wednesday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Thursday</b></TD>
+					<TD  width ="14%"><b>&nbsp;Friday</b></TD>
+
+				</TR>
+
+			</TD>.
+		</TR>
+		<TR>
+			<TD>
+				<TR>
+					<TD class="text">
+						&nbsp;<b>Session 1</b><BR>
+						&nbsp;Product:<BR><BR>
+						&nbsp;Timing: <BR>
+						&nbsp;Room:<BR>
+						&nbsp;Table:<BR>
+					</TD>
+					<TD align="left" class="text">
+					<BR>
+					#foreach($mondaySession1 in $mondaySession1List)
+						&nbsp;$mondaySession1  <BR>
+					#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($tuesdaySession1 in $tuesdaySession1List)
+							&nbsp;$tuesdaySession1 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($wednesdaySession1 in $wednesdaySession1List)
+							&nbsp;$wednesdaySession1 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($thursdaySession1 in $thursdaySession1List)
+							&nbsp;$thursdaySession1 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($fridaySession1 in $fridaySession1List)
+							&nbsp;$fridaySession1 <BR>
+						#end
+					</TD>
+				</TR>
+			</TD>
+		</TR>
+		<TR>
+				<TD>
+					<TR>
+					<TD class="text">
+						<b>&nbsp;Session 2</b><BR>
+						&nbsp;Product:<BR> <br>
+						&nbsp;Timing: <BR>
+						&nbsp;Room:<BR>
+						&nbsp;Table:<BR>
+					</TD>
+					<TD align="left" class="text">
+					<BR>
+					#foreach($mondaySession2 in $mondaySession2List)
+						&nbsp;$mondaySession2  <BR>
+					#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($tuesdaySession2 in $tuesdaySession2List)
+							&nbsp;$tuesdaySession2 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($wednesdaySession2 in $wednesdaySession2List)
+							&nbsp;$wednesdaySession2 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($thursdaySession2 in $thursdaySession2List)
+							&nbsp;$thursdaySession2 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($fridaySession2 in $fridaySession2List)
+							&nbsp;$fridaySession2 <BR>
+						#end
+					</TD>
+					</TR>
+				</TD>
+		</TR>
+
+		<TR>
+				<TD>
+					<TR>
+					<TD class="text">
+						<b>&nbsp;Session 3</b><BR>
+						&nbsp;Product:<BR> <br>
+						&nbsp;Timing: <BR>
+						&nbsp;Room:<BR>
+						&nbsp;Table:<BR>
+					</TD>
+					<TD align="left" class="text">
+					<BR>
+					#foreach($mondaySession3 in $mondaySession3List)
+						&nbsp;$mondaySession3  <BR>
+					#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($tuesdaySession3 in $tuesdaySession3List)
+							&nbsp;$tuesdaySession3 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($wednesdaySession3 in $wednesdaySession3List)
+							&nbsp;$wednesdaySession3 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($thursdaySession3 in $thursdaySession3List)
+							&nbsp;$thursdaySession3 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($fridaySession3 in $fridaySession3List)
+							&nbsp;$fridaySession3 <BR>
+						#end
+					</TD>
+					</TR>
+				</TD>
+		</TR>
+		<TR>
+				<TD>
+					<TR>
+					<TD class="text">
+						<b>&nbsp;Session 4</b><BR>
+						&nbsp;Product:<BR> <br>
+						&nbsp;Timing: <BR>
+						&nbsp;Room:<BR>
+						&nbsp;Table:<BR>
+					</TD>
+					<TD align="left" class="text">
+					<BR>
+					#foreach($mondaySession4 in $mondaySession4List)
+						&nbsp;$mondaySession4  <BR>
+					#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($tuesdaySession4 in $tuesdaySession4List)
+							&nbsp;$tuesdaySession4 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($wednesdaySession4 in $wednesdaySession4List)
+							&nbsp;$wednesdaySession4 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($thursdaySession4 in $thursdaySession4List)
+							&nbsp;$thursdaySession4 <BR>
+						#end
+					</TD>
+					<TD class="text">
+					<BR>
+						#foreach($fridaySession4 in $fridaySession4List)
+							&nbsp;$fridaySession4 <BR>
+						#end
+					</TD>
+					</TR>
+				</TD>
+		</TR>
+	<!--Outer table-->
+	</table>
+
+	<!--All Materials-->
+
+
+
+</TABLE>
+
+</BODY>
+</HTML>
