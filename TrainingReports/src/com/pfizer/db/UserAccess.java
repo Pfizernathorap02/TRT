@@ -10,6 +10,8 @@ public class UserAccess {
 	public static final String FIELD_NTID		= "ntId";
 	public static final String FIELD_NTDOMAIN	= "ntDomain";
 	public static final String FIELD_STATUS		= "status";
+	public static final String FIELD_REQUESTEDACCESS= "RequestedAccess";
+	public static final String FIELD_ACCESSREQUESTID= "accessRequestId";
 	
 	
 	public static final String STATUS_ACTIVE = "Active";
@@ -24,6 +26,10 @@ public class UserAccess {
 	private String fname;
 	private String lname;
 	private String status;
+	
+	private Boolean RequestedAccess;
+	
+	private String accessRequestId;
 	
 	private Employee employee;
 	 
@@ -106,6 +112,22 @@ public class UserAccess {
 	}
 	public String getStatus() {
 		return this.status;
+	}
+
+	public Boolean getRequestedAccess() {
+		return RequestedAccess;
+	}
+
+	public void setRequestedAccess(Boolean isRequestedAccess) {
+		this.RequestedAccess = isRequestedAccess;
+	}
+
+	public String getAccessRequestId() {
+		return accessRequestId;
+	}
+
+	public void setAccessRequestId(String accessRequestId) {
+		this.accessRequestId = accessRequestId;
 	}
 
 } 

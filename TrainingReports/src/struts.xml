@@ -17,7 +17,40 @@
 			</result>
 
 		</action>
-
+		
+		<!-- Added by Mehraa04 for Requet access  -->
+		
+		<action name="accessRequest" method="accessRequest"
+			class="com.pfizer.action.RequestAccess">
+			<result name="success">
+				/requestAccess.jsp
+			</result>
+			<result name="error" type="redirect">
+				errorMain
+			</result>
+		</action>
+		
+		<action name="rejectRequest" method="rejectRequest"
+			class="com.pfizer.action.RequestAccess">
+			<result name="success">
+				/requestAccess.jsp
+			</result>
+			<result name="error" type="redirect">
+				errorMain
+			</result>
+		</action>
+		
+		<action name="reminderAccessMail" method="reminderAccessMail"
+			class="com.pfizer.action.RequestAccess">
+			<result name="success">
+				/requestAccess.jsp
+			</result>
+			<result name="error" type="redirect">
+				errorMain
+			</result>
+		</action>
+		
+		
 		<action name="reportselect" method="reportselect"
 			class="com.pfizer.action.HomeAction">
 			<result name="index">
@@ -28,6 +61,7 @@
 			</result>
 
 		</action>
+		
 
 		<action name="archivedPage" method="archivedPage"
 			class="com.pfizer.action.HomeAction">
@@ -821,6 +855,9 @@
 			<result name="failure" type="redirect">
 				errorMain
 			</result>
+			<result name="accessRequest">
+				/requestAccess.jsp
+			</result>
 		</action>
 		<action name="sceformaccess" method="sceformaccess"
 			class="com.pfizer.action.AdminAction">
@@ -839,8 +876,26 @@
 				errorMain
 			</result>
 		</action>
-
-
+		
+		<!-- Added by Mehraa04 for Access Approvers -->
+		
+		<action name="accessApprovers" method="getAccessApprovers" class="com.pfizer.action.AccessApproversManager">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		
+		<action name="updateApprovers" method="updateApprovers" class="com.pfizer.action.AccessApproversManager">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
 	</package>
 
 	<package name="DisplayChart" extends="jfreechart-default">

@@ -103,7 +103,8 @@ if (uSession.isAdmin() && !"RBU".equalsIgnoreCase(fromReport))
                                     <option value="/TrainingReports/PrintHome/printInvitation.do">TRM Shipment Letter Tool</option>  -->
 								    <option value="/TrainingReports/rbusreportselect">Admin Reports</option>
 									<option value="/TrainingReports/rbucontrolpanel">Control Panel</option> 
-                                    <option value="/TrainingReports/PrintHome/printInvitation">TRM Shipment Letter Tool</option> 
+                                    <option value="/TrainingReports/PrintHome/printInvitation">TRM Shipment Letter Tool</option>
+                                    <option value="/TrainingReports/admin/accessApprovers">Access Approvers</option> 
 								
 								</select>
 						</td>

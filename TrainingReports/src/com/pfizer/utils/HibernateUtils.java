@@ -10,6 +10,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 
 
 
+@SuppressWarnings("deprecation")
 public class HibernateUtils {
 	public static final String HIBERNATE_SESSIONFACTORY_JNDI_NAME = "HibernateSessionFactory";
 	private static SessionFactory sessionFactory;
@@ -17,12 +18,18 @@ public class HibernateUtils {
 	//static Logger log = Logger.getLogger(HibernateUtils.class.getName());
 
 	static{
-		try{
+		/*try{
 			Configuration configuration=new Configuration().configure();
 			serviceRegistry=new ServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 			sessionFactory =configuration.buildSessionFactory(serviceRegistry);
 		}catch(HibernateException e){
 			System.out.println("Problem Creating Session Factory");
+		}*/
+		
+
+		if(sessionFactory == null)
+		{
+			sessionFactory =  new Configuration().configure().buildSessionFactory();
 		}
 			
 	}

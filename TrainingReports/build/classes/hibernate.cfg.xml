@@ -13,6 +13,8 @@
 	<property name="hibernate.connection.datasource">java:jboss/trt_ds</property>         
 	<property name="hibernate.current_session_context_class">thread</property>
 	
+	<mapping resource="com/pfizer/hbm/AccessRequest.hbm.xml"/>
+	<mapping resource="com/pfizer/hbm/AccessApprover.hbm.xml"/>
 	
 	</session-factory>	
 </hibernate-configuration>

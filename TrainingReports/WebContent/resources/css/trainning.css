@@ -1015,3 +1015,13 @@ color: #ffffff;
 {
 	text-decoration: underline;
 }
+
+/* added by Mehraa04 */
+
+.accessApproversTable>td
+{
+	padding: 3%;
+}
+
+
+

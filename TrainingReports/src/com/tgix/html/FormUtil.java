@@ -60,7 +60,8 @@ public class FormUtil {
 		for (int i = 0; i < fields.length; i++) {
 			Field thisField = fields[i];
 			
-			if (thisField.getName().startsWith(FIELD_IDENTIFIER)) {
+			if (thisField.getName().startsWith(FIELD_IDENTIFIER)) 
+			{
 				atLeastOneFieldFound = true;
 				
 				String methodName = "";
@@ -72,14 +73,8 @@ public class FormUtil {
 					// capitilization right.
 					String realFieldName =
 						constantFieldVal.substring(constantFieldVal.indexOf(FIELD_SEPERATOR) + 1);
-					methodName =
-						"set"
-						+ constantFieldVal
-						.substring(constantFieldVal.indexOf(FIELD_SEPERATOR)
-						+ 1,
-							constantFieldVal.indexOf(FIELD_SEPERATOR)
-						+ 2)
-						.toUpperCase();
+					methodName ="set"
+						+ constantFieldVal.substring(constantFieldVal.indexOf(FIELD_SEPERATOR)+ 1,constantFieldVal.indexOf(FIELD_SEPERATOR)+ 2).toUpperCase();
 					if (constantFieldVal.indexOf(FIELD_SEPERATOR) + 2 < constantFieldVal.length()) {
 						methodName += constantFieldVal.substring(constantFieldVal.indexOf(FIELD_SEPERATOR) + 2);
 					}

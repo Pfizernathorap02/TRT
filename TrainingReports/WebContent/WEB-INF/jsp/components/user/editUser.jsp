@@ -12,6 +12,10 @@
 <%
 	EditUserWc wc = (EditUserWc)request.getAttribute(EditUserWc.ATTRIBUTE_NAME);
 	UserAccess ua = wc.getUserAccess();
+	
+	if(request.getAttribute("accessReqId") != null)
+		request.setAttribute("accessReqId", request.getAttribute("accessReqId"));
+	
 %>
 <script type="text/javascript" language="JavaScript">
 	function goback() {
@@ -32,7 +36,11 @@
 		
 			<table class="no_space_table">
 				<form class="form_basic" action="/TrainingReports/admin/saveuser" method="post">
+				<%if(ua.getRequestedAccess() != null){ %>
+					<input type="hidden" name="<%=UserAccess.FIELD_REQUESTEDACCESS%>" value="<%=Util.toEmpty(ua.getRequestedAccess().toString() ) %>">
+				<%} %>	  
 				<input type="hidden" name="<%=UserAccess.FIELD_USER_ID%>" value="<%=Util.toEmpty(ua.getUserId())%>">
+				<input type="hidden" name="<%=UserAccess.FIELD_ACCESSREQUESTID%>" value="<%=Util.toEmpty(ua.getAccessRequestId())%>">
 				<tr>
 					<td><label>Last Name</label></td>
 					<td width="30"></td>

@@ -35,6 +35,7 @@ public class MailUtil {
     
     Properties props = theSession.getProperties();
     LoggerHelper.logSystemDebug("Host  ###############" + props.getProperty("mail.smtp.host") + "Protocol >>> " + props.getProperty("protocol"));
+    
     Message theMail = new MimeMessage(theSession);
 
 	theMail.setFrom(new InternetAddress(email_from));
@@ -44,8 +45,7 @@ public class MailUtil {
 
 	
 	if(email_cc != null && email_cc.trim().length() > 0)
-      theMail.setRecipients(Message.RecipientType.CC,
-                          new InternetAddress[] { new InternetAddress(email_cc) });
+      theMail.setRecipients(Message.RecipientType.CC,new InternetAddress[] { new InternetAddress(email_cc) });
     
     if(email_bcc != null && email_bcc.trim().length() > 0)
       theMail.setRecipients(Message.RecipientType.BCC,
@@ -100,7 +100,7 @@ public class MailUtil {
     LoggerHelper.logSystemDebug("^^^^^ PDF & SPF(sendMessage) EMAIL DEBUG LOG START^^^^^^^^");
     LoggerHelper.logSystemDebug("^^^^^^^^ EMAIL EMail_FROM  :" + from );
     LoggerHelper.logSystemDebug("^^^^^^^^ EMAIL EMail_TO  :" + toAddrs[0] );
-    LoggerHelper.logSystemDebug("^^^^^^^^ EMAIL EMail_BCC  :" + bccAddrs[0] );
+    //LoggerHelper.logSystemDebug("^^^^^^^^ EMAIL EMail_BCC  :" + bccAddrs[0] );
     LoggerHelper.logSystemDebug("^^^^^ PDF & SPF(sendMessage) EMAIL DEBUG LOG END^^^^^^^^");
 
     sendTransport(theMail);

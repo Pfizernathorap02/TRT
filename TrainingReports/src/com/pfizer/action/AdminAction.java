@@ -15,12 +15,15 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.pfizer.db.AccessRequest;
 import com.pfizer.db.ReportTypeBean;
 import com.pfizer.db.RoleBean;
 import com.pfizer.db.SalesOrgBean;
 import com.pfizer.db.UserAccess;
 import com.pfizer.db.UserGroups;
 import com.pfizer.dao.TransactionDB;
+import com.pfizer.hander.AccessApproverHandler;
+import com.pfizer.hander.AccessRequestHandler;
 import com.pfizer.hander.EmployeeHandler;
 import com.pfizer.hander.HomePageConfigurationHandler;
 import com.pfizer.hander.UserHandler;
@@ -47,6 +50,7 @@ import com.pfizer.webapp.wc.components.user.UserListWc;
 import com.pfizer.webapp.wc.templates.BlankTemplateWpc;
 import com.pfizer.webapp.wc.templates.MainTemplateWpc;
 import com.tgix.Utils.LoggerHelper;
+import com.tgix.Utils.MailUtil;
 import com.tgix.Utils.Util;
 import com.tgix.html.FormUtil;
 import com.tgix.html.LabelValueBean;
@@ -172,7 +176,16 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 		 * <!-- Infosys - Weblogic to Jboss migration changes ends here --> */
 		try{
     	AppQueryStrings qString = new AppQueryStrings();
-		FormUtil.loadObject(getRequest(),qString); 
+		FormUtil.loadObject(getRequest(),qString);
+		
+		
+		boolean isAccessRequest= (request.getParameter("isRequestAccess") != null && request.getParameter("isRequestAccess").toString().equalsIgnoreCase("true"));
+		
+		if(isAccessRequest)
+		{
+			IAMUserControl userControl = new  IAMUserControl();
+			userControl.loginFull(request, response);
+		}
 		
 		UserSession uSession = (UserSession)getRequest().getSession(true).getAttribute(UserSession.ATTRIBUTE);
 		ServiceFactory factory = Service.getServiceFactory();
@@ -180,9 +193,33 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 		
 		
 		UserAccess ua = null;
-		if (Util.isEmpty(qString.getUserId())) {
+		if (Util.isEmpty(qString.getUserId())) 
+		{
 			ua = new UserAccess();
-		} else {
+			
+			if(isAccessRequest)
+			{
+				ua.setEmail(request.getParameter("email"));
+				ua.setFname(request.getParameter("firstName"));
+				ua.setLname(request.getParameter("lastName"));
+				ua.setNtId(request.getParameter("ntid"));
+				ua.setEmplid(request.getParameter("emplId"));
+				ua.setNtDomain(request.getParameter("ntdomain"));
+				ua.setRequestedAccess(true);
+				ua.setAccessRequestId(request.getParameter("userid"));
+				
+				AccessRequestHandler requestHandler = new AccessRequestHandler();
+				
+				AccessRequest accessRequest = requestHandler.getRequest(Integer.parseInt(ua.getAccessRequestId()));
+				
+				/*if(accessRequest.getRequestStatus().equalsIgnoreCase(anotherString))*/
+				
+				
+				
+			}	
+		} 
+		else 
+		{
 			ua = uh.getUserAccessById(qString.getUserId());
 		}
 		EditUserWc main = new EditUserWc(ua);
@@ -220,20 +257,84 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 		try{
     	UserAccess ua = new UserAccess();		
 		FormUtil.loadObject(getRequest(),ua);
+		
 		ServiceFactory factory = Service.getServiceFactory();
 		UserHandler uh = factory.getUserHandler();
-		if ( Util.isEmpty(ua.getUserId()) ) {
+		
+		if ( Util.isEmpty(ua.getUserId()) ) 
+		{
 			uh.insertUserAccess(ua);
-		} else {
+		} 
+		else 
+		{
 			uh.updateUserAccess(ua);
 		}
 		//log.info("UserAccess:" + )
-		return user();
+		
+		if(ua.getRequestedAccess() != null && ua.getRequestedAccess())
+		{
+			
+			AccessRequestHandler accessReqHandle = new AccessRequestHandler();
+			
+			AccessApproverHandler approversHandler = new AccessApproverHandler();
+			
+			AccessRequest requestToUpdate = new AccessRequest();
+			
+			requestToUpdate.setId(Integer.parseInt(ua.getAccessRequestId()));
+			
+			requestToUpdate.setRequestStatus(AccessRequest.APPROVED);
+			
+			requestToUpdate.setApprovers_comments("Access approved.");
+			
+			accessReqHandle.updateAccessRequests(requestToUpdate);
+			
+			String emailCC[] = approversHandler.getAccessApproversEmails();
+			   
+		     String sSubject = "Access request in TRT system.";
+		     
+		     String emailBody =
+		    		 "Dear User"
+		     		 +"<br>"+"Your access request to TRT system has been completed per below details:-"
+		    		
+		     		 +"<br><br>"+"Name:"+ua.getFname()+" "+ua.getLname()+""
+				     
+				     +"<br>Email:"+" "+ua.getEmail()
+			
+				     +"<br>"+"Emplid:"+" "+ua.getEmplid()
+			
+				     +"<br>"+"NTID:"+" "+ua.getNtId()
+			
+				     +"<br>"+"NT Domain:"+" "+ua.getNtDomain()
+				     
+				     +"<br>"+"Role:"+" "+ua.getUserType()
+			
+				     +"<br><br><br><br>"+"Thanks and Regards,"
+			
+				     +"<br>"+"Training Reports Team.";
+
+		  
+		     try{
+		     MailUtil.sendMessage("traininglogistics@pfizer.com",new String[]{ ua.getEmail()},	emailCC,new String[0], sSubject, emailBody, "text/html", "java:jboss/TRTMailSession");
+		     }
+		     catch(Exception e)
+		     {
+		         System.out.println("Email sending error >>>>>>>>>>>>"+ e.getMessage());
+		     }
+		     
+		     request.setAttribute("Result","accessRequestCompleted");		     
+		     
+		     return new String("accessRequest");	     
 		}
-		catch (Exception e) {
+		
+		
+		return user();
+		
+		}
+		catch (Exception e) 
+		{
 			Global.getError(getRequest(),e);
 			return new String("failure");
-			}
+		}
 
 	}
     

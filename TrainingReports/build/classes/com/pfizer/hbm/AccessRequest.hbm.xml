@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 7, 2015 2:29:10 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pfizer.db.AccessRequest" table="Access_request">
+        <id name="id" type="integer">
+            <column name="ID" />
+             <generator class="sequence">
+                                                <param name="sequence">seq_Access_request</param>
+                                 </generator>
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="First_Name" />
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="Last_Name" />
+        </property>
+        <property name="eamilID" type="java.lang.String">
+            <column name="Email_id" />
+        </property>
+        <property name="ntid" type="java.lang.String">
+                <column name="NTID" />
+        </property>
+        <property name="ntidDomain" type="java.lang.String">
+                <column name="NTID_DOMAIN"/>
+        </property>
+        <property name="employeeId" type="java.lang.String">
+                                 <column name="Employee_id" />
+        </property>
+        <property name="pfizerEmployee" type="java.lang.String">
+                <column name="PFIZER_EMPLOYEE" />
+        </property>
+        
+        <property name="requestStatus" type="java.lang.String">
+                <column name="REQUEST_STATUS" />
+        </property>
+        
+        <property name="date_action" type="java.util.Date">
+                <column name="DATE_ACTION" />
+        </property>
+        
+        <property name="date_submitted" type="java.util.Date">
+                <column name="DATE_SUBMITTED" />
+        </property>
+        
+        <property name="comments" type="java.lang.String">
+                <column name="COMMENTS" />
+        </property>
+        <property name="Approvers_comments" type="java.lang.String">
+                <column name="APPROVERS_COMMENTS" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

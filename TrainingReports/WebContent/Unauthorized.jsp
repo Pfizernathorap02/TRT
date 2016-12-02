@@ -44,7 +44,7 @@
             </div>
             <h3>Not Authorized</h3>
             <div id="main_content">
-                <h4>You are not authorized to use this application, please contact TRT Support Team (<A HREF="mailto:DL-SAMS-TRTSupport@pfizer.com">DL-SAMS-TRTSupport@pfizer.com</A>) to grant you access.</h4>
+                <h4>You are not authorized to use this application, <a href="<%=request.getContextPath()%>/requestAccess.jsp">Click here</a> to Request access.</h4>
                 <div class="clear"></div>	
             </div> <!-- end #content -->
     
