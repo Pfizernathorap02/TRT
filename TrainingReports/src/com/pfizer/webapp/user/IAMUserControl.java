@@ -142,9 +142,9 @@ public class IAMUserControl {
 //                        ntid ="BHUSAA";
 //                        domain = "amer"; 
                         
-                    	   emplid ="12345671";
-                           ntid ="VERMAS28";
-                           domain = "amer"; 
+                    	   emplid ="12345622";
+                           ntid ="KUMAM102";
+                           domain = "APAC"; 
                     	
                     }
                     LoggerHelper.logSystemDebug(emplid);

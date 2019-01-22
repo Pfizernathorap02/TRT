@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 
@@ -44,6 +45,7 @@ import com.pfizer.webapp.wc.components.search.searchResultWc;
 import com.pfizer.webapp.wc.components.user.EditGroupWc;
 import com.pfizer.webapp.wc.components.user.EditUserWc;
 import com.pfizer.webapp.wc.components.user.GroupListWc;
+import com.pfizer.webapp.wc.components.user.PendingApprovalsListWc;
 import com.pfizer.webapp.wc.components.user.PhaseEvaluationWc;
 import com.pfizer.webapp.wc.components.user.SceFormAccessWc;
 import com.pfizer.webapp.wc.components.user.UserListWc;
@@ -63,6 +65,7 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 	private TransactionDB trDb= new TransactionDB();
 	private HttpServletRequest request;
 	private HttpServletResponse response;
+	
 	
 	
 	
@@ -162,6 +165,61 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 		 * <!-- Infosys - Weblogic to Jboss migration changes ends here --> */
 		
 	}
+    
+    
+    //code added by manish to get pending approvers
+    
+    public String getPendingApprovalsList()
+    {
+    	try{
+		AppQueryStrings qString = new AppQueryStrings();
+        qString.setMessage("");
+		FormUtil.loadObject(getRequest(),qString); 
+		
+		String criteria =  AccessRequest.SUBMITTED;
+		
+		System.out.println("**********************");
+		
+			System.out.println("criteria is:"+criteria);
+		
+		System.out.println("**********************");
+		
+		
+			
+		
+		
+		UserSession uSession = (UserSession)getRequest().getSession(true).getAttribute(UserSession.ATTRIBUTE);
+		ServiceFactory factory = Service.getServiceFactory();
+		
+		AccessRequestHandler requestHandler = new AccessRequestHandler();
+		
+		List result =requestHandler.getRequests(criteria);
+		
+		PendingApprovalsListWc main = new PendingApprovalsListWc(result,criteria);
+		
+		MainTemplateWpc page = new MainTemplateWpc(uSession.getUser(), "Pending Approvals");
+		page.setMain( main );
+		getRequest().setAttribute( MainTemplateWpc.ATTRIBUTE_NAME, page );
+        /**
+		 * <!-- Infosys - Weblogic to Jboss migration changes start here -->
+		    	return new Forward("success");
+		 */
+		return new String("success");
+    	}
+    	catch (Exception e) {
+    		Global.getError(getRequest(),e);
+    		return new String("failure");
+    		}
+
+		/**
+		 * <!-- Infosys - Weblogic to Jboss migration changes ends here --> */
+		
+	}
+    
+    
+    //code end
+    
+    
 		
     /**
      * @jpf:action
@@ -212,9 +270,12 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 				
 				AccessRequest accessRequest = requestHandler.getRequest(Integer.parseInt(ua.getAccessRequestId()));
 				
-				/*if(accessRequest.getRequestStatus().equalsIgnoreCase(anotherString))*/
-				
-				
+				if(!accessRequest.getRequestStatus().equals(AccessRequest.SUBMITTED))
+				{
+					request.setAttribute("Result","accessRequestNotSubmitted");
+					
+					return new String("actionTaken");	
+				}
 				
 			}	
 		} 
@@ -252,6 +313,9 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
     	protected Forward saveuser(){
      */
     public String saveuser(){
+    	System.out.println("**************Inside save user method**************");
+    	
+    	
     	/**
 		 * <!-- Infosys - Weblogic to Jboss migration changes ends here --> */
 		try{
@@ -271,6 +335,27 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 		}
 		//log.info("UserAccess:" + )
 		
+		
+		 final  String TRTTST = "trt-tst.pfizer.com/";
+		 final  String TRTSTG = "trt-stg.pfizer.com/";
+		final String TRTPROD = "trt.pfizer.com/";
+		 final  String TRTLOCL = "localhost:8080/";
+		 
+		 String requestURL= getRequest().getRequestURL().toString();
+		 
+		 String mailURL= "";
+		 
+		 if(requestURL != null && requestURL.toString().contains(TRTPROD))
+			 mailURL=TRTPROD;
+		 else if(requestURL != null && requestURL.toString().contains(TRTSTG))
+			 mailURL=TRTSTG;
+		 else if(requestURL != null && requestURL.toString().contains(TRTTST))
+			 mailURL=TRTTST;
+		 else if(requestURL != null && requestURL.toString().contains(TRTLOCL))
+			 mailURL=TRTLOCL;
+		
+		System.out.println("ua.getRequested status"+ua.getRequestedAccess());
+		
 		if(ua.getRequestedAccess() != null && ua.getRequestedAccess())
 		{
 			
@@ -289,6 +374,13 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 			accessReqHandle.updateAccessRequests(requestToUpdate);
 			
 			String emailCC[] = approversHandler.getAccessApproversEmails();
+			
+			
+			String[] BCc = new String [] {"DL-SAMS-TRTSupport@pfizer.com"};
+			
+			
+			
+			String[] updatedEmailCC = (String[]) ArrayUtils.addAll(emailCC, BCc);
 			   
 		     String sSubject = "Access request in TRT system.";
 		     
@@ -300,21 +392,19 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 				     
 				     +"<br>Email:"+" "+ua.getEmail()
 			
-				     +"<br>"+"Emplid:"+" "+ua.getEmplid()
-			
 				     +"<br>"+"NTID:"+" "+ua.getNtId()
 			
 				     +"<br>"+"NT Domain:"+" "+ua.getNtDomain()
 				     
-				     +"<br>"+"Role:"+" "+ua.getUserType()
-			
+				    +"<br><br>"+ "<a href='http://"+mailURL+"' >"+"Click Here"+"</a>"+" "+ "to access" 
+				     
 				     +"<br><br><br><br>"+"Thanks and Regards,"
 			
 				     +"<br>"+"Training Reports Team.";
 
 		  
 		     try{
-		     MailUtil.sendMessage("traininglogistics@pfizer.com",new String[]{ ua.getEmail()},	emailCC,new String[0], sSubject, emailBody, "text/html", "java:jboss/TRTMailSession");
+		     MailUtil.sendMessage("traininglogistics@pfizer.com",new String[]{ ua.getEmail()},updatedEmailCC,new String[0], sSubject, emailBody, "text/html", "java:jboss/trMailSession");
 		     }
 		     catch(Exception e)
 		     {
@@ -667,6 +757,7 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 		 * <!-- Infosys - Weblogic to Jboss migration changes start here -->
 		    	return new Forward("success");
 		 */
+		
 		return new String("success");
        }
        catch (Exception e) {
@@ -1171,6 +1262,11 @@ public class AdminAction extends ActionSupport implements ServletRequestAware, S
 		 * <!-- Infosys - Weblogic to Jboss migration changes ends here --> */
 
     }
+    
+    
+    
+    
+    
     
   // End: Modified for TRT 3.6 enhancement - F 4.4 -(admin configuration of employee grid)         
    // Start: Added for TRT 3.6 enhancement Phase 2 (Home Page configuration)  

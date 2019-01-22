@@ -31,8 +31,12 @@
 		showDiv = "closeActiondiv";
 	else if (request.getAttribute("Result") != null && request.getAttribute("Result").toString() .equalsIgnoreCase("accessRequestExists"))
 		showDiv = "requestExistsDiv";
+	else if (request.getAttribute("Result") != null && request.getAttribute("Result").toString() .equalsIgnoreCase("accessRequestNotSubmitted"))
+		showDiv = "actionTakenDiv";
 	else if (request.getParameter("Result") != null && request.getParameter("Result").toString() .equalsIgnoreCase("accessRequestRejected"))
 		showDiv = "requestRejectDiv";
+	
+	
 %>
         
         
@@ -57,7 +61,7 @@
 		document.getElementById('requestForm').style.display = 'none';
 		document.getElementById('requestExists').style.display = 'none';
 		document.getElementById('rejectRequest').style.display = 'none';
-		
+		document.getElementById('actionTaken').style.display = 'none';
 		
 		
 		if (condition=='requestDiv') 
@@ -79,6 +83,10 @@
 		{
 			document.getElementById('rejectRequest').style.display = 'block';
 		}
+		else if (condition=='actionTakenDiv')
+		{
+			document.getElementById('actionTaken').style.display = 'block';
+		}
 		
 	}
 	
@@ -86,6 +94,46 @@
 	{
 		self.close();
 	}
+	
+	
+	function emailAddressValidate(str) 
+	{ 
+	var at="@"
+	var dot="."
+	var lat=str.indexOf(at)
+	var lstr=str.length
+	var ldot=str.indexOf(dot)
+	if (str.indexOf(at)==-1)
+	{
+	return false;
+	}
+	if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==(lstr-1))
+	{
+	return false;
+	}
+	if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.lastIndexOf (dot)==(lstr-1))
+	{
+	return false;
+	}
+	if (str.indexOf(at,(lat+1))!=-1)
+	{
+	return false;
+	}
+	if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot)
+	{
+	return false;
+	}
+	if (str.indexOf(dot,(lat+2))==-1)
+	{
+	return false;
+	}
+	if (str.indexOf(" ")!=-1)
+	{
+	return false;
+	}
+	return true; 
+	}
+
 	
 	
 	function validateForm()
@@ -114,14 +162,9 @@
 		
 		if(document.getElementById('pfizerEmployee').value=='Yes')
 		{
-				if(document.getElementById('emplId').value == null || document.getElementById('emplId').value=='')
-				{
-					alert('Employee Id is a mandatory feild.');
-					sumitForm = false;
-					return;
-				}
 				
-			else if(document.getElementById('ntid').value == null || document.getElementById('ntid').value=='')
+				
+			 if(document.getElementById('ntid').value == null || document.getElementById('ntid').value=='')
 				{
 					alert('NTID is a mandatory feild.');
 					sumitForm = false;
@@ -133,17 +176,21 @@
 					sumitForm = false;
 					return;
 				}
-			else if(document.getElementById('comments').value == null || document.getElementById('comments').value=='')
-			{
-				alert('Comments is a mandatory feild.');
-				sumitForm = false;
-				return;
-			}
+		
+			
 		}
 		
 		if(sumitForm)
-			/* document.forms[0].submit(); */	
-			document.getElementById('requestAccessForm').submit();
+			 var email = document.getElementById('email').value;
+			if(emailAddressValidate(email))
+				{
+				document.getElementById('requestAccessForm').submit();
+				}
+			else
+				{
+				alert('Please enter a valid Email ID.');
+				}
+			
 	}
 	
 	
@@ -210,6 +257,8 @@
 										<tr>
 											<td colspan="3"><h5>*All fields are mandatory!</h5></td>
 										</tr>
+										
+										
 										<tr>
 											<td colspan="3"><img
 												src="/TrainingReports/resources/images/spacer.gif"
@@ -221,33 +270,7 @@
 												height="5"></td>
 										</tr>
 										<tr>
-											<td colspan="3"><img
-												src="/TrainingReports/resources/images/spacer.gif"
-												height="5"></td>
-										</tr><tr>
-											<td colspan="3"><img
-												src="/TrainingReports/resources/images/spacer.gif"
-												height="5"></td>
-										</tr>
-										<tr>
-											<td colspan="3"><img
-												src="/TrainingReports/resources/images/spacer.gif"
-												height="5"></td>
-										</tr>
-										<tr>
-											<td colspan="3"><img
-												src="/TrainingReports/resources/images/spacer.gif"
-												height="5"></td>
-										</tr>
-										<tr>
-											<td colspan="3"><input type="radio" name="empType"
-												id="empType" value="pfizerEmployee" checked
-												onclick="showHideNtidDiv(true)"
-												style="background-color: transparent;">Pfizer
-												Employee <input type="radio" name="empType"
-												onclick="showHideNtidDiv(false)"
-												style="background-color: transparent;"
-												value="nonPfizerEmployee">Non Pfizer Employee <input
+											<td colspan="3"> <input
 												type="hidden" name="pfizerEmployee" id="pfizerEmployee"
 												value="Yes"></td>
 										</tr>
@@ -256,16 +279,8 @@
 												src="/TrainingReports/resources/images/spacer.gif"
 												height="5"></td>
 										</tr>
-										<tr>
-											<td colspan="3"><img
-												src="/TrainingReports/resources/images/spacer.gif"
-												height="5"></td>
-										</tr>
-										<tr>
-											<td colspan="3"><img
-												src="/TrainingReports/resources/images/spacer.gif"
-												height="5"></td>
-										</tr>
+										
+										
 										<tr>
 											<td><label>Last Name</label></td>
 											<td width="43"></td>
@@ -303,12 +318,12 @@
 								</div>
 								<div id="ntidDiv">
 									<table>
-										<tr>
+										<!-- <tr>
 											<td><label>Employee Id</label></td>
 											<td width="33px"></td>
 											<td><input type="text" class="text" size="30" value=""
 												name="emplId" id="emplId"></td>
-										</tr>
+										</tr> -->
 										<tr>
 											<td colspan="3"><img
 												src="/TrainingReports/resources/images/spacer.gif"
@@ -316,9 +331,10 @@
 										</tr>
 										<tr>
 											<td><label>NTID</label></td>
-											<td></td>
+											<td width="32"></td>
 											<td><input type="text" class="text" size="30" value=""
-												name="ntid" id="ntid"></td>
+												name="ntid" id="ntid">
+											</td>
 										</tr>
 										<tr>
 											<td colspan="3"><img
@@ -328,8 +344,16 @@
 										<tr>
 											<td><label>NTID Domain</label></td>
 											<td></td>
-											<td><input type="text" class="text" size="30" value=""
-												name="ntidDomain" id="ntidDomain"></td>
+											<td>
+											<select name="ntidDomain" id="ntidDomain">
+												<option value="AMER">AMER</option>
+												<option value="APAC">APAC</option>
+												<option value="MER">MER</option>
+												<option value="EMEA">EMEA</option>
+											</select>
+											
+												
+											</td>
 										</tr>
 										<tr>
 											<td colspan="3"><img
@@ -369,12 +393,12 @@
 					</tr>
 				</table>
 			</div>
-			<div id="sumitSuccess"><h3>You request has been routed for approval.You will be notified timely by Email about the status of your request.<br><a onclick="selfClose()">Close.</a></h3></div>
-			<div id="approveSuccess"><h3>Your response has been recorded.<br><a onclick="selfClose()">Close.</a></h3></div>
+			<div id="sumitSuccess"><h3>You request has been routed for approval.You will be notified timely by Email about the status of your request.<br><a onclick="selfClose()" style="cursor:pointer">Close.</a></h3></div>
+			<div id="approveSuccess"><h3>Your response has been recorded.<br><a onclick="selfClose()" style="cursor:pointer">Close.</a></h3></div>
 			<div id="requestExists">
 				<h3>You already have a pending request. Please wait till approvers take required action on your previous request!
 					<br>
-					You can send a reminder mail by <a onclick="sendReminderMail()">clicking here! </a>
+					You can send a reminder mail by <a onclick="sendReminderMail()" style="cursor:pointer">clicking here! </a>
 					<br><a onclick="selfClose()">Close.</a>
 					<form action="reminderAccessMail" id="reminderMailForm" name="reminderMailForm">
 						<input id="reminderMailId" name="reminderMailId" value='<%=request.getAttribute("reminderMailId")%>' type="hidden">
@@ -415,6 +439,16 @@
 				</table>
 				</form>
 			</div>
+			
+			<!--added   -->
+			
+			<div id="actionTaken">
+			
+				<h4> Action is already taken for this request</h4>
+			
+			</div>
+			<!--  -->
+			
 		</div>
 	</div>
 </body>

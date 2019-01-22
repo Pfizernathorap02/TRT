@@ -13,7 +13,6 @@ public class UserAccess {
 	public static final String FIELD_REQUESTEDACCESS= "RequestedAccess";
 	public static final String FIELD_ACCESSREQUESTID= "accessRequestId";
 	
-	
 	public static final String STATUS_ACTIVE = "Active";
 	public static final String STATUS_INACTIVE = "Inactive";
 	
@@ -26,6 +25,7 @@ public class UserAccess {
 	private String fname;
 	private String lname;
 	private String status;
+	
 	
 	private Boolean RequestedAccess;
 	
@@ -129,5 +129,7 @@ public class UserAccess {
 	public void setAccessRequestId(String accessRequestId) {
 		this.accessRequestId = accessRequestId;
 	}
+
+
 
 } 

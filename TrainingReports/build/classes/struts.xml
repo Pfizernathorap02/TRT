@@ -2,9 +2,8 @@
 
 
 <!DOCTYPE struts PUBLIC
-	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-	"http://struts.apache.org/dtds/struts-2.3.dtd">
-
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
 	<package name="home" extends="struts-default">
@@ -49,6 +48,22 @@
 				errorMain
 			</result>
 		</action>
+		
+			<!-- added by manish -->
+			
+			<action name="checkIfRejected" method="checkIfRejected" class="com.pfizer.action.RequestAccess">
+			<result name="redirect1" type="redirect">
+				${url}
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+			<result name="actionTaken">
+				/requestAccess.jsp
+			</result>
+		</action>
+		
+		<!-- end code -->
 		
 		
 		<action name="reportselect" method="reportselect"
@@ -811,7 +826,13 @@
 			<result name="failure" type="redirect">
 				errorMain
 			</result>
+			<result name="actionTaken">
+				/requestAccess.jsp
+			</result>
 		</action>
+		
+		
+		
 		<action name="employeeGridConfig" method="employeeGridConfig"
 			class="com.pfizer.action.AdminAction">
 			<result name="success">
@@ -887,6 +908,19 @@
 				errorMain
 			</result>
 		</action>
+		
+		<!-- Added by Manish for approver List -->
+		
+		<action name="approverList" method="getPendingApprovalsList" class="com.pfizer.action.AdminAction">
+			<result name="success">
+				/WEB-INF/jsp/templates/mainTemplate.jsp
+			</result>
+			<result name="failure" type="redirect">
+				errorMain
+			</result>
+		</action>
+		
+		<!-- End Code -->
 		
 		<action name="updateApprovers" method="updateApprovers" class="com.pfizer.action.AccessApproversManager">
 			<result name="success">

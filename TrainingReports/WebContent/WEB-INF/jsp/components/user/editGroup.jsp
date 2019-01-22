@@ -143,7 +143,13 @@ function dropDownPopulate() {
    <% if ( ug.getRolesList().size() > 0 ) { %>
     <% for (int i = 0; i < ug.getRolesList().size(); i++) {%>
         var tmpSel = document.getElementById( '<%=UserGroups.FIELD_ROLE%>' );
+        
+		 <% if(ug.getRolesList().get(i)!= null) {%>
+        
         addOption(tmpSel,"<%=ug.getRolesList().get(i).toString()%>","<%=ug.getRolesList().get(i).toString()%>");
+        
+        <%} %>
+        
     <% } %>
    <% } %>
 

@@ -271,8 +271,8 @@ public class TMUUploadListener implements ServletContextListener, NotificationLi
 		{
 			log.info("non prod environment... not required to set up job...TMUUploadListener.contextInitialized");
 		     return;
-        }*/
-		 
+        }
+		 */
 		/* if (!jboss_base_dir.contains(tst_dir)) {
 				log.info("non Test environment... not required to set up job...TMUUploadListener.contextInitialized");
 			     return;
@@ -286,7 +286,7 @@ public class TMUUploadListener implements ServletContextListener, NotificationLi
         try{
             conn = DBUtil.getConn("java:jboss/trt_ds");
             String  sql =" select PROCESS_RUN_HOURS,PROCESS_RUN_MINUTES,PROCESS_RUN_SECONDS,AM_PM from tr_job_schedule where JOB_NAME='TMUUPLOAD' ";
-            System.out.println("TMUUPLOAD JOB Timer Starts at:" + startDate);
+            System.out.println("FAKE********TMUUPLOAD JOB Timer Starts at:" + startDate);
             stmt = conn.prepareStatement(sql);
             rs   = stmt.executeQuery();
             if(rs!=null){
@@ -310,7 +310,7 @@ public class TMUUploadListener implements ServletContextListener, NotificationLi
                    
                     timer.start();
       
-                    System.out.println("TMUUPLOAD JOB Timer Starts at:" + startDate);
+                    System.out.println("REAL*******TMUUPLOAD JOB Timer Starts at:" + startDate);
                 }
             }
         }catch (Exception e){

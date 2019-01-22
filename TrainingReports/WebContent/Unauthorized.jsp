@@ -34,10 +34,11 @@
             </TD>            
             </TR>
             </TABLE>
-            
+            <br /><br />
             <div id="wrap">
     
             <div id="top_head">
+            <br />
                 <h1>Pfizer</h1>
                 <h2>Training Reports Application</h2>
                 <!-- end #top_head -->

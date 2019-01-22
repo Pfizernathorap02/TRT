@@ -124,7 +124,10 @@ if (uSession.isAdmin() && !"PowersPOA".equalsIgnoreCase(fromReport))
 									<!--<option value="/TrainingReports/sitereport/runreports.do">Site Usage</option>-->
                                     <!-- <option value="/TrainingReports/adminHome/trainingPath.do">Training Path Configuration</option> -->
                                     <option value="/TrainingReports/admin/user">User Admin</option>
+                                    
                                     <option value="/TrainingReports/admin/accessApprovers">Access Approvers</option>
+                                    <option value="/TrainingReports/admin/approverList">Pending Approvals</option>
+                                    
                                 </select>
 						</td>
                         <%
