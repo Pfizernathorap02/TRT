@@ -854,7 +854,7 @@ function resetEditMenu()
                     <input type="text" name="<%=P2lTrack.FIELD_TRACK_LABEL%>" value="" >
                     <select name="reportType">
                         <option value="Regular">Regular Report</option>
-                        <option value="LaunchMeeting">Launch Meeting</option>
+                        <!-- <option value="LaunchMeeting">Launch Meeting</option> commented by muzees for PGB UPJOHN-->
                        <!--  <option value="ForecastReport">Forecast Report</option> -->
                         <option value="ManagementSummary">Management Level Summary Report</option>
                         <option value="GapAnalysisReport">Gap Analysis Report</option>

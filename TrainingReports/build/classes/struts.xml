@@ -111,7 +111,7 @@
 
 		</action>
 
-		<action name="delegateAccess" method="delegateAccess"
+		<!-- <action name="delegateAccess" method="delegateAccess"
 			class="com.pfizer.action.HomeAction">
 			<result name="index">
 				/WEB-INF/jsp/templates/mainTemplate.jsp
@@ -121,7 +121,7 @@
 				errorMain
 			</result>
 
-		</action>
+		</action> commented by muzees as requested by business at the time of PBG and UpJOHN-->
 
 		<action name="delegateSearch" method="delegateSearch"
 			class="com.pfizer.action.HomeAction">

@@ -107,7 +107,7 @@ if (uSession.isAdmin() && !"PowersPOA".equalsIgnoreCase(fromReport))
                                     <!-- <option value="/TrainingReports/activityDrilldownConfig.do">Activity Drill Down</option> -->
                                     <!-- <option value="/TrainingReports/phase/coursecomplete.do">Course Completion</option> -->
                                    	 <!--added for TRT major enhancement 3.6- F6-->
-                                    <option value="/TrainingReports/delegateAccess">Delegate Access</option>
+                                    <!-- <option value="/TrainingReports/delegateAccess">Delegate Access</option> commented by muzees as requested by business during PBG and UpJOHN -->
                                     <!-- Start: Modified for TRT 3.6 enhancement - F 4 -(admin configuration of employee grid)     -->    
                                     <!-- <option value="/TrainingReports/admin/employeeGridConfig.do">Employee Grid Configuration </option> -->
                                     <!-- End: Modified for TRT 3.6 enhancement - F 4 -(admin configuration of employee grid)       -->  
