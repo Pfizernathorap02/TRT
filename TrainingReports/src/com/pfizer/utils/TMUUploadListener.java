@@ -267,12 +267,12 @@ public class TMUUploadListener implements ServletContextListener, NotificationLi
        	 * So as result TMU Upload job will be scheduled on only JVM-1, and job will be execute by only one JVM
        	 */
 	//sanjeev	 
-		/*if (!jboss_base_dir.contains(prod_1_dir)) 
+		if (!jboss_base_dir.contains(prod_1_dir)) 
 		{
 			log.info("non prod environment... not required to set up job...TMUUploadListener.contextInitialized");
 		     return;
         }
-		 */
+		 
 		/* if (!jboss_base_dir.contains(tst_dir)) {
 				log.info("non Test environment... not required to set up job...TMUUploadListener.contextInitialized");
 			     return;
