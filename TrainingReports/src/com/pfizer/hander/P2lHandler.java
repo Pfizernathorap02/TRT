@@ -39,12 +39,12 @@ import com.pfizer.webapp.user.UserFilter;
 import com.pfizer.webapp.user.UserSession;
 import com.pfizer.webapp.user.UserTerritory;
 import com.pfizer.webapp.wc.components.report.phasereports.CourseSearchForm;
-import com.tgix.html.FormUtil;
-import com.tgix.printing.LoggerHelper;
 // Added for Major Enhancement 3.6 - F1
 import com.tgix.Utils.Timer;
 import com.tgix.Utils.Util;
 // Added for Major Enhancement 3.6 - F4(employee grid user view)
+import com.tgix.html.FormUtil;
+import com.tgix.printing.LoggerHelper;
 
 // end of addition
 
@@ -137,7 +137,7 @@ public class P2lHandler {
 			 */
 			/** Infosys - Weblogic to Jboss migration changes ends here */
 			statement = conn.prepareStatement(insertSql);
-			if(map!=null)
+			if (map != null)
 				statement.setBigDecimal(1, (BigDecimal) map.get("NEXTID"));
 			statement.setString(2, name);
 
@@ -417,8 +417,8 @@ public class P2lHandler {
 			/** Infosys - Weblogic to Jboss migration changes ends here */
 			statement = conn.prepareStatement(insertSql);
 			statement.setString(1, track.getTrackLabel());
-			statement.setString(2, "/TrainingReports/p2l/begin?track="
-					+ track.getTrackId());
+			statement.setString(2,
+					"/TrainingReports/p2l/begin?track=" + track.getTrackId());
 			statement.setBigDecimal(3, new BigDecimal(menuId));
 			statement.setString(4, track.getTrackId());
 
@@ -505,8 +505,9 @@ public class P2lHandler {
 
 		for (Iterator it = result.iterator(); it.hasNext();) {
 			Map curr = (Map) it.next();
-			//if(curr.get("SCE_EVENT_ID")!=null)
-			ret.put((String) curr.get("COURSE_CODE"),((BigDecimal) curr.get("SCE_EVENT_ID")).toString());
+			// if(curr.get("SCE_EVENT_ID")!=null)
+			ret.put((String) curr.get("COURSE_CODE"),
+					((BigDecimal) curr.get("SCE_EVENT_ID")).toString());
 		}
 		return ret;
 	}
@@ -598,26 +599,25 @@ public class P2lHandler {
 	}
 
 	public P2lTrackPhase getTrackPhase(String activityId, String trackId) {
-		
-		  String sql = " select    " + " a.track_id as trackid, " +
-		  " m.code as coursecode, " + " a.sort_order as sortorder, " +
-		  " m.activityname, " + " m2.code as coursecodealt, " +
-		  " m2.activityname as activitynamealt, " +
-		  " a.do_assigned as assigned, a.do_exempt as exempt, " +
-		  " a.phase_number as phasenumber, " +
-		  " a.report_approval_status as approvalstatus, " +
-		  " a.do_prerequisite as prerequisite, " +
-		  " a.root_activity_id as rootactivityid, " +
-		  " a.track_phase_id as trackPhaseId, " +
-		  " a.alt_activity_id as altactivityid, " +
-		  " b.track_label as trackLabel " +
-		  " from p2l_track_phase a, p2l_track b, mv_usp_activity_master m,mv_usp_activity_master m2 "
-		  +
-		  " where a.alt_activity_id = m2.activity_pk(+) and a.ROOT_ACTIVITY_ID = m.activity_pk(+) and a.track_id = b.track_id and a.root_activity_id="
-		  + activityId + " and a.track_id = '" + trackId + "'";
-		 
 
-		
+		String sql = " select    "
+				+ " a.track_id as trackid, "
+				+ " m.code as coursecode, "
+				+ " a.sort_order as sortorder, "
+				+ " m.activityname, "
+				+ " m2.code as coursecodealt, "
+				+ " m2.activityname as activitynamealt, "
+				+ " a.do_assigned as assigned, a.do_exempt as exempt, "
+				+ " a.phase_number as phasenumber, "
+				+ " a.report_approval_status as approvalstatus, "
+				+ " a.do_prerequisite as prerequisite, "
+				+ " a.root_activity_id as rootactivityid, "
+				+ " a.track_phase_id as trackPhaseId, "
+				+ " a.alt_activity_id as altactivityid, "
+				+ " b.track_label as trackLabel "
+				+ " from p2l_track_phase a, p2l_track b, mv_usp_activity_master m,mv_usp_activity_master m2 "
+				+ " where a.alt_activity_id = m2.activity_pk(+) and a.ROOT_ACTIVITY_ID = m.activity_pk(+) and a.track_id = b.track_id and a.root_activity_id="
+				+ activityId + " and a.track_id = '" + trackId + "'";
 
 		List result = executeSql2(sql);
 		log.info(sql);
@@ -998,7 +998,7 @@ public class P2lHandler {
 		List temp = executeSql2(sql);
 		Map master = new HashMap();
 		P2lEmployeeStatus pStatus;
-		
+
 		for (int i = 0; i < temp.size(); i++) {
 			Employee emp = new Employee();
 			Map map = (Map) temp.get(i);
@@ -1013,7 +1013,7 @@ public class P2lHandler {
 			pStatus = new P2lEmployeeStatus(emp, (String) map.get("STATUS"),
 					"Overall");
 			pStatus.setStatus((String) map.get("STATUS"));
-			
+
 			/* Changing 'Exempt' to Waived by Meenakshi */
 			if (master.get(emp.getGuid()) == null) {
 				master.put(emp.getGuid(), pStatus);
@@ -1080,11 +1080,11 @@ public class P2lHandler {
 		List temp = executeSql2(sql);
 		Map master = new HashMap();
 		P2lEmployeeStatus pStatus;
-		
+
 		for (int i = 0; i < temp.size(); i++) {
 			Employee emp = new Employee();
 			Map map = (Map) temp.get(i);
-			
+
 			emp.setGuid(Util.toEmpty((String) map.get("EMP_NO")));
 			emp.setEmplId((String) map.get("EMPLID"));
 			emp.setEmail(Util.toEmpty((String) map.get("EMAIL")));
@@ -1166,7 +1166,7 @@ public class P2lHandler {
 					BigDecimal tnode = (BigDecimal) item.get("preqactfk"
 							.toUpperCase());
 					// P2lTrackPhase tmpPhase = new P2lTrackPhase();
-					//if(tnode!=null)
+					// if(tnode!=null)
 					nodes = nodes + "," + tnode.toString();
 				}
 			}
@@ -1548,7 +1548,7 @@ public class P2lHandler {
 					BigDecimal tnode = (BigDecimal) item.get("preqactfk"
 							.toUpperCase());
 					// P2lTrackPhase tmpPhase = new P2lTrackPhase();
-					//if(tnode!=null)
+					// if(tnode!=null)
 					nodes = nodes + "," + tnode.toString();
 				}
 			}
@@ -1857,9 +1857,9 @@ public class P2lHandler {
 			}
 			// pStatus.setStatusDate(new
 			// java.sql.Date(((java.util.Date)map.get("completedate".toUpperCase())).getTime()));
-			String score=null;
-			//if(map.get("SCORE")!=null){
-			 score= map.get("SCORE").toString();
+			String score = null;
+			// if(map.get("SCORE")!=null){
+			score = map.get("SCORE").toString();
 			if (score.equals("NA")) {
 
 				pStatus.setScore("");
@@ -1867,7 +1867,7 @@ public class P2lHandler {
 				pStatus.setScore(map.get("SCORE").toString());
 
 			}
-			//}
+			// }
 			// End: Modified for TRT 3.6 enhancement - F 4.5( Display of
 			// employee grid)
 			// Start : Added for Phase 2 HQ Users requirement.
@@ -2058,7 +2058,7 @@ public class P2lHandler {
 					BigDecimal tnode = (BigDecimal) item.get("preqactfk"
 							.toUpperCase());
 					// P2lTrackPhase tmpPhase = new P2lTrackPhase();
-					//if(tnode!=null)
+					// if(tnode!=null)
 					nodes = nodes + "," + tnode.toString();
 				}
 			}
@@ -2359,8 +2359,8 @@ public class P2lHandler {
 					phase.getPhaseNumber());
 			pStatus.setStatus((String) map.get("STATUS"));
 			pStatus.setScore((String) map.get("SCORE"));
-			String score=null;
-			//if(map.get("SCORE")!=null){
+			String score = null;
+			// if(map.get("SCORE")!=null){
 			score = map.get("SCORE").toString();
 			if (score.equals("NA")) {
 
@@ -2369,7 +2369,7 @@ public class P2lHandler {
 				pStatus.setScore(map.get("SCORE").toString());
 
 			}
-			//}
+			// }
 			// End: Modified for TRT 3.6 enhancement - F 4.5( Display of
 			// employee grid)
 			// Start : Added for Phase 2 HQ Users requirement.
@@ -2559,128 +2559,166 @@ public class P2lHandler {
 		return result;
 	}
 
-public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase ) {
-        String nodes = "";
-        String altNode = phase.getAlttActivityId();
-        String activitypk = phase.getRootActivityId();
-        if (!Util.isEmpty(altNode)) {
-            if ( checkCompleteAndRegistered( activitypk, employeeId ) ) {
-                //System.out.println("got it");
-                nodes = activitypk ;
-            } else {
-                nodes = altNode;
-            }
-        } else {
-            nodes = activitypk;
-        }
-        /* Change log: Meenakshi: Modified the query to add ip_check flag for 'In Progress' changes */        
-        String sql = "select hi.activity_pk, hi.prntactfk, hi.mname, hi.mlevel, hi.rel_type, hi.ACTLABEL_NAME, hi.activityname, " +
-                       //" select hi.*, " +
-                        " action.action_check, " +
-                        "   attemp.CURRENTATTEMPTIND, " +
-                        " attemp.EStatus, " +
-                        "   m.code, attemp.enddt, " +
-                        "   r.reg_check, r.regdate," +
-                        "   ip.ip_check, ip.ipdate," +
-                        "   rq.assign_check,rq.asndate, " +
-                        "   can.cancel_check, can.candate, " +
-                        "   attemp.att_check as has_attempt, "+
-                        "   r.reg_check as has_registered, " +
-                        "   ip.ip_check as has_inprogress, "+
-                        "   rq.assign_check as has_assigned, "+
-                        "   can.cancel_check as has_cancelled, "+
-                        "   com.com_check as has_completed, com.comdate,noshow.noshow_check as has_noshow, noshow.noshowdate,"+
-                        "   attemp.score, " +
-                        "   success, " +
-                        "   decode(pend.activityfk,null,'no','yes') as pending_check,"+
-                        "   CompletionStatus " +
-                        " from  " +     
-                        "   ( select rownum as myrow,activity_pk,prntactfk,lpad(' ', level*4,'-') as mname,  level as mlevel, m.REL_TYPE, m.ACTLABEL_NAME, activityname  " + 
-                        "   from mv_USP_ACTIVITY_HIERARCHY m " +
-                        "	start with activity_pk in  (" + nodes  + ") and rel_type='Parent' " +
-                        "	connect by prior activity_pk = prntactfk  and level < 9 ) hi " + 
-                        "   , mv_usp_activity_master m " +
-                        "   , (select activityfk from mv_usp_pending where emp_no='" + employeeId + "') pend " +
-                        /* Modifying the query to get 'Waived' status from mv_usp_completed by Meenakshi*/
-                        "	, ( select distinct att.enddt, att.ACTIVITYFK,att.CURRENTATTEMPTIND , 'true' as att_check, att.score, decode(success,1,'Pass',0,'Fail') as success, decode(CompletionStatus,1,'Complete',0,'Not Complete') as CompletionStatus, mc.status as EStatus  from MV_USP_ATTEMPT att " + 
-                    	"				   	 			   	, mv_usp_completed mc " + 
-						"									where att.EMP_NO = '" + employeeId + "' and mc.EMP_NO = '" + employeeId + "' and att.activityfk=mc.activityfk) attemp " + 
-                        "   , ( select max(reg.REGISTRATION_DATE) as regdate, reg.ACTIVITY_pK , 'true' as reg_check, score   from mv_usp_registered reg " +
-                        "                                   where reg.EMP_NO = '" + employeeId + "' and reg.status=0 group by reg.ACTIVITY_pK,score) r " +
-                        "   , ( select max(reg.LSTUPD) as ipdate ,reg.ACTIVITY_pK , 'true' as ip_check, score   from mv_usp_in_progress reg " +
-                        "                                   where reg.EMP_NO = '" + employeeId + "' group by reg.ACTIVITY_pK,score) ip " +                        
-                        "   , ( select distinct act.ACTIVITY_id , 'Complete' as action_check from p2l_activity_action act " + 
-                        "                                   where act.empl_guid = '" + employeeId + "' ) action " +
-                        "   , ( select max(com.COMPLETION_DATE) as comdate, COM.ACTIVITYfK , 'true' as com_check, score   from mv_usp_completed com " +
-                        "                                   where com.EMP_NO = '" + employeeId + "'  group by COM.ACTIVITYfK,score) com " +
-						"   , ( SELECT max(ma.ASSIGNMENT_DATE) asndate, ma.ACTIVITY_PK , 'true' AS assign_check" +
-                        "                   FROM mv_usp_assigned ma " +  
-						"									WHERE ma.emp_no = '" + employeeId + "' group by ma.ACTIVITY_PK)  rq "+ 
-                        "   , ( SELECT max(can.CANCELLATION_DATE) as candate, can.ACTIVITY_PK , 'true' AS cancel_check" +
-                        "                   FROM mv_usp_cancelled can " +  
-						"									WHERE can.emp_no = '" + employeeId + "'  group by can.ACTIVITY_PK )  can "+
-                        "  , ( SELECT noshow.no_show_date as noshowdate, noshow.ACTIVITY_PK , 'true' AS noshow_check "+
-                        "                   FROM mv_usp_no_show noshow  WHERE noshow.emp_no = '"+employeeId+"'   )  noshow "+
-                        "   where " + 
-                        "	 hi.activity_pk = attemp.ACTIVITYFK(+) " +
-                        "       and m.ACTIVITY_PK  = hi.activity_pk " + 
-                        "       and hi.activity_pk = r.ACTIVITY_pK(+) " +
-                        "       and hi.activity_pk = ip.ACTIVITY_PK(+) "+
-                        "       and hi.activity_pk = com.ACTIVITYfK(+) " +
-                        "       and hi.activity_pk = pend.ACTIVITYFK(+) " +
-                        "       and hi.activity_pk = action.ACTIVITY_id(+) " +
-                        "       and hi.activity_pk = rq.ACTIVITY_PK(+)" +
-                        "       and hi.activity_pk = can.ACTIVITY_PK(+) " +
-                        "       and hi.activity_pk = noshow.activity_pk(+) order by hi.myrow";
-                        
-        List result = executeSql2(sql); 
-       // System.out.println("\nGetPhaseDetail-----------------"+sql);
-        HashMap tempMap = new HashMap();
-        P2lActivityStatus emp = null;
-        Iterator it = result.iterator();
-        P2lActivityStatus curr = new P2lActivityStatus((HashMap)it.next());
-        tempMap.put(new Integer(curr.getActivityId()), curr);
-        for (int i=0; it.hasNext();) {
-            P2lActivityStatus next = new P2lActivityStatus((HashMap)it.next());
-            //System.out.println("Activity ID-----------------"+next.getActivityId());
-            if ( tempMap.get( new Integer(next.getActivityId()) ) == null ) {
-                //System.out.println("Putting into map-----------------"+new Integer(next.getActivityId()));
-                tempMap.put(new Integer(next.getActivityId()), next);
-            }
-            if ( next.getParentid() != 0 ) {
-                P2lActivityStatus tmp = (P2lActivityStatus)tempMap.get(new Integer(next.getParentid()));
-                if (tmp != null) {
-                    //System.out.println("Activity ID--Outside if"+next.getActivityId());             
-                        // Selvam 9-june-2008 : Some of the course in P2L registered in Fullfilment level, This produces duplicate
-                    // entry in employee detail page. The following logic will avoid that duplicate.                                     
-                        if (next.isFullfilment() == true && next.isRegistered()== true){
-                            //System.out.println("Activity ID--Inside if"+next.getActivityId());
-                            continue;
-                        }
-                    //System.out.println("Adding child----"+next.getActivityId());                                          
-                    tmp.addChild( next );
-                    
-                }            
-            }
-        }
-        if ( phase.getPrerequisite() && !nodes.equals(altNode))  {
-           // System.out.println("Activity ID--Inside second if");
-            List tmplist = getPrerequisite(activitypk,phase);
-            if ( tmplist != null && tmplist.size() > 0 ) {
-                for (Iterator itr = tmplist.iterator(); itr.hasNext();) {
-                    Map item = (Map)itr.next();
-                    BigDecimal tnode = (BigDecimal)item.get("preqactfk".toUpperCase());
-                    P2lTrackPhase tmpPhase = new P2lTrackPhase();
-                    tmpPhase.setRootActivityId(tnode.toString());
-                    P2lActivityStatus tmp = getPhaseDetail(employeeId,tmpPhase);
-                    tmp.setRaiselevel(1);
-                    curr.addChild(tmp);
-                }
-            }            
-        }
-        //System.out.println("\n-------------Returning Curr-----------------"+curr.getActivityId());
-        return curr;
-    }
+	public P2lActivityStatus getPhaseDetail(String employeeId,
+			P2lTrackPhase phase) {
+		String nodes = "";
+		String altNode = phase.getAlttActivityId();
+		String activitypk = phase.getRootActivityId();
+		if (!Util.isEmpty(altNode)) {
+			if (checkCompleteAndRegistered(activitypk, employeeId)) {
+				// System.out.println("got it");
+				nodes = activitypk;
+			} else {
+				nodes = altNode;
+			}
+		} else {
+			nodes = activitypk;
+		}
+		/*
+		 * Change log: Meenakshi: Modified the query to add ip_check flag for
+		 * 'In Progress' changes
+		 */
+		String sql = "select hi.activity_pk, hi.prntactfk, hi.mname, hi.mlevel, hi.rel_type, hi.ACTLABEL_NAME, hi.activityname, "
+				+
+				// " select hi.*, " +
+				" action.action_check, "
+				+ "   attemp.CURRENTATTEMPTIND, "
+				+ " attemp.EStatus, "
+				+ "   m.code, attemp.enddt, "
+				+ "   r.reg_check, r.regdate,"
+				+ "   ip.ip_check, ip.ipdate,"
+				+ "   rq.assign_check,rq.asndate, "
+				+ "   can.cancel_check, can.candate, "
+				+ "   attemp.att_check as has_attempt, "
+				+ "   r.reg_check as has_registered, "
+				+ "   ip.ip_check as has_inprogress, "
+				+ "   rq.assign_check as has_assigned, "
+				+ "   can.cancel_check as has_cancelled, "
+				+ "   com.com_check as has_completed, com.comdate,noshow.noshow_check as has_noshow, noshow.noshowdate,"
+				+ "   attemp.score, "
+				+ "   success, "
+				+ "   decode(pend.activityfk,null,'no','yes') as pending_check,"
+				+ "   CompletionStatus "
+				+ " from  "
+				+ "   ( select rownum as myrow,activity_pk,prntactfk,lpad(' ', level*4,'-') as mname,  level as mlevel, m.REL_TYPE, m.ACTLABEL_NAME, activityname  "
+				+ "   from mv_USP_ACTIVITY_HIERARCHY m "
+				+ "	start with activity_pk in  ("
+				+ nodes
+				+ ") and rel_type='Parent' "
+				+ "	connect by prior activity_pk = prntactfk  and level < 9 ) hi "
+				+ "   , mv_usp_activity_master m "
+				+ "   , (select activityfk from mv_usp_pending where emp_no='"
+				+ employeeId
+				+ "') pend "
+				+
+				/*
+				 * Modifying the query to get 'Waived' status from
+				 * mv_usp_completed by Meenakshi
+				 */
+				"	, ( select distinct att.enddt, att.ACTIVITYFK,att.CURRENTATTEMPTIND , 'true' as att_check, att.score, decode(success,1,'Pass',0,'Fail') as success, decode(CompletionStatus,1,'Complete',0,'Not Complete') as CompletionStatus, mc.status as EStatus  from MV_USP_ATTEMPT att "
+				+ "				   	 			   	, mv_usp_completed mc "
+				+ "									where att.EMP_NO = '"
+				+ employeeId
+				+ "' and mc.EMP_NO = '"
+				+ employeeId
+				+ "' and att.activityfk=mc.activityfk) attemp "
+				+ "   , ( select max(reg.REGISTRATION_DATE) as regdate, reg.ACTIVITY_pK , 'true' as reg_check, score   from mv_usp_registered reg "
+				+ "                                   where reg.EMP_NO = '"
+				+ employeeId
+				+ "' and reg.status=0 group by reg.ACTIVITY_pK,score) r "
+				+ "   , ( select max(reg.LSTUPD) as ipdate ,reg.ACTIVITY_pK , 'true' as ip_check, score   from mv_usp_in_progress reg "
+				+ "                                   where reg.EMP_NO = '"
+				+ employeeId
+				+ "' group by reg.ACTIVITY_pK,score) ip "
+				+ "   , ( select distinct act.ACTIVITY_id , 'Complete' as action_check from p2l_activity_action act "
+				+ "                                   where act.empl_guid = '"
+				+ employeeId
+				+ "' ) action "
+				+ "   , ( select max(com.COMPLETION_DATE) as comdate, COM.ACTIVITYfK , 'true' as com_check, score   from mv_usp_completed com "
+				+ "                                   where com.EMP_NO = '"
+				+ employeeId
+				+ "'  group by COM.ACTIVITYfK,score) com "
+				+ "   , ( SELECT max(ma.ASSIGNMENT_DATE) asndate, ma.ACTIVITY_PK , 'true' AS assign_check"
+				+ "                   FROM mv_usp_assigned ma "
+				+ "									WHERE ma.emp_no = '"
+				+ employeeId
+				+ "' group by ma.ACTIVITY_PK)  rq "
+				+ "   , ( SELECT max(can.CANCELLATION_DATE) as candate, can.ACTIVITY_PK , 'true' AS cancel_check"
+				+ "                   FROM mv_usp_cancelled can "
+				+ "									WHERE can.emp_no = '"
+				+ employeeId
+				+ "'  group by can.ACTIVITY_PK )  can "
+				+ "  , ( SELECT noshow.no_show_date as noshowdate, noshow.ACTIVITY_PK , 'true' AS noshow_check "
+				+ "                   FROM mv_usp_no_show noshow  WHERE noshow.emp_no = '"
+				+ employeeId
+				+ "'   )  noshow "
+				+ "   where "
+				+ "	 hi.activity_pk = attemp.ACTIVITYFK(+) "
+				+ "       and m.ACTIVITY_PK  = hi.activity_pk "
+				+ "       and hi.activity_pk = r.ACTIVITY_pK(+) "
+				+ "       and hi.activity_pk = ip.ACTIVITY_PK(+) "
+				+ "       and hi.activity_pk = com.ACTIVITYfK(+) "
+				+ "       and hi.activity_pk = pend.ACTIVITYFK(+) "
+				+ "       and hi.activity_pk = action.ACTIVITY_id(+) "
+				+ "       and hi.activity_pk = rq.ACTIVITY_PK(+)"
+				+ "       and hi.activity_pk = can.ACTIVITY_PK(+) "
+				+ "       and hi.activity_pk = noshow.activity_pk(+) order by hi.myrow";
+
+		List result = executeSql2(sql);
+		// System.out.println("\nGetPhaseDetail-----------------"+sql);
+		HashMap tempMap = new HashMap();
+		P2lActivityStatus emp = null;
+		Iterator it = result.iterator();
+		P2lActivityStatus curr = new P2lActivityStatus((HashMap) it.next());
+		tempMap.put(new Integer(curr.getActivityId()), curr);
+		for (int i = 0; it.hasNext();) {
+			P2lActivityStatus next = new P2lActivityStatus((HashMap) it.next());
+			// System.out.println("Activity ID-----------------"+next.getActivityId());
+			if (tempMap.get(new Integer(next.getActivityId())) == null) {
+				// System.out.println("Putting into map-----------------"+new
+				// Integer(next.getActivityId()));
+				tempMap.put(new Integer(next.getActivityId()), next);
+			}
+			if (next.getParentid() != 0) {
+				P2lActivityStatus tmp = (P2lActivityStatus) tempMap
+						.get(new Integer(next.getParentid()));
+				if (tmp != null) {
+					// System.out.println("Activity ID--Outside if"+next.getActivityId());
+					// Selvam 9-june-2008 : Some of the course in P2L registered
+					// in Fullfilment level, This produces duplicate
+					// entry in employee detail page. The following logic will
+					// avoid that duplicate.
+					if (next.isFullfilment() == true
+							&& next.isRegistered() == true) {
+						// System.out.println("Activity ID--Inside if"+next.getActivityId());
+						continue;
+					}
+					// System.out.println("Adding child----"+next.getActivityId());
+					tmp.addChild(next);
+
+				}
+			}
+		}
+		if (phase.getPrerequisite() && !nodes.equals(altNode)) {
+			// System.out.println("Activity ID--Inside second if");
+			List tmplist = getPrerequisite(activitypk, phase);
+			if (tmplist != null && tmplist.size() > 0) {
+				for (Iterator itr = tmplist.iterator(); itr.hasNext();) {
+					Map item = (Map) itr.next();
+					BigDecimal tnode = (BigDecimal) item.get("preqactfk"
+							.toUpperCase());
+					P2lTrackPhase tmpPhase = new P2lTrackPhase();
+					tmpPhase.setRootActivityId(tnode.toString());
+					P2lActivityStatus tmp = getPhaseDetail(employeeId, tmpPhase);
+					tmp.setRaiselevel(1);
+					curr.addChild(tmp);
+				}
+			}
+		}
+		// System.out.println("\n-------------Returning Curr-----------------"+curr.getActivityId());
+		return curr;
+	}
+
 	// Start : Added for TRT Phase 2 - Requirement no. 6
 	public P2lActivityStatus getSinglePhaseDetail(String employeeId,
 			String activitypk) {
@@ -3213,7 +3251,7 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 					BigDecimal tnode = (BigDecimal) item.get("preqactfk"
 							.toUpperCase());
 					// P2lTrackPhase tmpPhase = new P2lTrackPhase();
-					//if(tnode!=null)
+					// if(tnode!=null)
 					nodes = nodes + "," + tnode.toString();
 				}
 			}
@@ -3541,7 +3579,7 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 
 			b = new SubActivityBean();
 			b.setActivityName((String) m.get("ACTIVITYNAME"));
-			//if(m.get("ROOTACTIVITYFK")!=null)
+			// if(m.get("ROOTACTIVITYFK")!=null)
 			b.setRootActivityID(m.get("ROOTACTIVITYFK").toString());
 
 			b.setActivityPK(activityPk);
@@ -3830,8 +3868,8 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 					null);
 			pStatus.setStatus((String) map.get("STATUS"));
 			pStatus.setScore((String) map.get("SCORE"));
-			String score=null;
-			//if(map.get("SCORE")!=null){
+			String score = null;
+			// if(map.get("SCORE")!=null){
 			score = map.get("SCORE").toString();
 			if (score.equals("NA")) {
 
@@ -3840,7 +3878,7 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 				pStatus.setScore(map.get("SCORE").toString());
 
 			}
-			//}
+			// }
 			// End: Modified for TRT 3.6 enhancement - F 4.5( Display of
 			// employee grid)
 			// Start : Added for Phase 2 HQ Users requirement.
@@ -4271,8 +4309,8 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 					null);
 			pStatus.setStatus((String) map.get("STATUS"));
 			pStatus.setScore((String) map.get("SCORE"));
-			String score=null;
-			//if(map.get("SCORE")!=null){
+			String score = null;
+			// if(map.get("SCORE")!=null){
 			score = map.get("SCORE").toString();
 			if (score.equals("NA")) {
 
@@ -4281,7 +4319,7 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 				pStatus.setScore(map.get("SCORE").toString());
 
 			}
-			//}
+			// }
 			// End: Modified for TRT 3.6 enhancement - F 4.5( Display of
 			// employee grid)
 			// Start : Added for Phase 2 HQ Users requirement.
@@ -4418,10 +4456,10 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 			Map map = new HashMap();
 
 			map = (HashMap) result.get(0);
-			//if(map.get("TRAINING_REPORT_ID")!=null){
+			// if(map.get("TRAINING_REPORT_ID")!=null){
 			String str = map.get("TRAINING_REPORT_ID").toString();
 			return str;
-			//}
+			// }
 		}
 		return " ";
 	}
@@ -4524,10 +4562,8 @@ public P2lActivityStatus getPhaseDetail(String employeeId , P2lTrackPhase phase 
 			/** Infosys - Weblogic to Jboss migration changes ends here */
 			statement = conn.prepareStatement(insertSql);
 			statement.setString(1, track.getTrackLabel());
-			statement.setString(
-					2,
-					"/TrainingReports/gapAnalysis/begin?track="
-							+ track.getTrackId());
+			statement.setString(2, "/TrainingReports/gapAnalysis/begin?track="
+					+ track.getTrackId());
 			statement.setBigDecimal(3, new BigDecimal(menuId));
 			statement.setString(4, track.getTrackId());
 

@@ -144,18 +144,26 @@
                         //SceFull rating = getSce(emplid, tmpstatus, "4");
                         String productCd = String.valueOf(tmpstatus.getActivityId());//rating.getProductCd();
                         String product= tmpstatus.getActivityName();
-                        //System.out.println("$product:::::::::::::::::"+product);
-                        //System.out.println("productCd::::::::::::::::::"+productCd);
+                       
                         String scoreLegend = SceHandler.getScoreLegend(scoreValue);
-                        //System.out.println("scoreLegend:::"+scoreLegend);
-                        //String employeeNtId = employeeNtId; //wc.getEmployee().getNtId();
-                        //String loginUserNtId = loginUserNtId; //wc.getEmployee().getNtId();
+                        
                         String linkParamsStr = "product="+product+"&employeeNtId="+employeeNtId+"&loginUserNtId="+loginUserNtId+"&emplid="+ emplid +"&productCode=" + productCd+"&eventId=4";
-                        //System.out.println("linkParamsStr:"+linkParamsStr);
+                        
+                      	//2020 Q3: start of muzees for multiple evaluation
+                        String sceScore=getSceScore(emplid,tmpstatus,"4");
+                        boolean multipleEvaluation=false;
+                        if(!"".equals(sceScore)){
+                        multipleEvaluation=SceHandler.checkMultipleEvaluation(emplid,tmpstatus.getActivityId()+"","4");
+                        }
+                        boolean isMapped=SceHandler.isCourseMapped(product);
                         if(tmpstatus.isRegistered() && "".equals(getSceScore(emplid,tmpstatus,"4"))){
-                            sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='OpenSpecialCase();' target='myWin' >Evaluate</a></td>");
-                        }else if(tmpstatus.isRegistered()&&!SceHandler.isLMSMapped1(emplid, product,"4",scoreLegend)){
-                            boolean isMapped=SceHandler.isCourseMapped(product);
+                            sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Evaluate</a></td>");
+                        }
+                        else if(tmpstatus.isRegistered() && multipleEvaluation){
+                        	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Re-certify</a>");
+                        	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
+                        }else if(tmpstatus.isRegistered()&&!SceHandler.isLMSMapped1(emplid,  tmpstatus.getActivityId()+"","4",scoreLegend)){
+                           
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=reEvaluate' onClick=' return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Evaluate</a>");
                             sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
                         }else if(scoreLegend!=null ){
@@ -277,9 +285,18 @@
                         //String employeeNtId = loginUserNtId; // wc.getEmployee().getNtId();
                         String linkParamsStr = "product="+product+"&employeeNtId="+employeeNtId+"&loginUserNtId="+loginUserNtId+"&emplid="+ emplid +"&productCode=" + productCd+"&eventId=4";
                         //System.out.println("linkParamsStr:"+linkParamsStr);
-                        if(tmpstatus.isRegistered()&& "".equals(getSceScore(emplid,tmpstatus,"4"))){
+                        String sceScore=getSceScore(emplid,tmpstatus,"4");
+                        boolean multipleEvaluation=false;
+                        if(!"".equals(sceScore)){
+                        multipleEvaluation=SceHandler.checkMultipleEvaluation(emplid,tmpstatus.getActivityId()+"","4");
+                        }
+                        if(tmpstatus.isRegistered()&& "".equals(sceScore)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='OpenSpecialCase();' target='myWin' >Evaluate</a></td>");
-                        }else if(tmpstatus.isRegistered()&& !SceHandler.isLMSMapped1(emplid,product,"4",scoreLegend)){
+                        }
+                        else if(tmpstatus.isRegistered() && multipleEvaluation){
+                        	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='OpenSpecialCase();' target='myWin' >Re-certify</a></td>");
+                        	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
+                        }else if(tmpstatus.isRegistered()&& !SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
                             boolean isMapped=SceHandler.isCourseMapped(product);
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=reEvaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Evaluate</a>");
                             sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");

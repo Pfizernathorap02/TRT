@@ -537,9 +537,8 @@ function moveItemBelowGroup(index)
 
 
 
-<!--
    function confirmDelete(idDel,idTrackId,trackName) {  
-      var msg = "Do you want to delete '"+ trackName +"' ?";
+      var msg = "Do you want to delete '"+ decodeURIComponent(trackName) +"' ?";
       document.editArchive.delID.value = idDel;
       document.editArchive.delIDTrack.value = idTrackId;
       document.editArchive.command.value = "deleteMenu";
@@ -547,7 +546,7 @@ function moveItemBelowGroup(index)
         document.editArchive.submit();
       }
     }
-//-->
+
 </script>
 
 <table class="no_space_width" width="90%" height="0%"> 
@@ -741,29 +740,29 @@ function moveItemBelowGroup(index)
                     } else {%>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                               
                     <% } %>
-
+					<!-- 2020 Q3: Muzees updated below method from javascript:getDetails1 to javascript:getDetails for 'null' report name while deleting archived reports -->
                      <% if(menu.getTrackId()!=null){
                       if(!menu.getTrackId().startsWith("LAUNCH") && !menu.getTrackId().startsWith("FORECAST") && !menu.getTrackId().startsWith("MANAGEMENT") && (!menu.getTrackId().startsWith("GAP") && (!menu.getTrackId().startsWith("GROUP")))){
-                      %><input type="button" name="go" value="GO" onclick="javascript:getDetails('REGULAR','<%=menu.getTrackId()%>',escape('<%=menu.getLabel1()%>'),'<%=menu.getId()%>');"><%
+                      %><input type="button" name="go" value="GO" onclick="javascript:getDetails('REGULAR','<%=menu.getTrackId()%>',escape('<%=menu.getLabel()%>'),'<%=menu.getId()%>');"><%
                       }
                        else if(menu.getTrackId().startsWith("LAUNCH")){
-                       %><input type="button" name="go" value="GO" onclick="javascript:getDetails('LAUNCH','<%=menu.getTrackId()%>',escape('<%=menu.getLabel1()%>'),'<%=menu.getId()%>');"><%
+                       %><input type="button" name="go" value="GO" onclick="javascript:getDetails('LAUNCH','<%=menu.getTrackId()%>',escape('<%=menu.getLabel()%>'),'<%=menu.getId()%>');"><%
                        }
                      else if(menu.getTrackId().startsWith("FORECAST")){%>
-                        <input type="button" name="go" value="GO" onclick="javascript:getDetails('FORECAST','<%=menu.getTrackId()%>',escape('<%=menu.getLabel1()%>'),'<%=menu.getId()%>');">
+                        <input type="button" name="go" value="GO" onclick="javascript:getDetails('FORECAST','<%=menu.getTrackId()%>',escape('<%=menu.getLabel()%>'),'<%=menu.getId()%>');">
                             <input type="hidden" name="Forecast" value="" ><%}
                     else if(menu.getTrackId().startsWith("MANAGEMENT")){%>
-                     <input type="button" name="go" value="GO" onclick="javascript:getDetails('MANAGEMENT','<%=menu.getTrackId()%>',escape('<%=menu.getLabel1()%>'),'<%=menu.getId()%>');">
+                     <input type="button" name="go" value="GO" onclick="javascript:getDetails('MANAGEMENT','<%=menu.getTrackId()%>',escape('<%=menu.getLabel()%>'),'<%=menu.getId()%>');">
                              <input type="hidden" name="Management" value="" ><%}
                     else if(menu.getTrackId().startsWith("GAP")){%>
-                     <input type="button" name="go" value="GO" onclick="javascript:getDetails('GAP','<%=menu.getTrackId()%>',escape('<%=menu.getLabel1()%>'),'<%=menu.getId()%>');">
+                     <input type="button" name="go" value="GO" onclick="javascript:getDetails('GAP','<%=menu.getTrackId()%>',escape('<%=menu.getLabel()%>'),'<%=menu.getId()%>');">
                              <input type="hidden" name="Gap" value="" ><%}
                     else if(menu.getTrackId().startsWith("GROUP")){%>
-                     <input type="button" name="go" value="GO" onclick="javascript:getDetails('GROUP','<%=menu.getTrackId()%>',escape('<%=menu.getLabel1()%>'),'<%=menu.getId()%>');">
+                     <input type="button" name="go" value="GO" onclick="javascript:getDetails('GROUP','<%=menu.getTrackId()%>',escape('<%=menu.getLabel()%>'),'<%=menu.getId()%>');">
                              <input type="hidden" name="Group" value="" ><%}
                     %>               </div> </TD></TR>
               <%}else{%>                
-                <input type="button" name="go" value="GO" onclick="javascript:getDetails('REGULAR','<%=menu.getTrackId()%>',escape('<%=menu.getLabel1()%>'),'<%=menu.getId()%>');">
+                <input type="button" name="go" value="GO" onclick="javascript:getDetails('REGULAR','<%=menu.getTrackId()%>',escape('<%=menu.getLabel()%>'),'<%=menu.getId()%>');">
                 <%}
                 
                                                                    

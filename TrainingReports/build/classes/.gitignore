@@ -1,3 +1,5 @@
 /com/
 /hibernate.cfg.xml
 /struts.xml
+/.gitignore
+/Log4j2.xml

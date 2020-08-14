@@ -137,21 +137,33 @@
                         //System.out.println("$productCd::::::::::::::::::"+productCd);
                         String scoreLegend = SceHandler.getScoreLegend(scoreValue);
                         System.out.println("scoreLegend:::"+scoreLegend);
+           
                         //String employeeNtId = ntId; // wc.getEmployee().getNtId();
                         String linkParamsStr = "employeeNtId="+employeeNtId+"&loginUserNtId="+loginUserNtId+"&emplid="+ emplid +"&productCode=" + productCd+"&eventId=4";
                         //System.out.println("linkParamsStr:"+linkParamsStr);
-                        if(tmpstatus.isRegistered() && "".equals(getSceScore(emplid,tmpstatus,"4"))){
-                            sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='OpenSpecialCase();' target='myWin' >Evaluate</a></td>");
-                         }else if(tmpstatus.isRegistered()&&!SceHandler.isLMSMapped1(emplid, product,"4",scoreLegend)){
-                            boolean isMapped=SceHandler.isCourseMapped(product); 
+                        //2020 Q3: start of muzees for multiple evaluation
+                        String sceScore=getSceScore(emplid,tmpstatus,"4");
+                        boolean multipleEvaluation=false;
+                        if(!"".equals(sceScore)){
+                        multipleEvaluation=SceHandler.checkMultipleEvaluation(emplid,tmpstatus.getActivityId()+"","4");
+                        }
+                        boolean isMapped=SceHandler.isCourseMapped(product); 
+                        if(tmpstatus.isRegistered() && "".equals(sceScore)){
+                            sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Evaluate</a></td>");
+                         }
+                        else if(tmpstatus.isRegistered() && multipleEvaluation){
+                        	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick=' return OpenSpecialCase("+isMapped+");' target='myWin' >Re-certify</a>");
+                        	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
+                        }
+                        else if(tmpstatus.isRegistered()&&!SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=reEvaluate' onClick=' return OpenSpecialCase("+isMapped+"); target='myWin' >Re-Evaluate</a>");
                             sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
-                         }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid,product,"4",scoreLegend)){
+                         }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
                         }
                         else{
                             sb.append("<td style='font-size:14px;'></td>"); 
-                        }
+                        }//end
                     }
                      
                     else if (P2lActivityStatus.specialCodes!=null && P2lActivityStatus.specialCodes.containsKey(tmpstatus.getCourseCode())) 
@@ -191,9 +203,9 @@
                     }
                     sb.append("<tr><th colspan='6' style='font-size:14px;'><strong><a href='listReportAllStatus?activitypk="+tmpstatus.getActivityId()+"&section=Complete&pieIndex=0'>" + tmpstatus.getActivityName() + completestring +"</a></strong></th></tr>");
                     sb.append("<tr id='greyscell'><td nowrap>Activity&nbsp;Type</td><td >Status</td><td >Status&nbsp;Date</td><td >Score</td><td  align='center'>Action</td></tr>");
-                    //System.out.println("asdfasdfasdfd:" + tmpstatus.getMaxLevel(0));
+                    System.out.println("asdfasdfasdfd:" + tmpstatus.getMaxLevel(0));
                     if ( tmpstatus.getMaxLevel(0) == 2) {
-                        //System.out.println("Getting inside maxlevel condition");
+                        System.out.println("Getting inside maxlevel condition");
                         List tmpkids = new ArrayList();
                         tmpstatus.setRaiselevel(1);
                         tmpkids.add(tmpstatus);
@@ -207,8 +219,8 @@
     
                 // handle LEVEL>2 data
                 if ( tmpstatus.getLevel() > 2 && tmpstatus.hasRecord(false)) {
-                     //System.out.println("Inside level greater than 2");     
-                    // If child link is subscription, draw that row instead
+                     System.out.println("Inside level greater than 2");     
+                    //If child link is subscription, draw that row instead
                     if ( tmpstatus.isChildSubscription()) {
                         sb.append(drawRow(tmpstatus.getKids(),emplid,uSession,actid,pedScores,isDebug,sceUrl, wc));
                         continue;
@@ -257,13 +269,23 @@
                         //String employeeNtId = ntId; // wc.getEmployee().getNtId();
                         String linkParamsStr = "employeeNtId="+employeeNtId+"&loginUserNtId="+loginUserNtId+"&emplid="+ emplid +"&productCode=" + productCd+"&eventId=4";
                         //System.out.println("linkParamsStr:"+linkParamsStr);
-                         if(tmpstatus.isRegistered() && "".equals(getSceScore(emplid,tmpstatus,"4"))){
-                            sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='OpenSpecialCase();' target='myWin' >Evaluate</a></td>");
-                            }else if(tmpstatus.isRegistered() &&!SceHandler.isLMSMapped1(emplid, product,"4",scoreLegend)){
-                            boolean isMapped=SceHandler.isCourseMapped(product);                             
+                      //2020 Q3: start of muzees for multiple evaluation
+                        String sceScore=getSceScore(emplid,tmpstatus,"4");
+                        boolean multipleEvaluation=false;
+                        if(!"".equals(sceScore)){
+                        multipleEvaluation=SceHandler.checkMultipleEvaluation(emplid,tmpstatus.getActivityId()+"","4");
+                        }
+                        boolean isMapped=SceHandler.isCourseMapped(product);
+                         if(tmpstatus.isRegistered() && "".equals(sceScore)){
+                            sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Evaluate</a></td>");
+                            }
+                         else if(tmpstatus.isRegistered() && multipleEvaluation){
+                         	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Re-certify</a>");
+                         	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
+                         }else if(tmpstatus.isRegistered() &&!SceHandler.isLMSMapped1(emplid,  tmpstatus.getActivityId()+"","4",scoreLegend)){                             
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=reEvaluate' onClick=' return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Evaluate</a>");
                             sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
-                         }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid,product,"4",scoreLegend)){
+                         }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
                         }
                         else{
