@@ -9,8 +9,10 @@
 <%@ page import="com.pfizer.webapp.user.UserSession"%>
 <%@ page import="com.pfizer.webapp.user.UserTerritory"%>
 <%@ page import="com.pfizer.db.Employee"%>
-<%@ page import="com.pfizer.webapp.wc.components.report.phasereports.PhaseTrainingDetailWc"%>
-<%@ page import="com.pfizer.webapp.wc.components.report.phasereports.TrainingSummaryWc"%>
+<%@ page
+	import="com.pfizer.webapp.wc.components.report.phasereports.PhaseTrainingDetailWc"%>
+<%@ page
+	import="com.pfizer.webapp.wc.components.report.phasereports.TrainingSummaryWc"%>
 <%@ page import="com.tgix.Utils.Util"%>
 <%@ page import="java.math.BigDecimal"%>
 <%@ page import="com.pfizer.utils.DateComparator"%>
@@ -20,7 +22,7 @@
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.HashMap"%>
 <%@ page import="java.util.Iterator"%>
-<%@ taglib uri="/WEB-INF/dynamic-include.tld" prefix="inc" %>
+<%@ taglib uri="/WEB-INF/dynamic-include.tld" prefix="inc"%>
 
 <%
 	PhaseTrainingDetailWc wc = (PhaseTrainingDetailWc)request.getAttribute(PhaseTrainingDetailWc.ATTRIBUTE_NAME);
@@ -159,13 +161,12 @@
                         if(tmpstatus.isRegistered() && "".equals(getSceScore(emplid,tmpstatus,"4"))){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Evaluate</a></td>");
                         }
-                        else if(tmpstatus.isRegistered() && multipleEvaluation){
-                        	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Re-certify</a>");
-                        	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
-                        }else if(tmpstatus.isRegistered()&&!SceHandler.isLMSMapped1(emplid,  tmpstatus.getActivityId()+"","4",scoreLegend)){
-                           
+                        else if(tmpstatus.isRegistered()&&!SceHandler.isLMSMapped1(emplid,  tmpstatus.getActivityId()+"","4",scoreLegend)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=reEvaluate' onClick=' return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Evaluate</a>");
                             sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
+                        }else if(tmpstatus.isRegistered() && multipleEvaluation){
+                        	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Certify</a>");
+                        	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
                         }else if(scoreLegend!=null ){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
                         }
@@ -496,45 +497,51 @@
 </script>
 
 <table class="datagrid">
-    <tr>
-        <th align="left">Training Detail</th>
-    </tr>	
-    <tr>
-        <td align="left" style="background-color:#E8EEF7;">        
-        	<div class="phasedtraining_wrapper">
-            	<div class="phasedtraining_hdr_wrapper">
-                    <div class="phasedtraining_tabLinks" >
-                    <%
+	<tr>
+		<th align="left">Training Detail</th>
+	</tr>
+	<tr>
+		<td align="left" style="background-color: #E8EEF7;">
+			<div class="phasedtraining_wrapper">
+				<div class="phasedtraining_hdr_wrapper">
+					<div class="phasedtraining_tabLinks">
+						<%
                         for (Iterator it = wc.getTrack().getPhases().iterator(); it.hasNext();) {
                             P2lTrackPhase phase = (P2lTrackPhase)it.next();
                             if(phase.getRootActivityId()!=null) {
                     %>
-                        
-                        <% if (phase.getRootActivityId().equals(wc.getActivityPk()) || (!Util.isEmpty(phase.getAlttActivityId()) && phase.getAlttActivityId().equals(wc.getActivityPk())) ) {%>
-                        
-                           
-                        	<%-- <a href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>" id="phasedtraining_tabLinks_on" ><%=phase.getPhaseNumber()%></a> --%>
-                        	<a href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>" id="phasedtraining_tabLinks_on" ><%=phase.getPhaseNumber()%></a>
-                        <%} else { %>
-                        	<%-- <a href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>" ><%=phase.getPhaseNumber()%></a> --%>
-                        	<a href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>" ><%=phase.getPhaseNumber()%></a>
-                        <% } %>
-                    
-                    <%
+
+						<% if (phase.getRootActivityId().equals(wc.getActivityPk()) || (!Util.isEmpty(phase.getAlttActivityId()) && phase.getAlttActivityId().equals(wc.getActivityPk())) ) {%>
+
+
+						<%-- <a href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>" id="phasedtraining_tabLinks_on" ><%=phase.getPhaseNumber()%></a> --%>
+						<a
+							href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>"
+							id="phasedtraining_tabLinks_on"><%=phase.getPhaseNumber()%></a>
+						<%} else { %>
+						<%-- <a href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>" ><%=phase.getPhaseNumber()%></a> --%>
+						<a
+							href="detailpage?activitypk=<%=phase.getRootActivityId()%>&emplid=<%=wc.getEmployee().getEmplId()%>"><%=phase.getPhaseNumber()%></a>
+						<% } %>
+
+						<%
                         } }
                     %>
-                    
-                    <% if(isDisplayFeedbackForm(wc.getTrack().getTrackId())){%>
-                    <a href="javascript:void(0);" onClick="SceTab(scetb,p2ltabs)" id="sce">Feedback Form </a>
-                    <%}%>
-                	</div>
-                </div>
-            
+
+						<% if(isDisplayFeedbackForm(wc.getTrack().getTrackId())){%>
+						<a href="javascript:void(0);" onClick="SceTab(scetb,p2ltabs)"
+							id="sce">Feedback Form </a>
+						<%}%>
+					</div>
+				</div>
+
 				<div class="phasedtraining_whitebox">
-                	<div class="clear" ><img src="/TrainingReports/resources/images/spacer.gif"></div>
-                    <table class="phasedtraining_table" id="p2ltabs">
-                    
-                    <%
+					<div class="clear">
+						<img src="/TrainingReports/resources/images/spacer.gif">
+					</div>
+					<table class="phasedtraining_table" id="p2ltabs">
+
+						<%
                         P2lActivityStatus status = wc.getStatus();
                         Map scores = new HashMap();
                         status.getAveragePedScores(scores);
@@ -567,18 +574,26 @@
 // Ends here
                     %>
 
-                    <%=drawRow(kids,wc.getEmployee().getEmplId(),wc.getUserSesion(),wc.getActivityPk(),scores, wc.isDebug(),sceUrl, wc)%>
+						<%=drawRow(kids,wc.getEmployee().getEmplId(),wc.getUserSesion(),wc.getActivityPk(),scores, wc.isDebug(),sceUrl, wc)%>
 
-                    
-                    </table>
-                    
-                    <table class="phasedtraining_table" style="display:none;" id="scetb" width="75%">
-                    <tr><th colspan='6' style='font-size:14px;'><strong>Representative Feedback Form</strong></th></tr>
-                    <tr id='greyscell'><td nowrap>Form</td><td>Action</td></tr>
-                    <tr>
-                    <td colspan='1' style='font-size:14px;' nowrap>Representative Feedback Form</td>
-                    <td colspan='1' style='font-size:14px;' nowrap>
-                    <%
+
+					</table>
+
+					<table class="phasedtraining_table" style="display: none;"
+						id="scetb" width="75%">
+						<tr>
+							<th colspan='6' style='font-size: 14px;'><strong>Representative
+									Feedback Form</strong></th>
+						</tr>
+						<tr id='greyscell'>
+							<td nowrap>Form</td>
+							<td>Action</td>
+						</tr>
+						<tr>
+							<td colspan='1' style='font-size: 14px;' nowrap>Representative
+								Feedback Form</td>
+							<td colspan='1' style='font-size: 14px;' nowrap>
+								<%
                     String Fname = wc.getEmployee().getLastName()+","+wc.getEmployee().getFirstName();
                     Fname=Fname.replaceAll("\'", "%3C");  
                     boolean isSAdmin = wc.getUser().isSuperAdmin();
@@ -598,27 +613,25 @@
                     System.out.println("phasereports.jsp | AppQueryStrings.FIELD_SUPERADMIN --> ?"+isSAdmin);
                     
                     System.out.println("phasereports.jsp | AppQueryStrings.FIELD_TRACKID --> ?"+wc.getTrack().getTrackId());
-                    %>
-                                         
-                    <a href='/TrainingReports/phase/SCEeval?&<%=AppQueryStrings.FIELD_EMPLID%>=<%=wc.getEmployee().getEmplId()%>&<%=AppQueryStrings.FIELD_ACTIVITYID%>=<%=wc.getActivityPk()%>&<%=AppQueryStrings.FIELD_EVALID%>=<%=wc.getUser().getEmplid()%>&<%=AppQueryStrings.FIELD_EVALNM%>=<%=wc.getUser().getName()%>&<%=AppQueryStrings.FIELD_EMPNM%>=<%=Fname%>&<%=AppQueryStrings.FIELD_FLAG%>=<%=flag%>&<%=AppQueryStrings.FIELD_SUPERADMIN%>=<%=isSAdmin%>&<%=AppQueryStrings.FIELD_TRACKID%>=<%=wc.getTrack().getTrackId()%>' onClick='OpenSceEval();' target='myWin'>
-                    View/Evaluate
-                    </a>
-                    
-                    </td>
-                     
-                    </tr>
-                    </table>
-                    
-                </div>
-            </div>
-        </td>
-    </tr>
+                    %> <a
+								href='/TrainingReports/phase/SCEeval?&<%=AppQueryStrings.FIELD_EMPLID%>=<%=wc.getEmployee().getEmplId()%>&<%=AppQueryStrings.FIELD_ACTIVITYID%>=<%=wc.getActivityPk()%>&<%=AppQueryStrings.FIELD_EVALID%>=<%=wc.getUser().getEmplid()%>&<%=AppQueryStrings.FIELD_EVALNM%>=<%=wc.getUser().getName()%>&<%=AppQueryStrings.FIELD_EMPNM%>=<%=Fname%>&<%=AppQueryStrings.FIELD_FLAG%>=<%=flag%>&<%=AppQueryStrings.FIELD_SUPERADMIN%>=<%=isSAdmin%>&<%=AppQueryStrings.FIELD_TRACKID%>=<%=wc.getTrack().getTrackId()%>'
+								onClick='OpenSceEval();' target='myWin'> View/Evaluate </a>
+
+							</td>
+
+						</tr>
+					</table>
+
+				</div>
+			</div>
+		</td>
+	</tr>
 </table>
-                      
-                     
 
 
 
 
 
- 
+
+
+

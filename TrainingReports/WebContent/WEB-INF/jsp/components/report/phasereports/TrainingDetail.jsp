@@ -151,14 +151,14 @@
                         if(tmpstatus.isRegistered() && "".equals(sceScore)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Evaluate</a></td>");
                          }
-                        else if(tmpstatus.isRegistered() && multipleEvaluation){
-                        	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick=' return OpenSpecialCase("+isMapped+");' target='myWin' >Re-certify</a>");
-                        	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
-                        }
                         else if(tmpstatus.isRegistered()&&!SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=reEvaluate' onClick=' return OpenSpecialCase("+isMapped+"); target='myWin' >Re-Evaluate</a>");
                             sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
-                         }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
+                         }
+                        else if(tmpstatus.isRegistered() && multipleEvaluation){
+                        	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick=' return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Certify</a>");
+                        	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
+                        }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
                         }
                         else{
@@ -279,13 +279,13 @@
                          if(tmpstatus.isRegistered() && "".equals(sceScore)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Evaluate</a></td>");
                             }
-                         else if(tmpstatus.isRegistered() && multipleEvaluation){
-                         	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Re-certify</a>");
-                         	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
-                         }else if(tmpstatus.isRegistered() &&!SceHandler.isLMSMapped1(emplid,  tmpstatus.getActivityId()+"","4",scoreLegend)){                             
+                         else if(tmpstatus.isRegistered() &&!SceHandler.isLMSMapped1(emplid,  tmpstatus.getActivityId()+"","4",scoreLegend)){                             
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=reEvaluate' onClick=' return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Evaluate</a>");
                             sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
-                         }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
+                         }else if(tmpstatus.isRegistered() && multipleEvaluation){
+                          	sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=evaluate' onClick='return OpenSpecialCase("+isMapped+");' target='myWin' >Re-Certify</a>");
+                          	sb.append("<br><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
+                          }else if(scoreLegend!=null && SceHandler.isLMSMapped1(emplid, tmpstatus.getActivityId()+"","4",scoreLegend)){
                             sb.append("<td  style='font-size:14px;'><a href='/TrainingReports/redirectToSCE.jsp?"+linkParamsStr+"&linkName=viewEvaluations' onClick='OpenSpecialCase();' target='myWin' >View&nbsp;Evaluation(s)</a></td>");
                         }
                         else{
