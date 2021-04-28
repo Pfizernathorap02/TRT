@@ -12,12 +12,13 @@
 #header_logo {
 	margin: 15px 40px;
 	height: 0;
-	width: 88px;		/* image width */
+	width: 100px;		/* image width */
 	padding-top: 57px;	/* image height */
 	overflow: hidden;
 	font-size: 1px;
 	float:left;
-	background: url(/TrainingReports/resources/images/h1_logo.gif) no-repeat;
+	background: url(/TrainingReports/resources/images/h1_logo.jpg) no-repeat;
+	background-position-y: 13px;
 }
 
 
