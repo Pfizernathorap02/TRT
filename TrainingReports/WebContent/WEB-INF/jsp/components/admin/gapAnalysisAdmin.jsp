@@ -206,10 +206,10 @@ document.getElementsByName("rRegistrationCheck").item(index).value="Y";
          </tr>
          <tr><td></td></tr>
          <tr>
-            <td>
-            Completion Check : <input type="radio" name="addCourseCompRegChk" value="N" onclick='setVal("Comp");'/> 
+            <td> <!-- added id shindo -->
+            Completion Check : <input id="addCourseCompRegChk" type="radio" name="addCourseCompRegChk" value="N" onclick='setVal("Comp");'/> 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Registration Check : <input type="radio" name="addCourseCompRegChk" value="N" onclick='setVal("Reg");'/>
+            Registration Check : <input id="addCourseCompRegChk" type="radio" name="addCourseCompRegChk" value="N" onclick='setVal("Reg");'/>
             </td> 
          </tr>
          <tr><td></td></tr>
@@ -270,7 +270,8 @@ document.getElementsByName("rRegistrationCheck").item(index).value="Y";
     
     <div style="display:none" class="mprodcode">
         <%=pcMap[i].getProductCode()%>,<%=pcMap[i].getCourseCode()%></div>
-    <img style="cursor: hand;" src="/TrainingReports/resources/images/admin/button_save.gif" alt="Save" width="40" height="18" onclick='saveProductCourseMapping(<%=i%>);'/>
+        <!-- shindo padding edge-->
+    <img style="cursor: hand;margin-bottom: 4;" src="/TrainingReports/resources/images/admin/button_save.gif" alt="Save" width="40" height="18" onclick='saveProductCourseMapping(<%=i%>);'/>
     <img style="cursor: hand;" src="/TrainingReports/resources/images/admin/button_remove.gif" alt="Remove" width="56" height="18" onclick='removeGroup(<%=i%>);'/>
     
     </td>

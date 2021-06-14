@@ -220,13 +220,13 @@ Click on blue row to show child activities.
         &&  (wc.getCode()!=null && wc.getCode().trim().length()>0) )  ){  %>    
     <div>
     <center>
-    <table>
+    <table style="margin-left: 45%;">
         <tr>
             
             <th>No activity to display</th>
             
         </tr>
-    </table>
+    </table> <!-- shindo added style -->
     </center>
     </div>
     

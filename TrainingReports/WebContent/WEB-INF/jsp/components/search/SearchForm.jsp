@@ -43,39 +43,39 @@ myW = window.open("","myW","height=400,width=500,scrollbars=yes,resizable=yes,st
 --> 
 </script>
 
-<!--<table class="no_space_width" chartscontrol_area>-->
+<!--<table class="no_space_width" chartscontrol_area>--> <!-- valign removed by shindo for all elements, added font size search Edge release-->
 <table class="no_space_width" width="100%">
 	<form name="searchForm" action="<%=wc.getPostUrl()%>" onsubmit="<%=wc.getOnSubmit()%>" target="<%=wc.getTarget()%>" class="form_basic" method="post">
         <TABLE style="FONT-SIZE: 12px">
             <tr style="height:3px"><td></td></tr>
         <tr>
-			<td valign="bottom" colspan="2"><h5 align="center">Employee Search</h5></td>
+			<td valign="bottom" colspan="2" style="font-size: 14;"><h5 align="center">Employee Search</h5></td>
             </tr>
         <tr>
-			<td valign="bottom" nowrap>First Name:</td>
-			<td valign="top"><input class="text" type="text" name="<%=wc.getSearchForm().FIELD_FNAME%>" value="" size="20"></td>
+			<td nowrap>First Name:</td>
+			<td ><input class="text" type="text" name="<%=wc.getSearchForm().FIELD_FNAME%>" value="" size="20"></td>
 		</tr>
 		<tr>
-			<td valign="bottom" nowrap>Last Name:</td>
-			<td valign="top"><input  class="text" type="text" name="<%=wc.getSearchForm().FIELD_LNAME%>" value="" size="20"></td>
+			<td nowrap>Last Name:</td>
+			<td ><input  class="text" type="text" name="<%=wc.getSearchForm().FIELD_LNAME%>" value="" size="20"></td>
 		</tr>
         <tr>
-        <td valign="bottom">
+        <td >
             Emplid:</td>
-            <td valign="top"><input  class="text" type="text" name="<%=wc.getSearchForm().FIELD_EMPLID%>" value="" size="20"></td>
+            <td ><input  class="text" type="text" name="<%=wc.getSearchForm().FIELD_EMPLID%>" value="" size="20"></td>
         </tr>
         <tr>
-        <td valign="bottom" nowrap>
+        <td nowrap>
             Sales Position ID:&nbsp;</td>
-            <td valign="top"><input  class="text" type="text" name="<%=wc.getSearchForm().FIELD_SALESPOSID%>" value="" size="20"></td>
+            <td ><input  class="text" type="text" name="<%=wc.getSearchForm().FIELD_SALESPOSID%>" value="" size="20"></td>
         </tr>
        
        <!-- Start: Modified for TRT 3.6 enhancement - F4.1 (Adding new search attributes) -->
         <tr >
-        <td align="left" valign="baseline">
+        <td align="left" >
            Role:</td>
-            <td valign="top">
-               <select style="height:12; width:165; max-height:12" id="<%=wc.getSearchForm().FIELD_ROLE%>" name="<%=wc.getSearchForm().FIELD_ROLE%>" onchange="updateTgixSelect(this,dynamicSelect)">
+            <td > <!-- max height changed by shindo Edge-->
+               <select style="height:20; width:165; max-height:20" id="<%=wc.getSearchForm().FIELD_ROLE%>" name="<%=wc.getSearchForm().FIELD_ROLE%>" onchange="updateTgixSelect(this,dynamicSelect)">
                            <%=HtmlBuilder.getOptionsFromLabelValue(emplForm.getRoleList(),emplForm.getRole())%>
                 </select>
             </td>
@@ -83,10 +83,10 @@ myW = window.open("","myW","height=400,width=500,scrollbars=yes,resizable=yes,st
         
         <tr>
         
-        <td align="left" valign="baseline" nowrap>
+        <td align="left"  nowrap>
             Business Unit:</td>
-            <td valign="top">
-             <select style="height:12; width:165; max-height:12" id="<%=wc.getSearchForm().FIELD_BU%>" name="<%=wc.getSearchForm().FIELD_BU%>" onchange="updateTgixSelect(this,dynamicSelect)">
+            <td >
+             <select style="height:20; width:165; max-height:20" id="<%=wc.getSearchForm().FIELD_BU%>" name="<%=wc.getSearchForm().FIELD_BU%>" onchange="updateTgixSelect(this,dynamicSelect)">
                             <%=HtmlBuilder.getOptionsFromLabelValue(emplForm.getBuList(),emplForm.getBu())%>
             </select>
             </td>

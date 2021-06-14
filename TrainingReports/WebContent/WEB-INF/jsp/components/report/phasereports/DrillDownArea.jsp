@@ -42,9 +42,9 @@ $(document).ready(function(){
 
 });
 </script>
-
+<!-- shindo edge width auto  -->
 <% if((wc.getActivities().size() != 1))  { %>
-<div  id="target" style="overflow: auto; width: 600px; height: 300px;">
+<div  id="target" style="overflow: auto; width: auto; height: 300px;">
 <div>
 <UL id=rootnode>
 <%LoggerHelper.logSystemDebug("jsp777" );%>
@@ -109,7 +109,7 @@ if (prevLvl > 0) {
 </div>
 </div>
 <% } else { %>
-<div id="target" style="overflow: auto; width: 600px; height: 400px;"></div>
+<div id="target" style="overflow: auto; width: auto; height: 400px;"></div>
 <% } %>
 
-
+<!-- shindo edge width auto  -->

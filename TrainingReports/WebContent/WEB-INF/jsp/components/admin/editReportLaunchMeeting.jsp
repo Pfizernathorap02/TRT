@@ -82,8 +82,8 @@ myW.location =  "/TrainingReports/adminHome/editNodeLaunchMeeting?type=" + type 
         </td>
 	</tr>
 </table>
-
-<form method="post" class="form_basic" action="/TrainingReports/adminHome/editReport?type=name&track=<%=track.getTrackId()%>">
+<!-- shindo added font size form -->
+<form method="post" class="form_basic" style="font-size: 14;" action="/TrainingReports/adminHome/editReport?type=name&track=<%=track.getTrackId()%>">
     <input type="hidden" name="<%=LaunchMeeting.FIELD_DO_SUBMIT%>" value="yes">
     Report Name&nbsp;&nbsp;<input size="50" type="text" class="text" name="<%=LaunchMeeting.FIELD_TRACK_LABEL%>" value="<%=track.getTrackLabel()%>">
 <%--

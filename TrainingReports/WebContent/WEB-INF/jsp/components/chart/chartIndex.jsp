@@ -54,7 +54,7 @@
 			<inc:include-wc component="<%=wc.getRightBar()%>"/>
         <%}%>
 		</td>
-        <td><img src="<%=AppConst.IMAGE_DIR%>/spacer.gif" width="5">
-        </td>	
+        <td><img src="<%=AppConst.IMAGE_DIR%>/spacer.gif" width="0">
+        </td>	<!-- shindo spacer width -->
 	</tr>
 </table>

@@ -11,8 +11,8 @@
 %>
 
 <table class="basic_table">
-	<tr>
-		<td><img src="<%=AppConst.IMAGE_DIR%>/spacer.gif" height="15"></td>
+	<tr> <!-- shindo height -->
+		<td><img src="<%=AppConst.IMAGE_DIR%>/spacer.gif" height="0"></td>
 	</tr>
 	<tr>
 		<td align="center"><inc:include-wc component="<%=wc.getSearchFormWc()%>"/></td>

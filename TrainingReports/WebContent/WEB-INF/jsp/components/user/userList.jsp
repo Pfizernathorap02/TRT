@@ -58,9 +58,9 @@
 <tr>
 	<td  width="15"></td>
 
-	<td>
+	<td> <!-- shindo added font size form -->
 		<img style="cursor: hand;" src="/TrainingReports/resources/images/admin/button_add_user.gif" alt="Edit" align="right" onclick="return newUser();"/>
-		<form class="form_basic">
+		<form class="form_basic" style="font-size: 14;">
 			<label>User Status</label>
 			<select onchange="searchFunction(this)">
 				<option <%="Active".equals(wc.getCurrentSelected())?"selected":""%> value="/TrainingReports/admin/begin?<%=AppQueryStrings.FIELD_USER_ACCESS_STATUS%>=Active">Active</option>

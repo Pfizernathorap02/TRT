@@ -62,8 +62,8 @@ function copy(id)
  var parentId = getParentId();
  //alert (id + " copy to "+parentId);
  document.getElementById("parentId").value=parentId;
- document.getElementById("action").value="copy";
- window.opener.copyMove(id,parentId,"copy");
+  document.getElementById("action").value="copy";
+  window.opener.copyMove(id,parentId,"copy");
  window.close();
 }
 
@@ -177,7 +177,7 @@ if (request.getParameter("trackName")!= null
         <tr><td colspan="2"><input type=button value="Copy" onclick="copy('<%=id%>');">&nbsp;&nbsp;<input type=button value="Move" onclick="move('<%=id%>');">&nbsp;&nbsp;<input type=button value="Cancel" onclick="window.close();"></td></tr>
     </table>
     <input name="id" type=hidden value="<%=id%>">
-    <input name="parentId" type=hidden value="">
+    <input id ="parentId" name="parentId" type=hidden value="">
     <input name="action" type=hidden value="">
     <% }else {%>
     No section/group to move to.

@@ -86,7 +86,7 @@
 }
 .phasedtraining_hdr_wrapper
 {
-	height: 25px;
+	height: 50px; /* changed from 25 by shindo edge*/
 	background-image: url(/TrainingReports/resources/images/medblue.gif);
 	background-repeat: repeat-x;
 	background-position: bottom;
@@ -111,12 +111,12 @@
 {
 	background-image: url(/TrainingReports/resources/images/phaseLink_bg.gif);
 	background-repeat: no-repeat;
-	background-position: bottom;
+	/* background-position: bottom; comment by shindo edge*/
 	height: 50px;
 	width: 80px;
 	margin: 0px;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
+	font-size: 12px; /* shindo font size 13 edge */
 	color: #333333;
 	text-decoration: none;
 	text-align: center;
@@ -132,7 +132,7 @@
 	background-image: url(/TrainingReports/resources/images/phaseLink_bg.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	height: 50px;
+	height: 40px; /* height changed form 50 shindo edge */
 	width: 80px;
 	margin: 0px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -151,8 +151,8 @@
 {
     background-image: url(/TrainingReports/resources/images/phaseLink_on.gif);
 	background-repeat: no-repeat;
-	background-position: bottom;
-	height: 50px;
+	/* background-position: bottom; comment by shindo height */
+	height: 40px;
 	width: 80px;
 	margin: 0px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -171,7 +171,7 @@
 	background-image: url(/TrainingReports/resources/images/phaseLink_on.gif);
 	background-repeat: no-repeat;
 	background-position: bottom;
-	height: 50px;
+	height: 40px; /* chaged from 50 by shindo edge */
 	width: 80px;
 	margin: 0px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -203,7 +203,7 @@
 	padding-bottom: 50px;
 }
 .phasedtraining_table {
-    width=90%;
+    width:90%;/*  changed by shindo edge '=' */
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 10px;

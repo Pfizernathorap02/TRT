@@ -58,8 +58,8 @@
 
 <table class="no_space_width" width = "875">
 <tr>
-	<td  width="15"></td>
-   	<img style="cursor: hand;" src="/TrainingReports/resources/images/admin/button_add_group.gif" alt="Edit" align="right" onclick="return newGroup();"/>		      
+	<td  width="15"></td> <!-- shindo added margin-->
+   	<img style="cursor: hand;float: right;margin-right: 30%;" src="/TrainingReports/resources/images/admin/button_add_group.gif" alt="Edit" onclick="return newGroup();"/>		      
         <%
                 if (message != null && !"".equals(message.trim())) {
                 %>
@@ -71,12 +71,12 @@
         <br>
       <td>  
 		<table class="blue_table" id="userList" width="850" align="right">
-			<tr>
+			<tr style="height:35;"> <!-- height added shindo -->
                 <th>User Group</th>
                 <th>Business Unit(s)</th>
 				<th>Sales Organization(s)</th>
 				<th>Role(s)</th>
-                <th>Feedback User(s)</th>
+                <th style="padding: 0;">Feedback User(s)</th>
                 <th>HQ User(s)</th>       
 				<th></th>		
 			</tr>
@@ -110,10 +110,10 @@
                         {%>
                         <td><%=ua.getSelectedHQU()%></td>
                         <%}%>                 					
-						<td> 
-							<img style="cursor: hand;" src="/TrainingReports/resources/images/admin/button_edit.gif" alt="Edit" width="40" height="18" onclick="return editGroup(<%=ua.getGroupId()%>)"/>                      
+						<td>
+							<img style="cursor: hand;margin-bottom: 4;" src="/TrainingReports/resources/images/admin/button_edit.gif" alt="Edit" width="40" height="18" onclick="return editGroup(<%=ua.getGroupId()%>)"/>                      
                             <img style="cursor: hand;" src="/TrainingReports/resources/images/admin/button_remove.gif" alt="Remove" width="56" height="18" onclick="return removeGroup(<%=ua.getGroupId()%>)"/>
-                        </td>
+                        </td> <!-- margin shindo -->
 					</tr>
 			<%	} %>
 		</table>

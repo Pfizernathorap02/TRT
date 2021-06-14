@@ -157,13 +157,13 @@ function concatSelectedHQFields()
                 </td>
                 <td>
                 </td>
-</tr>
-<tr>           <td nowrap>From Date:</td>
+</tr><!-- shindo added padding edge removed valign-->
+<tr>           <td nowrap style="padding-bottom: 20;">From Date:</td>
                 <td>
 <table>
 <tr>            <td>
                 <input class="text" type="text" name="<%=wc.getTerritoryFilterForm().FIELD_FROMDATE%>" id="<%=wc.getTerritoryFilterForm().FIELD_FROMDATE%>"  value="<%=wc.getTerritoryFilterForm().getFromDate()%>" size="12" readonly></td>
-                <td valign="top"><input type=image src="/TrainingReports/resources/images/calendar.jpg" id="fromDate_Id"  border="0" height="17" width="20" alt="Select From Date" value="Change Date" name="changeDate" >
+                <td valign=""><input type=image src="/TrainingReports/resources/images/calendar.jpg" id="fromDate_Id"  border="0" height="17" width="20" alt="Select From Date" value="Change Date" name="changeDate" >
 
                 <script type="text/javascript">
 
@@ -188,19 +188,19 @@ function concatSelectedHQFields()
                 </td>
 </tr>
 
-<tr>            <td nowrap>To Date:</td>
+<tr>            <td nowrap style="padding-bottom: 3;">To Date:</td>
                 <td>
 <table>
 <tr>            <td>
                 <input class="text" type="text" name="<%=wc.getTerritoryFilterForm().FIELD_TODATE%>" id="<%=wc.getTerritoryFilterForm().FIELD_TODATE%>" value="<%=wc.getTerritoryFilterForm().getToDate()%>" size="12" readonly> </td>
-                <td valign="top"><input type=image src="/TrainingReports/resources/images/calendar.jpg" id="toDate_Id"  border="0" height="17" width="20" alt="Select To Date" value="Change Date" name="changeDate" >
-
+                <td valign=""><input type=image src="/TrainingReports/resources/images/calendar.jpg" id="toDate_Id"  border="0" height="17" width="20" alt="Select To Date" value="Change Date" name="changeDate" >
+<!-- shindo changed id to toDate_Id to calendar setup, removed valign -->
                 <script type="text/javascript">
 
                                 Calendar.setup({
                                     inputField     :    "<%=wc.getTerritoryFilterForm().FIELD_TODATE%>",
                                     ifFormat       :    "%m/%d/%Y",
-                                    button         :    "ToDate_Id"
+                                    button         :    "toDate_Id"
                                 });
 
 
@@ -218,9 +218,9 @@ function concatSelectedHQFields()
 
 					<td align="center" colspan="3">
 					<!--edited for HQ user-->
-                        <input name="" type="image" src="/TrainingReports/resources/images/btn_getreport.gif" style="margin-top:20px;" onclick="javascript:concatSelectedFields();concatSelectedHQFields();return validate('<%=wc.getTerritoryFilterForm().FIELD_FROMDATE%>','<%=wc.getTerritoryFilterForm().FIELD_TODATE%>');concatSelectedFields();">
+                        <input name="" type="image" src="/TrainingReports/resources/images/btn_getreport.gif" style="margin-top:20px;margin-left: 20px;" onclick="javascript:concatSelectedFields();concatSelectedHQFields();return validate('<%=wc.getTerritoryFilterForm().FIELD_FROMDATE%>','<%=wc.getTerritoryFilterForm().FIELD_TODATE%>');concatSelectedFields();">
 					<!--end editing for HQ user-->
-					</td>
+					</td> <!-- shindo margin edge -->
 </tr>
 
 </table>     
@@ -243,7 +243,7 @@ function concatSelectedHQFields()
                    System.out.println("selectedOptEmpFields="+selList);
                 %>
                 <input type="hidden" name="newSet" value=""/>
-                <div style="width:190px;height:135px;overflow-y:scroll;">
+                <div style="width:190px;height:150px;overflow-y:scroll;"> <!-- shindo height change edge -->
 <table class="blue_table" width="100%"  style="font-size=12">
                 <tr class="even"><td><input type="checkbox" name="chkBox" id="chkBox" value="EMPLID"
                 <%if(selList!=null){for(int i=0;i<selList.size();i++){if("EMPLID".equals(selList.get(i).toString())){%> checked<%}}}%>></td>

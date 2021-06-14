@@ -53,9 +53,10 @@ window.name = "main";
                     return;
                 }
                 
-            }
-        }
-    }else if (reportType=="GROUP"){
+               } 
+         }
+    }
+    else if (reportType=="GROUP"){
         for (i = 0; i < selObj.options.length; i++) {
                if (selObj.options[i].selected) {
 				var selectedValue = selObj.options[i].value;
@@ -755,9 +756,9 @@ function resetEditMenu()
                     <div id="action_<%=i%>">
                     <input type="hidden" name="defaultStatus_<%=i%>" value="<%=menu.getActive()%>" >  
                      <% if (!Util.isEmpty( menu.getId() )) { %>
-                    <select name="editType_<%=menu.getId()%>" style="width:180px">
+                    <select id="editType_<%=menu.getId()%>" name="editType_<%=menu.getId()%>" style="width:180px">
                         <option value="Archive">Archive</option>
-                       
+                       <!-- shindo modified id edge -->
                   <%
                        if (menu.getTrackId() != null && menu.getTrackId().trim().length() > 0) 
                        {

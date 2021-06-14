@@ -92,13 +92,13 @@ var id = tab.id;
     </tr>
 	<tr>
         <td align="left" valign="top" colspan="3">
-            <table class="blue_table_without_border">
+            <table class="blue_table_without_border"> <!-- shindo width auto -->
                 <tr>
                     <td width="10px">&nbsp;</td>
                     <td valign="top">
                         <inc:include-wc component="<%=wc.getArea1()%>"/>
                     </td>
-                    <td align ="left" valign="top"  colspan="3"  width="600px">
+                    <td align ="left" valign="top"  colspan="3"  width="auto">
                         <!--added for TRT major Enhancement 3.6-F1-->
                         <% if(wc.getDrillDownArea() != null) { %>
                             <inc:include-wc component="<%=wc.getDrillDownArea()%>"/>
@@ -109,7 +109,7 @@ var id = tab.id;
                      <!-- Add here ------>
                 <tr align="left">
             <!-- Start: Modified for TRT 3.6 enhancement - F 4.1 ( addition of search criteria) -->
-                    <td>&nbsp;</td>
+                    <!-- <td>&nbsp;</td> shindo edge-->
                     <td colspan="2" align="left">
                     <div class="chartscontrol_area" align="left">
                         <table class="blue_table_without_border">

@@ -714,7 +714,7 @@ function moveItemBelowGroup(index)
                         %>
                     <td style="padding=0">
                      <div id="access_<%=i%>">
-                    <select   style="border:0px" name="access_<%=menu.getId()%>">
+                    <select style="border:0px" name="access_<%=menu.getId()%>">
                     <%=HtmlBuilder.getOptionsFromLabelValue(MenuList.getAccessList(),menu.getAllow())%>
                     </select>  
                     </div>                  
@@ -733,10 +733,10 @@ function moveItemBelowGroup(index)
                     <div id="action_<%=i%>">
                     <input type="hidden" name="defaultStatus_<%=i%>" value="<%=menu.getActive()%>" >  
                      <% if (!Util.isEmpty( menu.getId() )) { %>
-                    <select name="editType_<%=menu.getId()%>" style="width:180px">
+                    <select id="editType_<%=menu.getId()%>" name="editType_<%=menu.getId()%>" style="width:180px">
                         <option value="Restore">Restore</option>
                          <option value="Delete">Delete</option>
-                     </select><%
+                     </select><!-- shinde added id edge --><%
                     } else {%>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                               
                     <% } %>
